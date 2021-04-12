@@ -47,9 +47,7 @@ def run_wrapper(self):
     The method creates the Javascript bundle file before the `run` method of the superclass is run.
     """
     self.announce("Creating the javascript bundle file...", level=distutils.log.INFO)
-    print('foo')
     return_code = subprocess.call(['npm', 'run', 'build'])
-    print('bar')
     if return_code is not 0:
         msg = "Error creating the javascript bundle file. Command exited with return code {}".format(return_code)
         self.announce(msg, level=distutils.log.ERROR)
