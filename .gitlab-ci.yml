@@ -3,9 +3,11 @@
   script:
     - export TOXENV=''
 
-test:3.6:
+test:3.8:
   <<: *test
   script:
+    - apt-get update -qq
+    - apt-get install -y -qq nodejs npm
     - pip install tox
     - tox -e "flake8,py{38}-django{30}"
   tags:
