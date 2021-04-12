@@ -1,1 +1,1 @@
-default_app_config = 'planning_poker.apps.PokerConfig'
+default_app_config = 'planning_poker.apps.PlanningPokerConfig'
