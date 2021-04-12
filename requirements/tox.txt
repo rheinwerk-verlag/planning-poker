@@ -168,8 +168,6 @@ snowballstemmer==2.1.0
     # via pydocstyle
 sqlparse==0.4.1
     # via django
-twisted-iocpsupport==1.0.1
-    # via twisted
 twisted[tls]==21.2.0
     # via daphne
 txaio==21.2.1
