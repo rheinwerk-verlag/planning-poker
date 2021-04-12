@@ -1,5 +1,7 @@
+channels==2.4.0
 coverage==4.5.1
 flake8==3.5.0
+jira==2.0.0
 mock==2.0.0
 more-itertools==5.0.0      # Version 5 is the last one to support Python 2.7
 pydocstyle==2.1.1
