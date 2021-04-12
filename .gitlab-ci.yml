@@ -1,0 +1,54 @@
+.test: &test
+  stage: test
+  script:
+    - export TOXENV=''
+
+test:3.6:
+  <<: *test
+  script:
+    - pip install tox
+    - tox -e "flake8,py{38}-django{30}"
+  tags:
+    - python38
+
+
+
+pages:
+  stage: deploy
+  script:
+    - pip install -r requirements/dev.txt
+    - pip install "Django>=3.0"
+    - cd docs
+    - make html
+    - cd ..
+    - mv docs/_build/html/ public
+  artifacts:
+    paths:
+      - public
+  tags:
+    - python38
+  only:
+    - development
+
+publish:
+  stage: deploy
+  script:
+    - apt-get update -qq && apt-get install -y -qq gettext
+    - pip install "Django>=3.0"
+    - cd planning_poker
+    - /usr/local/bin/django-admin.py compilemessages
+    - cd ..
+    - devpi use $DEVPI_SERVER
+    - devpi login --password $DEVPI_PASSWORD $DEVPI_USER
+    - devpi upload --no-vcs
+    - devpi upload --no-vcs --formats bdist_wheel
+  only:
+    - tags
+  tags:
+    - python38
+
+variables:
+  PIP_INDEX_URL: "https://$DEVPI_HOST/rheinwerk/dev"
+  PIP_TRUSTED_HOST: "$DEVPI_HOST"
+  DEVPI_SERVER: "https://$DEVPI_HOST/rheinwerk/prod/+simple/"
+  DEVPI_USER: "rheinwerk"

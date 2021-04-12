@@ -1,0 +1,10 @@
+[
+  {
+    "model": "poker.PokerSession",
+    "pk": 1,
+    "fields": {
+      "poker_date": "2000-01-01",
+      "name": "Sprint 1"
+    }
+  }
+]

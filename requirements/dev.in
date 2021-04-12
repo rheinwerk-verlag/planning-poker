@@ -1,0 +1,13 @@
+-r tox.in
+
+channels==2.4.0
+channels_redis==2.4.2
+Django>=3.0
+django-channels-presence==1.0.0
+isort==4.3.20
+jira==2.0.0
+pip-tools==1.11.0
+recommonmark==0.4.0
+Sphinx==1.7.1
+sphinx-js==2.7
+sphinx-rtd-theme==0.4.0

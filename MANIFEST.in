@@ -1,0 +1,4 @@
+include LICENSE.rst
+include README.rst
+include CHANGELOG.md
+recursive-include planning_poker *.html *.js *.css *.png *.gif*.jpg *.jpeg *.svg *.po
