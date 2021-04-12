@@ -8,6 +8,7 @@ test:3.8:
   script:
     - apt-get update -qq
     - apt-get install -y -qq nodejs npm
+    - npm install
     - pip install tox
     - tox -e "flake8,py{38}-django{30}"
   tags:
