@@ -4,7 +4,7 @@
 #
 #    pip-compile --index-url=https://devpi.cmn.prd.rheinwerk.de/rheinwerk/dev/+simple --output-file=tox.txt tox.in
 #
-#--index-url https://devpi.cmn.prd.rheinwerk.de/rheinwerk/dev/+simple
+--index-url https://devpi.cmn.prd.rheinwerk.de/rheinwerk/dev/+simple
 
 apipkg==1.5
     # via execnet
@@ -41,7 +41,7 @@ colorama==0.4.4
     #   pytest
 constantly==15.1.0
     # via twisted
-coverage==4.5.1
+coverage==5.5
     # via
     #   -r tox.in
     #   pytest-cov
@@ -59,7 +59,7 @@ django==3.2
     # via channels
 execnet==1.8.0
     # via pytest-cache
-flake8==3.5.0
+flake8==3.9.0
     # via -r tox.in
 hyperlink==21.0.0
     # via
@@ -72,6 +72,8 @@ idna==2.10
     #   twisted
 incremental==21.3.0
     # via twisted
+iniconfig==1.1.1
+    # via pytest
 isort==5.8.0
     # via pylint
 jira==2.0.0
@@ -85,20 +87,20 @@ mccabe==0.6.1
 mock==2.0.0
     # via -r tox.in
 more-itertools==5.0.0
-    # via
-    #   -r tox.in
-    #   pytest
+    # via -r tox.in
 oauthlib[signedtoken]==3.1.0
     # via
     #   jira
     #   requests-oauthlib
+packaging==20.9
+    # via pytest
 pbr==5.5.1
     # via
     #   jira
     #   mock
 pep8==1.7.1
     # via pytest-pep8
-pluggy==0.6.0
+pluggy==0.13.1
     # via pytest
 py==1.10.0
     # via pytest
@@ -108,13 +110,13 @@ pyasn1==0.4.8
     # via
     #   pyasn1-modules
     #   service-identity
-pycodestyle==2.3.1
+pycodestyle==2.7.0
     # via flake8
 pycparser==2.20
     # via cffi
 pydocstyle==2.1.1
     # via -r tox.in
-pyflakes==1.6.0
+pyflakes==2.3.1
     # via flake8
 pyjwt==2.0.1
     # via oauthlib
@@ -122,17 +124,19 @@ pylint==1.8.2
     # via -r tox.in
 pyopenssl==20.0.1
     # via twisted
+pyparsing==2.4.7
+    # via packaging
 pytest-cache==1.0
     # via pytest-pep8
-pytest-cov==2.5.1
+pytest-cov==2.11.1
     # via -r tox.in
-pytest-django==2.9.1
+pytest-django==4.2.0
     # via -r tox.in
 pytest-pep8==1.0.6
     # via -r tox.in
-pytest-pythonpath==0.7.2
+pytest-pythonpath==0.7.3
     # via -r tox.in
-pytest==3.6.2
+pytest==6.2.3
     # via
     #   -r tox.in
     #   pytest-cache
@@ -163,11 +167,14 @@ six==1.15.0
     #   pydocstyle
     #   pylint
     #   pyopenssl
-    #   pytest
 snowballstemmer==2.1.0
     # via pydocstyle
 sqlparse==0.4.1
     # via django
+toml==0.10.2
+    # via pytest
+twisted-iocpsupport==1.0.1
+    # via twisted
 twisted[tls]==21.2.0
     # via daphne
 txaio==21.2.1
