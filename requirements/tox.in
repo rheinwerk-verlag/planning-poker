@@ -1,5 +1,7 @@
 channels==2.4.0
+channels_redis==2.4.2
 coverage
+django-channels-presence==1.0.0
 flake8
 jira==2.0.0
 mock==2.0.0
