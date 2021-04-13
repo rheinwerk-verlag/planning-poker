@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'channels',
+    'channels_presence',
     'planning_poker',
 )
 
