@@ -1,11 +1,11 @@
 channels==2.4.0
 channels_redis==2.4.2
 coverage
+django==3.0.3
 django-channels-presence==1.0.0
 flake8
 jira==2.0.0
-mock==2.0.0
-more-itertools==5.0.0      # Version 5 is the last one to support Python 2.7
+more-itertools
 pydocstyle==2.1.1
 pylint==1.8.2
 pytest
