@@ -1,6 +1,6 @@
 [
   {
-    "model": "poker.PokerSession",
+    "model": "planning_poker.PokerSession",
     "pk": 1,
     "fields": {
       "poker_date": "2000-01-01",
