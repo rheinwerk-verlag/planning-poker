@@ -73,7 +73,6 @@ six==1.15.0               # via astroid, automat, jira, mock, more-itertools, py
 snowballstemmer==2.1.0    # via pydocstyle
 sqlparse==0.4.1           # via django
 toml==0.10.2              # via pytest
-twisted-iocpsupport==1.0.1  # via twisted
 twisted[tls]==21.2.0      # via daphne
 txaio==21.2.1             # via autobahn
 urllib3==1.26.4           # via requests
