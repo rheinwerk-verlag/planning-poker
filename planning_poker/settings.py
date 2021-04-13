@@ -5,7 +5,15 @@ from __future__ import absolute_import, unicode_literals
 from django.core.exceptions import ImproperlyConfigured
 
 
-DEFAULT_SETTINGS = {}
+DEFAULT_SETTINGS = {
+    # 'WSGI_APPLICATION': 'planning_poker.wsgi.application',
+    # 'ASGI_APPLICATION': 'planning_poker.routing.application',
+    'CHANNEL_LAYERS': {
+        'default': {
+            'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        },
+    }
+}
 
 
 def apply_settings():
@@ -13,7 +21,7 @@ def apply_settings():
     # Don't import settings globally, so that settings loading happens lazily
     from django.conf import settings
 
-    for key, value in DEFAULT_SETTINGS.iteritems():
+    for key, value in DEFAULT_SETTINGS.items():
         if not hasattr(settings, key):
             setattr(settings, key, value)
 
