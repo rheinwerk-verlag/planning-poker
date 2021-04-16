@@ -30,8 +30,14 @@ INSTALLED_APPS = (
 
 ROOT_URLCONF = 'planning_poker.urls'
 
+WSGI_APPLICATION = 'example.wsgi.application'
+ASGI_APPLICATION = 'example.routing.application'
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': ['localhost', 6379]
+        }
     },
 }

@@ -4,7 +4,7 @@ from planning_poker.backends.ticket.base import BaseTicketBackend
 from planning_poker.templatetags.planning_poker_filters import get_url
 
 
-@patch('planning_poker.templatetags.poker_filters.get_ticket_system')
+@patch('planning_poker.templatetags.planning_poker_filters.get_ticket_system')
 def test_get_url(mock_get_ticket_system, story):
 
     mock_get_story_url = Mock(return_value='test url')

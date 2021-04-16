@@ -4,7 +4,7 @@ import pytest
 from django.test import override_settings
 from jira import JIRAError
 
-from poker.backends.ticket.jira import JiraTicketBackend
+from planning_poker.backends.ticket.jira import JiraTicketBackend
 
 
 class JiraFields:

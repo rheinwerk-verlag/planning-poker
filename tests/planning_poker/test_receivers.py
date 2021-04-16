@@ -1,4 +1,4 @@
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
 import pytest
 from channels_presence.models import Room, Presence
@@ -32,7 +32,8 @@ def test_broadcast_presence(mock_async_to_sync):
             created_user.user_permissions.add(permission)
         Presence.objects.create(channel_name='{} channel'.format(username), room=room, user=created_user)
 
-    broadcast_presence(room)
+    with patch('planning_poker.receivers.channel_layer'):
+        broadcast_presence(room)
 
     expected_message = {
         'type': 'participants.changed',

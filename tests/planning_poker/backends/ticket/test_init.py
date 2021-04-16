@@ -2,7 +2,7 @@ from unittest.mock import Mock, patch
 
 from django.test import override_settings
 
-from poker.backends.ticket import get_ticket_system
+from planning_poker.backends.ticket import get_ticket_system
 
 
 @override_settings(TICKET_SYSTEM={'BACKEND': 'test.backend'})
