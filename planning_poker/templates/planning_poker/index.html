@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n humanize %}
+
+
+{% block title %}
+    {% trans 'Choose your Poker Session' %}
+{% endblock title %}
+
+{% block content %}
+    <div class="centered-flex">
+        <h1>{% trans 'Active Sessions' %}</h1>
+        {% for poker_session in object_list %}
+            <a href="{% url 'poker:poker_session' poker_session.id %}"
+               class="poker-session-row">
+                <div>
+                    <h5 class="ellipsis-overflow">{{ poker_session }}</h5>
+                    <span>
+                            {% blocktrans trimmed count unpokered_stories=poker_session.unpokered_stories %}
+                                {{ unpokered_stories }} ticket left to poker
+                            {% plural %}
+                                {{ unpokered_stories }} tickets left to poker
+                            {% endblocktrans %}
+                    </span>
+                </div>
+                <small>{{ poker_session.poker_date|naturalday }}</small>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock content %}

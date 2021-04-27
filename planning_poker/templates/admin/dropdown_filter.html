@@ -1,0 +1,12 @@
+{% load i18n %}
+<h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<script type="text/javascript">
+    let go_from_select = function(opt) { window.location = window.location.pathname + opt };
+</script>
+<select onchange="go_from_select(this.options[this.selectedIndex].value)" style="margin: 0 15px">
+{% for choice in choices %}
+    <option{% if choice.selected %} selected="selected"{% endif %} value="{{ choice.query_string|iriencode }}">
+        {{ choice.display }}
+    </option>
+{% endfor %}
+</select>
