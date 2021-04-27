@@ -10,7 +10,7 @@
     <div class="centered-flex">
         <h1>{% trans 'Active Sessions' %}</h1>
         {% for poker_session in object_list %}
-            <a href="{% url 'poker:poker_session' poker_session.id %}"
+            <a href="{% url 'planning_poker:poker_session' poker_session.id %}"
                class="poker-session-row">
                 <div>
                     <h5 class="ellipsis-overflow">{{ poker_session }}</h5>

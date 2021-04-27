@@ -17,7 +17,7 @@
 
 {% block content %}
 <poker-site></poker-site>
-<video class="stories-are-gone" src="{% static 'poker/stories_are_gone.mp4' %}" style="display: none; width: 100%"
+<video class="stories-are-gone" src="{% static 'planning_poker/stories_are_gone.mp4' %}" style="display: none; width: 100%"
        loop
        controls>
 </video>
@@ -34,5 +34,5 @@
 {% endblock js %}
 
 {% block vue-app %}
-<script type="module" src="{% static 'poker/js/poker-session.js' %}"></script>
+<script type="module" src="{% static 'planning_poker/js/poker-session.js' %}"></script>
 {% endblock %}
