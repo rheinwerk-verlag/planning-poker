@@ -56,5 +56,5 @@ publish:
 variables:
   PIP_INDEX_URL: "https://$DEVPI_HOST/rheinwerk/dev"
   PIP_TRUSTED_HOST: "$DEVPI_HOST"
-  DEVPI_SERVER: "https://$DEVPI_HOST/thomass/dev/+simple/"
+  DEVPI_SERVER: "https://$DEVPI_HOST/rheinwerk/dev/+simple/"
   DEVPI_USER: "rheinwerk"
