@@ -1,3 +1,4 @@
+autobahn<21.3.0
 channels==2.4.0
 channels_redis==2.4.2
 coverage

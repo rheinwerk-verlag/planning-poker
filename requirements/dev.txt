@@ -30,8 +30,10 @@ attrs==20.3.0
     #   pytest
     #   service-identity
     #   twisted
-autobahn==21.3.1
-    # via daphne
+autobahn==21.2.1
+    # via
+    #   -r tox.in
+    #   daphne
 automat==20.2.0
     # via twisted
 babel==2.9.0
@@ -42,20 +44,14 @@ cffi==1.14.5
     # via cryptography
 channels==2.4.0
     # via
-    #   -r dev.in
     #   -r tox.in
     #   channels-redis
 channels_redis==2.4.2
-    # via -r dev.in
+    # via -r tox.in
 chardet==4.0.0
     # via requests
 click==7.1.2
     # via pip-tools
-colorama==0.4.4
-    # via
-    #   pylint
-    #   pytest
-    #   sphinx
 commonmark==0.5.4
     # via recommonmark
 constantly==15.1.0
@@ -75,10 +71,10 @@ daphne==2.5.0
 defusedxml==0.7.1
     # via jira
 django-channels-presence==1.0.0
-    # via -r dev.in
-django==3.2
+    # via -r tox.in
+django==3.0.3
     # via
-    #   -r dev.in
+    #   -r tox.in
     #   channels
 docutils==0.17
     # via
@@ -115,9 +111,7 @@ jinja2==2.11.3
     #   sphinx
     #   sphinx-js
 jira==2.0.0
-    # via
-    #   -r dev.in
-    #   -r tox.in
+    # via -r tox.in
 lazy-object-proxy==1.6.0
     # via astroid
 markupsafe==1.1.1
@@ -126,8 +120,6 @@ mccabe==0.6.1
     # via
     #   flake8
     #   pylint
-mock==2.0.0
-    # via -r tox.in
 more-itertools==5.0.0
     # via
     #   -r tox.in
@@ -143,9 +135,7 @@ packaging==20.9
 parsimonious==0.7.0
     # via sphinx-js
 pbr==5.5.1
-    # via
-    #   jira
-    #   mock
+    # via jira
 pep8==1.7.1
     # via pytest-pep8
 pip-tools==1.11.0
@@ -219,7 +209,6 @@ six==1.15.0
     #   astroid
     #   automat
     #   jira
-    #   mock
     #   more-itertools
     #   parsimonious
     #   pip-tools
@@ -247,12 +236,12 @@ sphinxcontrib-websupport==1.2.4
     # via sphinx
 sqlparse==0.4.1
     # via django
-twisted-iocpsupport==1.0.1
-    # via twisted
 twisted[tls]==21.2.0
     # via daphne
 txaio==21.2.1
     # via autobahn
+typing-extensions==3.7.4.3
+    # via asgiref
 urllib3==1.26.4
     # via requests
 wrapt==1.12.1
