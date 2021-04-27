@@ -166,11 +166,11 @@ class PokerConsumer extends BaseConsumer {
     }
 
     /**
-     * End the Poker session by hiding all elements from the planning_poker-container and playing a video.
+     * End the Poker session by hiding all elements from the poker-container and playing a video.
      */
     endPokerSession() {
         let video = this.container.querySelector('.stories-are-gone');
-        this.container.querySelector('.planning_poker-container').style.display = 'none';
+        this.container.querySelector('.poker-container').style.display = 'none';
         video.style.display = 'block';
         video.volume = 0.2;
         video.play();
