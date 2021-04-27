@@ -97,7 +97,7 @@ tests_require = [
 setup(
     name='planning-poker',
     version=__version__,  # noqa
-    description='A Django app which allows teams to perform a remote planning planning_poker session',
+    description='A Django app which allows teams to perform a remote planning poker session',
     long_description=read('README.rst'),
     author='Rheinwerk Webteam',
     author_email='webteam@rheinwerk-verlag.de',
