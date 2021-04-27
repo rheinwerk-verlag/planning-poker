@@ -18,46 +18,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.1\n"
 
-#: src/poker/assets/js/components/ParticipantsList.vue:29
+#: assets/js/components/ParticipantsList.vue:29
 msgid "Voter"
 msgstr "Wähler"
 
-#: src/poker/assets/js/components/ParticipantsList.vue:29
+#: assets/js/components/ParticipantsList.vue:29
 msgid "Moderator"
 msgstr "Moderator"
 
-#: src/poker/assets/js/components/StoriesList.vue:63
-msgid "Show more (+%s)"
-msgstr "Mehr anzeigen (+%s)"
-
-#: src/poker/assets/js/components/StoriesList.vue:66
-msgid "Show less"
-msgstr "Weniger anzeigen"
-
-#: src/poker/assets/js/components/StoriesOverview.vue:51
+#: assets/js/components/StoriesOverview.vue:51
 msgid "Stories"
 msgstr "Stories"
 
-#: src/poker/assets/js/components/StoriesOverview.vue:54
+#: assets/js/components/StoriesOverview.vue:54
 msgid "Previous Stories"
 msgstr "Vorherige Stories"
 
-#: src/poker/assets/js/components/StoriesOverview.vue:57
+#: assets/js/components/StoriesOverview.vue:57
 msgid "Active Story"
 msgstr "Aktive Story"
 
-#: src/poker/assets/js/components/StoriesOverview.vue:60
+#: assets/js/components/StoriesOverview.vue:60
 msgid "Upcoming Stories"
 msgstr "Anstehende Stories"
 
-#: src/poker/assets/js/components/VoteOverview.vue:34
+#: assets/js/components/VoteOverview.vue:34
 msgid "Reset Votes"
 msgstr "Stimmen zurücksetzen"
 
-#: src/poker/assets/js/components/VoteOverview.vue:37
+#: assets/js/components/VoteOverview.vue:37
 msgid "Votes"
 msgstr "Stimmen"
 
-#: src/poker/assets/js/components/StoryDetail.vue:40
+#: assets/js/components/StoriesList.vue:63
+msgid "Show more (+%s)"
+msgstr "Mehr anzeigen (+%s)"
+
+#: assets/js/components/StoriesList.vue:66
+msgid "Show less"
+msgstr "Weniger anzeigen"
+
+#: assets/js/components/StoryDetail.vue:40
 msgid "No description available."
 msgstr "Keine Beschreibung verfügbar."
