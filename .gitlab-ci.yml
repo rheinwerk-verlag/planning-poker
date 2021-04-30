@@ -10,7 +10,7 @@ test:3.8:
     - apt-get install -y -qq nodejs npm
     - npm install
     - npm run test
-    - pip install tox babel
+    - pip install tox
     - tox -e "flake8,py{38}-django{30}"
   tags:
     - python38
@@ -39,7 +39,7 @@ publish:
   script:
     - apt-get update -qq && apt-get install -y -qq gettext npm
     - npm install
-    - pip install "Django>=3.0" "devpi-client" "babel"
+    - pip install "Django>=3.0" "devpi-client"
     - cd planning_poker
     - /usr/local/bin/django-admin.py compilemessages
     - cd ..
