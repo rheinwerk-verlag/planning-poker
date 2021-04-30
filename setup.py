@@ -52,6 +52,10 @@ def run_wrapper(self):
         msg = "Error creating the javascript bundle file. Command exited with return code {}".format(return_code)
         self.announce(msg, level=distutils.log.ERROR)
         raise RuntimeError(msg)
+
+    self.announce("Compiling translations", level=distutils.log.INFO)
+    self.run_command('compile_catalog')
+
     super(self.__class__, self).run()
 
 
