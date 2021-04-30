@@ -54,7 +54,7 @@ def run_wrapper(self):
         raise RuntimeError(msg)
 
     self.announce("Compiling translations", level=distutils.log.INFO)
-    return_code = subprocess.call(['python', 'manage.py', 'compilemessages'])
+    return_code = subprocess.call(['django-admin', 'compilemessages'])
     if return_code is not 0:
         msg = "Error compiling the translation files. Command exited with return code {}".format(return_code)
         self.announce(msg, level=distutils.log.ERROR)
