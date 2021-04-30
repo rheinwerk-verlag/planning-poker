@@ -10,7 +10,7 @@ test:3.8:
     - apt-get install -y -qq nodejs npm
     - npm install
     - npm run test
-    - pip install tox
+    - pip install tox Django>=3.0
     - tox -e "flake8,py{38}-django{30}"
   tags:
     - python38
