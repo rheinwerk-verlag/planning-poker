@@ -1,4 +1,3 @@
-*.db
 *.log
 
 # Byte-compiled / optimized / DLL files
@@ -30,7 +29,6 @@ var/
 env
 env*
 venv
-planning-poker
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -91,7 +89,6 @@ planning-poker/assets/
 planning-poker/static/
 
 planning_poker/static/js/
-
 .DS_Store
 
 # node

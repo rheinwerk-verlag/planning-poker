@@ -2,7 +2,10 @@
 
 import os
 
+<<<<<<< HEAD
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+=======
+>>>>>>> master
 
 location = lambda x: os.path.abspath(
     os.path.join(os.path.dirname(os.path.realpath(__file__)), '../', x))

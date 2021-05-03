@@ -15,8 +15,6 @@ test:3.8:
   tags:
     - python38
 
-
-
 pages:
   stage: deploy
   script:
