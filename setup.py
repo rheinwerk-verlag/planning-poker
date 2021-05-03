@@ -80,7 +80,11 @@ Topic :: Internet
 """
 
 install_requires = [
-    # 'six',
+    'channels==2.4.0',
+    'channels_redis==2.4.2',
+    'django==3.0.3',
+    'django-channels-presence==1.0.0',
+    'jira==2.0.0'
 ]
 
 tests_require = [
