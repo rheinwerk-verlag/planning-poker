@@ -6,14 +6,22 @@
 test:3.8:
   <<: *test
   script:
-    - apt-get update -qq
-    - apt-get install -y -qq nodejs npm
-    - npm install
-    - npm run test
     - pip install tox
     - tox -e "flake8,py{38}-django{30}"
   tags:
     - python38
+
+test:js:
+  <<: *test
+  script:
+    - apt-get update -qq
+    - apt-get install -y -qq nodejs npm
+    - npm install
+    - npm run test:coverage
+  tags:
+    - python38
+    # the nodejs runner is not compatible with the newest version of jest.
+
 
 pages:
   stage: deploy
