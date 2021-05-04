@@ -50,7 +50,6 @@ publish:
     - web
   tags:
     - python38
-
 variables:
   PIP_INDEX_URL: "https://$DEVPI_HOST/rheinwerk/dev"
   PIP_TRUSTED_HOST: "$DEVPI_HOST"
