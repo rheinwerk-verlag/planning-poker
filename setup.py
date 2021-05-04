@@ -68,16 +68,9 @@ classifiers = """\
 Private :: Do Not Upload
 Development Status :: 2 - Pre-Alpha
 Programming Language :: Python
-<<<<<<< HEAD
 Programming Language :: Python :: 3.6
 Framework :: Django
 Framework :: Django :: 3.0
-=======
-Programming Language :: Python :: 2.7
-Framework :: Django
-Framework :: Django :: 1.4
-Framework :: Django :: 1.6
->>>>>>> master
 Intended Audience :: Developers
 License :: Other/Proprietary License
 #Operating System :: Microsoft :: Windows
