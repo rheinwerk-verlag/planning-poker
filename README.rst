@@ -35,6 +35,11 @@ Run the tests via tox for all Python versions configured in ``tox.ini``::
 
 To see all available make target just run ``make`` without arguments.
 
+NodeJS and npm are required to package the app.
+In order to install all javascript requirements run::
+
+    $ npm install
+
 Code Quality Assurance
 ----------------------
 
