@@ -77,7 +77,7 @@ metrics: ## print code metrics with radon
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/$(PYTHON_PACKAGE).rst
 	rm -f docs/modules.rst
-	sphinx-apidoc --no-toc -o docs/ $(PYTHON_PACKAGE) **/migrations **/south_migrations
+	sphinx-apidoc --no-toc -o docs/ $(PYTHON_PACKAGE) **/migrations
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	@echo "See docs/_build/html/index.html"
@@ -88,12 +88,10 @@ docs-open:
 docs-all: docs docs-open
 
 release: clean ## package and upload a release
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
+	python setup.py release upload
 
 dist: clean ## builds source and wheel package
-	python setup.py sdist
-	python setup.py bdist_wheel
+	python setup.py release
 	ls -l dist
 
 install: clean ## install the package to the active Python's site-packages

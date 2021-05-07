@@ -1,5 +1,38 @@
-# -*- coding: utf-8 -*
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Count, Q
+from django.views.generic import ListView, DetailView
 
-"""Views for planning_poker"""
+from .constants import FIBONACCI_CHOICES, NON_POINT_OPTIONS
+from .models import PokerSession
 
-from __future__ import absolute_import, unicode_literals
+
+class PokerSessionView(LoginRequiredMixin, DetailView):
+    model = PokerSession
+    template_name = 'planning_poker/poker_session.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['options'] = {
+            'point_options': [list(choice) for choice in FIBONACCI_CHOICES],
+            'non_point_options': [list(choice) for choice in NON_POINT_OPTIONS]
+        }
+        context['stories'] = [
+            {
+                'id': story.id,
+                'title': str(story),
+                'points': str(story.story_points) if story.story_points else None
+            } for story in self.object.stories.all()
+        ]
+        context['permissions'] = {
+            'vote': self.request.user.has_perm('planning_poker.vote'),
+            'moderate': self.request.user.has_perm('planning_poker.moderate')
+        }
+        return context
+
+
+class IndexView(LoginRequiredMixin, ListView):
+    queryset = PokerSession.objects.filter(stories__story_points__isnull=True).distinct().annotate(
+        unpokered_stories=Count('id', filter=Q(stories__story_points__isnull=True))
+    )
+
+    template_name = 'planning_poker/index.html'

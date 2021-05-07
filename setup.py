@@ -8,6 +8,8 @@ import subprocess
 from os.path import dirname, join
 
 from setuptools import find_packages, setup
+from setuptools.command.sdist import sdist
+from wheel.bdist_wheel import bdist_wheel
 
 
 def read(*args):
@@ -38,6 +40,27 @@ class ToxTestCommand(distutils.cmd.Command):
         return subprocess.call(['tox'])
 
 
+def run_wrapper(self):
+    """
+    Wrapper around the `run` method of distutils or setuptools commands.
+
+    The method creates the Javascript bundle file before the `run` method of the superclass is run.
+    """
+    self.announce("Creating the javascript bundle file...", level=distutils.log.INFO)
+    return_code = subprocess.call(['npm', 'run', 'build'])
+    if return_code is not 0:
+        msg = "Error creating the javascript bundle file. Command exited with return code {}".format(return_code)
+        self.announce(msg, level=distutils.log.ERROR)
+        raise RuntimeError(msg)
+
+    super(self.__class__, self).run()
+
+
+def command_factory(name, base_class):
+    """Factory method to create a distutils or setuptools command with a patched `run` method."""
+    return type(str(name), (base_class, object), {'run': run_wrapper})
+
+
 exec(read('planning_poker', 'version.py'))
 
 classifiers = """\
@@ -45,10 +68,12 @@ classifiers = """\
 Private :: Do Not Upload
 Development Status :: 2 - Pre-Alpha
 Programming Language :: Python
-Programming Language :: Python :: 2.7
+Programming Language :: Python :: 3.6
+Programming Language :: Python :: 3.7
+Programming Language :: Python :: 3.8
+Programming Language :: Python :: 3.9
 Framework :: Django
-Framework :: Django :: 1.4
-Framework :: Django :: 1.6
+Framework :: Django :: 3.0
 Intended Audience :: Developers
 License :: Other/Proprietary License
 #Operating System :: Microsoft :: Windows
@@ -58,7 +83,11 @@ Topic :: Internet
 """
 
 install_requires = [
-    # 'six',
+    'channels>=2.4.0',
+    'channels_redis>=2.4.2',
+    'Django>=3.0.3',
+    'django-channels-presence>=1.0.0',
+    'jira>=2.0.0'
 ]
 
 tests_require = [
@@ -74,7 +103,7 @@ tests_require = [
 ]
 
 setup(
-    name='Planning Poker',
+    name='planning-poker',
     version=__version__,  # noqa
     description='A Django app which allows teams to perform a remote planning poker session',
     long_description=read('README.rst'),
@@ -93,5 +122,7 @@ setup(
     tests_require=tests_require,
     cmdclass={
         'test': ToxTestCommand,
+        'sdist': command_factory('SDistCommand', sdist),
+        'bdist_wheel': command_factory('BDistWheelCommand', bdist_wheel),
     }
 )

@@ -1,0 +1,30 @@
+{% extends "admin/change_form.html" %}
+{% load i18n static %}
+
+{% block after_field_sets %}
+    <div class="inline-group">
+        <fieldset class="module aligned">
+            <h2>{% trans 'Ticket Backend' %}</h2>
+            <div class="form-row">
+                <div style="display: flex; justify-content: space-between">
+                    <div>
+                        <label class="required" for="id-search-string">{% trans "Search String" %}</label>
+                        <input type="text" name="search-string" required id="id-search-string" class="vTextField">
+                    </div>
+                    <input type="button" value="{% trans "Search" %}" name="search" class="search-string-button">
+                </div>
+                <div class="help backend-note"
+                      data-loading-text="{% trans 'Fetching stories from backend...' %}"
+                      data-results-text="{% trans 'Added %d stories' %}"
+                      data-no-results-text="{% trans 'No stories found' %}"></div>
+            </div>
+        </fieldset>
+    </div>
+
+{% endblock %}
+
+{% block admin_change_form_document_ready %}
+    {{ block.super }}
+    {{ request.get_host|json_script:"host" }}
+    <script type="module" src="{% static 'planning_poker/js/change-form.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,46 @@
+{
+  "name": "planning-poker-app",
+  "description": "The JS-part of a Django app to enable teams to do remote poker sessions.",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.intern.rheinwerk.de/rheinwerk/planning-poker"
+  },
+  "author": {
+    "name": "Rheinwerk Webteam",
+    "email": "webteam@rheinwerk-verlag.de"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "build-dev": "webpack --watch --mode=development --devtool inline-source-map",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@vue/test-utils": "^1.0.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^26.1.0",
+    "gettext-vue": "^0.4.1",
+    "jest": "^26.1.0",
+    "jsdoc": "^3.6.5",
+    "vue": "^2.6.11",
+    "vue-jest": "^3.0.6",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    }
+  }
+}

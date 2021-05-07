@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-07 06:46+0000\n"
+"PO-Revision-Date: 2020-09-03 16:02+0200\n"
+"Last-Translator: Thomas Scheller <thomas.scheller@rheinwerk-verlag.de>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
+
+#: assets/js/components/ParticipantsList.vue:29
+msgid "Voter"
+msgstr "Wähler"
+
+#: assets/js/components/ParticipantsList.vue:29
+msgid "Moderator"
+msgstr "Moderator"
+
+#: assets/js/components/StoriesOverview.vue:51
+msgid "Stories"
+msgstr "Stories"
+
+#: assets/js/components/StoriesOverview.vue:54
+msgid "Previous Stories"
+msgstr "Vorherige Stories"
+
+#: assets/js/components/StoriesOverview.vue:57
+msgid "Active Story"
+msgstr "Aktive Story"
+
+#: assets/js/components/StoriesOverview.vue:60
+msgid "Upcoming Stories"
+msgstr "Anstehende Stories"
+
+#: assets/js/components/VoteOverview.vue:34
+msgid "Reset Votes"
+msgstr "Stimmen zurücksetzen"
+
+#: assets/js/components/VoteOverview.vue:37
+msgid "Votes"
+msgstr "Stimmen"
+
+#: assets/js/components/StoriesList.vue:63
+msgid "Show more (+%s)"
+msgstr "Mehr anzeigen (+%s)"
+
+#: assets/js/components/StoriesList.vue:66
+msgid "Show less"
+msgstr "Weniger anzeigen"
+
+#: assets/js/components/StoryDetail.vue:40
+msgid "No description available."
+msgstr "Keine Beschreibung verfügbar."

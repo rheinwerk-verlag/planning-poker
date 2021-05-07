@@ -14,7 +14,6 @@ DATABASES = {
     }
 }
 
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -24,9 +23,21 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'channels',
+    'channels_presence',
     'planning_poker',
 )
 
 ROOT_URLCONF = 'planning_poker.urls'
 
-SITE_ID = 1
+WSGI_APPLICATION = 'example.wsgi.application'
+ASGI_APPLICATION = 'example.routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': ['localhost', 6379]
+        }
+    },
+}
