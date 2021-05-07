@@ -7,7 +7,7 @@ test:3.8:
   <<: *test
   script:
     - apt-get update -qq
-    - apt-get install -y -qq libldap2-dev libsasl2-dev nodejs npm
+    - apt-get install -y -qq nodejs npm
     - npm install
     - pip install tox
     - tox -e "flake8,py{38}-django{30}"
@@ -30,7 +30,7 @@ pages:
   stage: deploy
   script:
     - pip install -r requirements/dev.txt
-    - pip install "Django>=3.0"
+    - pip install "Django>=3.0,<3.1"
     - cd docs
     - make html
     - cd ..
@@ -48,7 +48,7 @@ publish:
   script:
     - apt-get update -qq && apt-get install -y -qq gettext npm
     - npm install
-    - pip install "Django>=3.0" "devpi-client"
+    - pip install "Django>=3.0,<3.1" "devpi-client"
     - cd planning_poker
     - /usr/local/bin/django-admin.py compilemessages
     - cd ..
