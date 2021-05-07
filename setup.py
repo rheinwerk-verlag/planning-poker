@@ -86,10 +86,8 @@ install_requires = [
     'channels>=2.4.0',
     'channels_redis>=2.4.2',
     'Django>=3.0.3',
-    'django-auth-ldap>=2.1.1',
     'django-channels-presence>=1.0.0',
-    'jira>=2.0.0',
-    'psycopg2>=2.8.4'
+    'jira>=2.0.0'
 ]
 
 tests_require = [
