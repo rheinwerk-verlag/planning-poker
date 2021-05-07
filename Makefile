@@ -77,7 +77,7 @@ metrics: ## print code metrics with radon
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/$(PYTHON_PACKAGE).rst
 	rm -f docs/modules.rst
-	sphinx-apidoc --no-toc -o docs/ $(PYTHON_PACKAGE) **/migrations **/south_migrations
+	sphinx-apidoc --no-toc -o docs/ $(PYTHON_PACKAGE) **/migrations
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	@echo "See docs/_build/html/index.html"
