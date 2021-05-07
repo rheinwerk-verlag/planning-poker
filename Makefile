@@ -88,12 +88,10 @@ docs-open:
 docs-all: docs docs-open
 
 release: clean ## package and upload a release
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
+	python setup.py release upload
 
 dist: clean ## builds source and wheel package
-	python setup.py sdist
-	python setup.py bdist_wheel
+	python setup.py release
 	ls -l dist
 
 install: clean ## install the package to the active Python's site-packages
