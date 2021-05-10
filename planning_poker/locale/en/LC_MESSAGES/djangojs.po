@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: assets/js/components/ParticipantsList.vue:29
+msgid "Voter"
+msgstr ""
+
+#: assets/js/components/ParticipantsList.vue:29
+msgid "Moderator"
+msgstr ""
+
+#: assets/js/components/StoriesOverview.vue:51
+msgid "Stories"
+msgstr ""
+
+#: assets/js/components/StoriesOverview.vue:54
+msgid "Previous Stories"
+msgstr ""
+
+#: assets/js/components/StoriesOverview.vue:57
+msgid "Active Story"
+msgstr ""
+
+#: assets/js/components/StoriesOverview.vue:60
+msgid "Upcoming Stories"
+msgstr ""
+
+#: assets/js/components/StoriesList.vue:63
+msgid "Show more (+%s)"
+msgstr ""
+
+#: assets/js/components/StoriesList.vue:66
+msgid "Show less"
+msgstr ""
+
+#: assets/js/components/StoryDetail.vue:40
+msgid "No description available."
+msgstr ""
+
+#: assets/js/components/VoteOverview.vue:34
+msgid "Reset Votes"
+msgstr ""
+
+#: assets/js/components/VoteOverview.vue:37
+msgid "Votes"
+msgstr ""
