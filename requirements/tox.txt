@@ -36,12 +36,12 @@ automat==20.2.0
     # via twisted
 cffi==1.14.5
     # via cryptography
+channels-redis==2.4.2
+    # via -r tox.in
 channels==2.4.0
     # via
     #   -r tox.in
     #   channels-redis
-channels_redis==2.4.2
-    # via -r tox.in
 colorama==0.4.4
     # via
     #   pylint
