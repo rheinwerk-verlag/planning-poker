@@ -2,8 +2,6 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from planning_poker.backends.ticket.base import BaseTicketBackend
-
 
 class TestPokerConsumer:
     def test_poker_session(self, poker_consumer):
