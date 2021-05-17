@@ -1,6 +1,6 @@
 <template>
     <div class="story-detail custom-scrollbar">
-        <h2 class="story-label ellipsis-overflow"><br v-if="!title">{{title}}</h2>
+        <h2 class="story-label ellipsis-overflow" :title="title"><br v-if="!title">{{title}}</h2>
         <div class="description-wrapper">
             <div class="description-overlay" v-if="showOverlay">
                 <PlayingCard
