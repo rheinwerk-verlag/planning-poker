@@ -3,6 +3,6 @@
 isort==4.3.20
 pip-tools
 recommonmark==0.4.0
-Sphinx<3.0.0
+Sphinx
 sphinx-js
 sphinx-rtd-theme
