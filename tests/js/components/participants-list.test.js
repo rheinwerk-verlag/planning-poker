@@ -12,8 +12,8 @@ describe('ParticipantsList', () => {
     });
 
     const participants = [
-        {id: 1, username: 'Bob', permissions: ['poker.vote']},
-        {id: 2, username: 'Ross', permissions: ['poker.vote']}
+        {id: 1, username: 'Bob', permissions: ['planning_poker.vote']},
+        {id: 2, username: 'Ross', permissions: ['planning_poker.vote']}
     ];
 
     describe('Tooltip', () => {
@@ -66,7 +66,7 @@ describe('ParticipantsList', () => {
                 'testName': 'returns \'(Voter)\' when the user has the vote permission',
                 'user': {
                     'username': 'voter',
-                    'permissions': ['poker.vote']
+                    'permissions': ['planning_poker.vote']
                 },
                 'expectedValue': '(Voter)'
             },
@@ -74,7 +74,7 @@ describe('ParticipantsList', () => {
                 'testName': 'returns \'(Moderator)\' when the user has the moderate permission',
                 'user': {
                     'username': 'moderator',
-                    'permissions': ['poker.moderate']
+                    'permissions': ['planning_poker.moderate']
                 },
                 'expectedValue': '(Moderator)'
             },
@@ -82,7 +82,7 @@ describe('ParticipantsList', () => {
                 'testName': 'returns \'(Moderator, Voter)\' when the user has the moderate and vote permission',
                 'user': {
                     'username': 'superuser',
-                    'permissions': ['poker.vote', 'poker.moderate']
+                    'permissions': ['planning_poker.vote', 'planning_poker.moderate']
                 },
                 'expectedValue': '(Moderator, Voter)'
             },
