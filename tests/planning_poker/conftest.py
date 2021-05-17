@@ -2,7 +2,6 @@ import pytest
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission, ContentType
 from django.core.management import call_command
-from django.test import override_settings
 
 from planning_poker.consumers import PokerConsumer
 from planning_poker.models import PokerSession, Story
