@@ -26,7 +26,7 @@
         },
         computed: {
             permissions: function () {
-                return {'poker.vote': this.$t('Voter'), 'poker.moderate': this.$t('Moderator')};
+                return {'planning_poker.vote': this.$t('Voter'), 'planning_poker.moderate': this.$t('Moderator')};
             }
         },
         methods: {
