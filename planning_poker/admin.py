@@ -1,22 +1,7 @@
-from django.conf import settings
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from .backends.ticket import get_ticket_system
 from .models import PokerSession, Story, Vote
-
-
-def send_points_to_backend(modeladmin, request, queryset):
-    """Send the story points for each story in the queryset to the backend.
-
-    :param modeladmin: The current ModelAdmin.
-    :param request: The current HTTP request.
-    :param queryset: Containing the set of stories selected by the user.
-    :return:
-    """
-    backend = get_ticket_system()
-    for story in queryset:
-        backend.set_story_points(story)
 
 
 class DropdownFilter(admin.filters.RelatedFieldListFilter):
@@ -52,12 +37,6 @@ class PokerSessionAdmin(admin.ModelAdmin):
 @admin.register(Story)
 class StoryAdmin(admin.ModelAdmin):
     readonly_fields = ('story_points',)
-    try:
-        settings.TICKET_SYSTEM['BACKEND']
-    except (AttributeError, KeyError):
-        pass
-    else:
-        actions = [send_points_to_backend]
     fieldsets = [
         (None, {'fields': ['ticket_number', 'title', 'description']}),
         (_('Poker Data'), {'fields': ['poker_session', 'story_points']}),

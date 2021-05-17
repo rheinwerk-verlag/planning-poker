@@ -5,7 +5,6 @@ from channels.generic.websocket import JsonWebsocketConsumer
 from channels_presence.models import Presence, Room
 from django.utils.functional import cached_property
 
-from .backends.ticket import get_ticket_system
 from .models import Story, PokerSession
 
 MODERATE_PERMISSION = '.'.join((Story._meta.app_label, 'moderate'))
@@ -178,50 +177,3 @@ class PokerConsumer(JsonWebsocketConsumer):
         :param dict message: The message contains information about the planning_poker session's active participants.
         """
         self.send_event('participants_changed', **message['data'])
-
-
-class TicketConsumer(JsonWebsocketConsumer):
-    def __init__(self, *args, **kwargs):
-        """Initialize a TicketConsumer and set the dict of callable commands."""
-        super().__init__(*args, **kwargs)
-        self.commands = {
-            'stories_requested': self.stories_requested
-        }
-
-    def stories_requested(self, search_string):
-        """Load the ticket backend from the settings and fetch stories from it.
-
-        :param search_string: The string which should be used to query the stories from the backend.
-        """
-        backend = get_ticket_system()
-        self.send_event('stories_received', stories=backend.get_poker_stories(search_string=search_string))
-
-    def receive_json(self, content, **kwargs):
-        """Call the given method with its arguments.
-
-        A log entry is made and no method is executed, if the user doesn't have the required permission.
-
-        :param dict content: A dict containing the command and additional arguments.
-                             For example: '{'event': 'foo', 'data': data}'
-        :param kwargs: Additional keyword arguments.
-        """
-        command = self.commands[content.pop('event')]
-        command(**content['data'])
-
-    def send_event(self, event, **data):
-        """Send an event with the given data either to the channel or to the whole group.
-
-        :param str event: The name of the event which should be sent.
-        :param data: The data which should be sent along the event.
-        """
-        send_method = self.channel_layer.send
-        channel_name = self.channel_name
-
-        async_to_sync(send_method)(
-            channel_name,
-            {
-                'type': 'send_json',
-                'event': event,
-                'data': data
-            }
-        )
