@@ -1,4 +1,5 @@
 import logging
+from typing import Dict
 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import JsonWebsocketConsumer
@@ -28,7 +29,7 @@ class PokerConsumer(JsonWebsocketConsumer):
         }
 
     @cached_property
-    def poker_session(self):
+    def poker_session(self) -> PokerSession:
         """Return the planning_poker session corresponding to the websocket's url.
 
         :return: The planning_poker session corresponding to the websocket's url.
@@ -38,7 +39,7 @@ class PokerConsumer(JsonWebsocketConsumer):
             pk=self.scope['url_route']['kwargs']['poker_session']
         )
 
-    def connect(self):
+    def connect(self) -> None:
         """Accept the connection from a websocket."""
 
         self.room_group_name = 'poker_session_{}'.format(self.poker_session.id)
@@ -49,11 +50,11 @@ class PokerConsumer(JsonWebsocketConsumer):
         if self.poker_session.active_story:
             self.send_active_story_information(send_to_group=False)
 
-    def disconnect(self, close_code):
+    def disconnect(self, **kwargs) -> None:
         """Remove self from the current group."""
         Room.objects.remove(self.room_group_name, self.channel_name)
 
-    def receive_json(self, content, **kwargs):
+    def receive_json(self, content: Dict, **kwargs) -> None:
         """Call the given method with its arguments.
         A log entry is made and no method is executed, if the user doesn't have the required permission.
 
@@ -72,12 +73,12 @@ class PokerConsumer(JsonWebsocketConsumer):
                 {'user': user, **command}
             )
 
-    def send_event(self, event, send_to_group=True, **data):
+    def send_event(self, event: str, send_to_group: bool = True, **data: Dict) -> None:
         """Send an event with the given data either to the channel or to the whole group.
 
         :param str event: The name of the event which should be sent.
         :param bool send_to_group: Flag whether the event should be sent to the whole group or not. Default True.
-        :param data: The data which should be sent along the event.
+        :param dict data: The data which should be sent along the event.
         """
         if send_to_group:
             send_method = self.channel_layer.group_send
@@ -94,8 +95,11 @@ class PokerConsumer(JsonWebsocketConsumer):
             }
         )
 
-    def next_story_requested(self, story_id=None):
-        """Set the planning_poker session's active story and send all necessary data to the websockets."""
+    def next_story_requested(self, story_id: int = None) -> None:
+        """Set the planning_poker session's active story and send all necessary data to the websockets.
+
+        :param int story_id: The id of the story which should become the active story.
+        """
         self.poker_session.refresh_from_db()
         if story_id is None:
             active_story_order = self.poker_session.active_story._order if self.poker_session.active_story else -1
@@ -112,12 +116,12 @@ class PokerConsumer(JsonWebsocketConsumer):
             self.poker_session.save()
             self.send_active_story_information()
 
-    def reset_requested(self):
+    def reset_requested(self) -> None:
         """Remove all votes from the currently active story."""
         self.poker_session.active_story.votes.all().delete()
         self.send_active_story_information()
 
-    def set_story_points(self, story_points):
+    def set_story_points(self, story_points: int) -> None:
         """Set the story's story points in the database.
 
         :param int story_points: The points which the story should have.
@@ -130,7 +134,7 @@ class PokerConsumer(JsonWebsocketConsumer):
         active_story.save()
         self.send_event('story_points_submitted', story_points=story_points)
 
-    def vote_submitted(self, choice):
+    def vote_submitted(self, choice: str) -> None:
         """Dispatch an event containing the user and their choice + the same information in a signed string.
 
         :param str choice: The choice for the story's points the user made.
@@ -144,7 +148,7 @@ class PokerConsumer(JsonWebsocketConsumer):
         active_story.votes.update_or_create(user=user, defaults={'choice': choice})
         self.send_active_story_information()
 
-    def send_active_story_information(self, send_to_group=True):
+    def send_active_story_information(self, send_to_group: bool = True) -> None:
         """Dispatch an Event containing the story's information.
 
         :param bool send_to_group: Flag whether the event should be sent to the whole group or not. Default True.
@@ -158,7 +162,7 @@ class PokerConsumer(JsonWebsocketConsumer):
             votes=self.poker_session.active_story.get_votes_with_voter_information()
         )
 
-    def end_poker_session(self):
+    def end_poker_session(self) -> None:
         """Dispatch an Event which ends the planning_poker session."""
         self.poker_session.active_story = None
         self.poker_session.save()
@@ -167,11 +171,11 @@ class PokerConsumer(JsonWebsocketConsumer):
             send_to_group=True
         )
 
-    def heartbeat_received(self):
+    def heartbeat_received(self) -> None:
         """Update the 'last seen' timestamp."""
         Presence.objects.touch(self.channel_name)
 
-    def participants_changed(self, message):
+    def participants_changed(self, message: Dict) -> None:
         """Dispatch an event containing a list of all participants.
 
         :param dict message: The message contains information about the planning_poker session's active participants.

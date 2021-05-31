@@ -1,13 +1,6 @@
 # -*- coding: utf-8 -*
 
-from __future__ import absolute_import, unicode_literals
-
-from django.core.exceptions import ImproperlyConfigured
-
-
 DEFAULT_SETTINGS = {
-    # 'WSGI_APPLICATION': 'planning_poker.wsgi.application',
-    # 'ASGI_APPLICATION': 'planning_poker.routing.application',
     'CHANNEL_LAYERS': {
         'default': {
             'BACKEND': 'channels_redis.core.RedisChannelLayer',
@@ -24,8 +17,3 @@ def apply_settings():
     for key, value in DEFAULT_SETTINGS.items():
         if not hasattr(settings, key):
             setattr(settings, key, value)
-
-    # This is an example for checking the presence of a required settings
-    # Replace it with code checking your own settings or remove it!
-    if getattr(settings, 'PLANNING_POKER_IMPORTANT') is None:
-        raise ImproperlyConfigured('Please make sure you specified a PLANNING_POKER_IMPORTANT setting.')

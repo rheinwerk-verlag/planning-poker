@@ -1,3 +1,5 @@
+from typing import Any, Dict
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count, Q
 from django.views.generic import ListView, DetailView
@@ -10,7 +12,7 @@ class PokerSessionView(LoginRequiredMixin, DetailView):
     model = PokerSession
     template_name = 'planning_poker/poker_session.html'
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context['options'] = {
             'point_options': [list(choice) for choice in FIBONACCI_CHOICES],
