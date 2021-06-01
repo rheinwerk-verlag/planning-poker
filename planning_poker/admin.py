@@ -1,4 +1,9 @@
+from typing import Any, Callable
+
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
+from django.db.models import QuerySet
+from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
 
 from .models import PokerSession, Story, Vote
@@ -45,3 +50,14 @@ class StoryAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'story_points', 'poker_session')
     list_filter = [('poker_session', DropdownFilter), 'story_points']
     search_fields = ['ticket_number', 'title', 'poker_session__name']
+
+    @classmethod
+    def add_action(cls, action: Callable[[ModelAdmin, HttpRequest, QuerySet], Any], label: str) -> None:
+        """Add the given action to the list of admin actions.
+        This could be used to add an action which exports stories to a scrum board API.
+
+        :param Callable[[ModelAdmin, HttpRequest, QuerySet], Any] action: The action which should be added to the list.
+        :param str label: The human readable label which should be used to display the action in the list of actions.
+        """
+        action.short_description = label
+        cls.actions = [*cls.actions, action]
