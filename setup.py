@@ -84,7 +84,6 @@ Topic :: Internet
 
 install_requires = [
     'channels>=2.4.0,<3.0.0',
-    'channels_redis>=2.4.2,<3.0.0',
     'Django>=3.0.3',
     'django-channels-presence>=1.0.0',
 ]
