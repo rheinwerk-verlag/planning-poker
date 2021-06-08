@@ -56,8 +56,8 @@ class StoryAdmin(admin.ModelAdmin):
         """Add the given action to the list of admin actions.
         This could be used by extensions to add story based actions.
 
-        :param Callable[[ModelAdmin, HttpRequest, QuerySet], Any] action: The action which should be added to the list.
-        :param str label: The human readable label which should be used to display the action in the list of actions.
+        :param action: The action which should be added to the list.
+        :param label: The human readable label which should be used to display the action in the list of actions.
         """
         action.short_description = label
         cls.actions = [*cls.actions, action]

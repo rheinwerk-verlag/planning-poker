@@ -25,7 +25,7 @@ class PokerSession(models.Model):
         verbose_name_plural = _('Poker Sessions')
 
     def __str__(self) -> str:
-        return str(self.name)
+        return self.name
 
 
 class Story(models.Model):
@@ -59,13 +59,12 @@ class Story(models.Model):
     def __str__(self) -> str:
         if self.title:
             return '{}: {}'.format(self.ticket_number, self.title)
-        return str(self.ticket_number)
+        return self.ticket_number
 
     def get_votes_with_voter_information(self) -> t.OrderedDict[str, t.List[t.Dict[str, str]]]:
         """Return a sorted list with each choice + the users who voted for that choice.
 
         :return: A sorted list with each choice + the users who voted for that choice.
-        :rtype: OrderedDict[str, list[dict[str, str]]]
         """
         votes = defaultdict(list)
         for vote in self.votes.select_related('user'):

@@ -15,7 +15,7 @@ channel_layer = get_channel_layer()
 def broadcast_presence(room: Room, **kwargs):
     """Broadcast the new list of present users to the.
 
-    :param channels_presence.models.Room room: The room from which a presence was added or removed.
+    :param room: The room from which a presence was added or removed.
     """
     participants = []
     for user in room.get_users().order_by('username'):
