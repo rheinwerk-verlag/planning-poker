@@ -54,7 +54,7 @@ class StoryAdmin(admin.ModelAdmin):
     @classmethod
     def add_action(cls, action: Callable[[ModelAdmin, HttpRequest, QuerySet], Any], label: str):
         """Add the given action to the list of admin actions.
-        This could be used to add an action which exports stories to a scrum board API.
+        This could be used by extensions to add story based actions.
 
         :param Callable[[ModelAdmin, HttpRequest, QuerySet], Any] action: The action which should be added to the list.
         :param str label: The human readable label which should be used to display the action in the list of actions.
