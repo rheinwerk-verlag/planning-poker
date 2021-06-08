@@ -52,12 +52,15 @@ class StoryAdmin(admin.ModelAdmin):
     search_fields = ['ticket_number', 'title', 'poker_session__name']
 
     @classmethod
-    def add_action(cls, action: Callable[[ModelAdmin, HttpRequest, QuerySet], Any], label: str):
+    def add_action(cls, action: Callable[[ModelAdmin, HttpRequest, QuerySet], Any], label: str = None):
         """Add the given action to the list of admin actions.
         This could be used by extensions to add story based actions.
 
         :param action: The action which should be added to the list.
         :param label: The human readable label which should be used to display the action in the list of actions.
+                      This will be assigned to the action's `short_description` attribute. If omitted, Django will use
+                      the function name and replace the '_' with spaces to display the action in the list.
         """
-        action.short_description = label
+        if label:
+            action.short_description = label
         cls.actions = [*cls.actions, action]
