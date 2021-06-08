@@ -87,7 +87,6 @@ target/
 # collect static output directory
 planning-poker/assets/
 planning-poker/static/
-
 planning_poker/static/js/
 .DS_Store
 

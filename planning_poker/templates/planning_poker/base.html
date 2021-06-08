@@ -1,42 +1,65 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html lang="en" ng-app>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="{% block description %}{% endblock %}" />
-    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
-    <meta name="viewport" content="{% block viewport %}width=device-width"{% endblock %}>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'planning_poker/css/poker.css' %}">
 
-    <title>{% block title %}Planning Poker{% endblock title %}</title>
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'planning_poker/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'planning_poker/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'planning_poker/favicons/favicon-16x16.png' %}">
+    <link rel="mask-icon" href="{% static 'planning_poker/favicons/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <link rel="shortcut icon" href="{% static 'planning_poker/favicons/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    {% block css %}{% endblock %}
+</head>
+<body>
+<div id="app">
+    {% block navbar %}
+        <navbar>
+            <template v-slot:brand>
+                <a href="{% url 'planning_poker:index' %}"><h2 class="brand">{% trans "Poker Sessions" %}</h2></a>
+                <span>{% block navtitle %}{% endblock %}</span>
+                {% block brandslot %}{% endblock %}
+            </template>
+            <template v-slot:nav>
+                {% if user.is_authenticated %}
+                <span class="navbar-text pr-1">{% trans "You are logged in as" %}
+                    <span class="text-info">{{ user }}</span>
+                </span>
+                <span class="user-function">
+                {% if user.is_staff %}
+                    <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+                {% endif %}
+                    <a class="nav-link" href="{% url 'admin:logout' %}">{% trans 'Logout' %}</a>
+                {% else %}
+                <a class="nav-link" href="{% url 'admin:login' %}">{% trans 'Login' %}</a>
+                {% endif %}
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input name="next" type="hidden" value=".">
+                        <select name="language" onchange="this.form.submit()">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                    {{ language.name_local }} ({{ language.code }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </span>
+            </template>
+        </navbar>
+    {% endblock navbar %}
+    {% block content %}{% endblock content %}
+</div>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <link rel="icon" type="image/gif" href="{% static 'img/favicon.gif' %}">
-
-    {% block css %}
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    {% endblock %}
-
-  </head>
-
-  <body>
-    <div class="container">
-
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-
-    </div> <!-- /container -->
-
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {% block javascript %}
-      <script src="{% static 'js/scripts.js' %}"></script>
-    {% endblock javascript %}
-  </body>
+{% block js %}{% endblock %}
+{% block vue-app %}
+<script type="module" src="{% static 'planning_poker/js/header-app.js' %}"></script>
+{% endblock %}
+</body>
 </html>
