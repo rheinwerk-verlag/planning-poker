@@ -12,7 +12,7 @@ channel_layer = get_channel_layer()
 
 
 @receiver(presence_changed)
-def broadcast_presence(room: Room, **kwargs) -> None:
+def broadcast_presence(room: Room, **kwargs):
     """Broadcast the new list of present users to the.
 
     :param channels_presence.models.Room room: The room from which a presence was added or removed.

@@ -52,7 +52,7 @@ class StoryAdmin(admin.ModelAdmin):
     search_fields = ['ticket_number', 'title', 'poker_session__name']
 
     @classmethod
-    def add_action(cls, action: Callable[[ModelAdmin, HttpRequest, QuerySet], Any], label: str) -> None:
+    def add_action(cls, action: Callable[[ModelAdmin, HttpRequest, QuerySet], Any], label: str):
         """Add the given action to the list of admin actions.
         This could be used to add an action which exports stories to a scrum board API.
 
