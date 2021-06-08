@@ -1,5 +1,5 @@
 from collections import defaultdict, OrderedDict
-import typing as t
+from typing import Dict, List
 
 from django.conf import settings
 from django.db import models
@@ -61,7 +61,7 @@ class Story(models.Model):
             return '{}: {}'.format(self.ticket_number, self.title)
         return self.ticket_number
 
-    def get_votes_with_voter_information(self) -> t.OrderedDict[str, t.List[t.Dict[str, str]]]:
+    def get_votes_with_voter_information(self) -> OrderedDict[str, List[Dict[str, str]]]:
         """Return a sorted list with each choice + the users who voted for that choice.
 
         :return: A sorted list with each choice + the users who voted for that choice.
