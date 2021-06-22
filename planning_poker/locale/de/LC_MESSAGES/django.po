@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poker-App 2.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-27 02:23-0500\n"
+"POT-Creation-Date: 2021-06-22 09:22+0200\n"
 "PO-Revision-Date: 2020-09-03 16:02+0200\n"
 "Last-Translator: Thomas Scheller <thomas.scheller@rheinwerk-verlag.de>\n"
 "Language-Team: Thomas Scheller thomas.scheller@rheinwerk-verlag.de\n"
@@ -18,137 +18,124 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.1\n"
 
-#: admin.py:63
+#: .\admin.py:47
 msgid "Poker Data"
 msgstr "Pokerdaten"
 
-#: apps.py:7
+#: .\apps.py:7
 msgid "Planning Poker"
 msgstr "Planungspoker"
 
-#: constants.py:18
+#: .\constants.py:18
 msgid "Too large"
 msgstr "Zu groß"
 
-#: constants.py:19
+#: .\constants.py:19
 msgid "No idea"
 msgstr "Keine Ahnung"
 
-#: models.py:11
+#: .\models.py:12
 msgid "Poker Date"
 msgstr "Pokerdatum"
 
-#: models.py:12
+#: .\models.py:13
 msgid "Name"
 msgstr "Name"
 
-#: models.py:16
+#: .\models.py:17
 msgid "Active Story"
 msgstr "Aktive Story"
 
-#: models.py:23 models.py:43
+#: .\models.py:24 .\models.py:44
 msgid "Poker Session"
 msgstr "Poker-Runde"
 
-#: models.py:24
+#: .\models.py:25 .\templates\planning_poker\base.html:23
 msgid "Poker Sessions"
 msgstr "Poker-Runden"
 
-#: models.py:31
+#: .\models.py:32
 msgid "Ticket Number"
 msgstr "Ticketnummer"
 
-#: models.py:32
+#: .\models.py:33
 msgid "Title"
 msgstr "Titel"
 
-#: models.py:33
+#: .\models.py:34
 msgid "Description"
 msgstr "Beschreibung"
 
-#: models.py:35
+#: .\models.py:36
 msgid "Story Points"
 msgstr "Storypunkte"
 
-#: models.py:36
+#: .\models.py:37
 msgid "The amount of points this story takes up in the sprint"
 msgstr "Die Anzahl der Punkte, die diese Story in dem Sprint einnimmt"
 
-#: models.py:50 models.py:80
+#: .\models.py:51 .\models.py:80
 msgid "Story"
 msgstr "Story"
 
-#: models.py:51
+#: .\models.py:52
 msgid "Stories"
 msgstr "Stories"
 
-#: models.py:86
+#: .\models.py:86
 msgid "User"
 msgstr "Nutzer"
 
-#: models.py:91
+#: .\models.py:91
 msgid "Choice"
 msgstr "Auswahl"
 
-#: models.py:96
+#: .\models.py:96
 msgid "Vote"
 msgstr "Stimme"
 
-#: models.py:97
+#: .\models.py:97
 msgid "Votes"
 msgstr "Stimmen"
 
-#: models.py:103
+#: .\models.py:103
 #, python-brace-format
 msgid "{user} voted {choice} for story {story}"
 msgstr "{user} hat mit {choice} für {story} gestimmt"
 
-#: templates/admin/dropdown_filter.html:2
+#: .\templates\admin\dropdown_filter.html:2
 #, python-format
 msgid " By %(filter_title)s "
 msgstr " Nach %(filter_title)s "
 
-#: templates/admin/planning_poker/pokersession/change_form.html:7
-msgid "Ticket Backend"
-msgstr "Ticket-Backend"
+#: .\templates\planning_poker\base.html:28
+msgid "You are logged in as"
+msgstr ""
 
-#: templates/admin/planning_poker/pokersession/change_form.html:11
-msgid "Search String"
-msgstr "Such-String"
+#: .\templates\planning_poker\base.html:33
+msgid "Admin"
+msgstr ""
 
-#: templates/admin/planning_poker/pokersession/change_form.html:14
-msgid "Search"
-msgstr "Suchen"
+#: .\templates\planning_poker\base.html:35
+msgid "Logout"
+msgstr ""
 
-#: templates/admin/planning_poker/pokersession/change_form.html:17
-msgid "Fetching stories from backend..."
-msgstr "Stories werden aus dem Backend geholt..."
-
-#: templates/admin/planning_poker/pokersession/change_form.html:18
-#, python-format
-msgid "Added %%d stories"
-msgstr "%%d Stories hinzugefügt"
-
-#: templates/admin/planning_poker/pokersession/change_form.html:19
-msgid "No stories found"
-msgstr "Keine Stories gefunden"
-
-#: templates/planning_poker/index.html:6
+#: .\templates\planning_poker\index.html:6
 msgid "Choose your Poker Session"
 msgstr "Wähle deine Poker-Runde"
 
-#: templates/planning_poker/index.html:11
+#: .\templates\planning_poker\index.html:11
 msgid "Active Sessions"
 msgstr "Aktive Runde"
 
-#: templates/planning_poker/index.html:18
+#: .\templates\planning_poker\index.html:18
 #, python-format
 msgid "%(unpokered_stories)s ticket left to poker"
 msgid_plural "%(unpokered_stories)s tickets left to poker"
 msgstr[0] "Noch %(unpokered_stories)s Ticket zu pokern"
 msgstr[1] "Noch %(unpokered_stories)s Tickets zu pokern"
 
-#: templates/planning_poker/poker_session.html:5
+#: .\templates\planning_poker\poker_session.html:5
 #, python-format
 msgid "Poker Session: %(pokersession)s"
 msgstr "Poker-Runde: %(pokersession)s"

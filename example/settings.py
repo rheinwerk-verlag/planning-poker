@@ -2,10 +2,8 @@
 
 import os
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-location = lambda x: os.path.abspath(
-    os.path.join(os.path.dirname(os.path.realpath(__file__)), '../', x))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -13,7 +11,7 @@ TEMPLATE_DEBUG = DEBUG
 SECRET_KEY = '96a40240ed25433cb8ff8ce819bf710b'
 
 TEMPLATE_DIRS = (
-    location('planning_poker/templates'),
+    os.path.join(BASE_DIR, 'planning_poker/templates'),
 )
 
 ASGI_APPLICATION = 'example.routing.application'
@@ -100,3 +98,6 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
+
+LOGIN_URL = 'admin:login'
+LOGOUT_URL = 'admin:logout'

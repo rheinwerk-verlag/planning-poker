@@ -25,18 +25,14 @@
                 {% block brandslot %}{% endblock %}
             </template>
             <template v-slot:nav>
-                {% if user.is_authenticated %}
                 <span class="navbar-text pr-1">{% trans "You are logged in as" %}
                     <span class="text-info">{{ user }}</span>
                 </span>
                 <span class="user-function">
-                {% if user.is_staff %}
-                    <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
-                {% endif %}
-                    <a class="nav-link" href="{% url 'admin:logout' %}">{% trans 'Logout' %}</a>
-                {% else %}
-                <a class="nav-link" href="{% url 'admin:login' %}">{% trans 'Login' %}</a>
-                {% endif %}
+                    {% if user.is_staff %}
+                        <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+                    {% endif %}
+                    <a class="nav-link" href="{{ logout_url }}">{% trans 'Logout' %}</a>
                     <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
                         <input name="next" type="hidden" value=".">
                         <select name="language" onchange="this.form.submit()">
