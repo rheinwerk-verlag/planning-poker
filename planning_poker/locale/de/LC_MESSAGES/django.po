@@ -110,15 +110,15 @@ msgstr " Nach %(filter_title)s "
 
 #: .\templates\planning_poker\base.html:28
 msgid "You are logged in as"
-msgstr ""
+msgstr "Sie sind angemeldet als"
 
 #: .\templates\planning_poker\base.html:33
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: .\templates\planning_poker\base.html:35
 msgid "Logout"
-msgstr ""
+msgstr "Abmelden"
 
 #: .\templates\planning_poker\index.html:6
 msgid "Choose your Poker Session"
