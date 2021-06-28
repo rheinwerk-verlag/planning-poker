@@ -1,5 +1,11 @@
 from collections import defaultdict, OrderedDict
-from typing import Dict, List, OrderedDict as OrderedDictType
+from typing import Dict, List
+try:
+    # The OrderedDict was added to the typing module in Python version 3.7.
+    # Fallback to the default Dict type in order to provide backwards compatibility.
+    from typing import OrderedDict as OrderedDictType
+except ImportError:
+    OrderedDictType = Dict
 
 from django.conf import settings
 from django.db import models
