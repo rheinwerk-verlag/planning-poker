@@ -2,7 +2,7 @@ from collections import defaultdict, OrderedDict
 from typing import Dict, List
 try:
     # The OrderedDict was added to the typing module in Python version 3.7.
-    # Fallback to the default Dict type in order to provide backwards compatibility.
+    # Fall back to the default Dict type in order to provide backwards compatibility for Python 3.6.
     from typing import OrderedDict as OrderedDictType
 except ImportError:
     OrderedDictType = Dict
