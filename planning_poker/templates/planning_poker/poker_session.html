@@ -30,7 +30,7 @@
 {{ request.get_host|json_script:"host" }}
 {{ pokersession.id|json_script:"pokersession-id" }}
 {{ user.id|json_script:"user-id" }}
-<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+<script type="text/javascript" src="{% url 'planning_poker:javascript-catalog' %}"></script>
 {% endblock js %}
 
 {% block vue-app %}

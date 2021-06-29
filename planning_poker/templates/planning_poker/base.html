@@ -33,7 +33,7 @@
                         <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
                     {% endif %}
                     <a class="nav-link" href="{{ logout_url }}">{% trans 'Logout' %}</a>
-                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <form action="{% url 'planning_poker:set_language' %}" method="post">{% csrf_token %}
                         <input name="next" type="hidden" value=".">
                         <select name="language" onchange="this.form.submit()">
                             {% get_current_language as LANGUAGE_CODE %}
