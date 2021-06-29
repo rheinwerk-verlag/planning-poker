@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-22 09:22+0200\n"
+"POT-Creation-Date: 2021-06-29 12:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,71 +34,71 @@ msgstr ""
 msgid "No idea"
 msgstr ""
 
-#: .\models.py:12
+#: .\models.py:18
 msgid "Poker Date"
 msgstr ""
 
-#: .\models.py:13
+#: .\models.py:19
 msgid "Name"
 msgstr ""
 
-#: .\models.py:17
+#: .\models.py:23
 msgid "Active Story"
 msgstr ""
 
-#: .\models.py:24 .\models.py:44
+#: .\models.py:30 .\models.py:50
 msgid "Poker Session"
 msgstr ""
 
-#: .\models.py:25 .\templates\planning_poker\base.html:23
+#: .\models.py:31 .\templates\planning_poker\base.html:23
 msgid "Poker Sessions"
 msgstr ""
 
-#: .\models.py:32
+#: .\models.py:38
 msgid "Ticket Number"
 msgstr ""
 
-#: .\models.py:33
+#: .\models.py:39
 msgid "Title"
 msgstr ""
 
-#: .\models.py:34
+#: .\models.py:40
 msgid "Description"
 msgstr ""
 
-#: .\models.py:36
+#: .\models.py:42
 msgid "Story Points"
 msgstr ""
 
-#: .\models.py:37
+#: .\models.py:43
 msgid "The amount of points this story takes up in the sprint"
 msgstr ""
 
-#: .\models.py:51 .\models.py:80
+#: .\models.py:57 .\models.py:86
 msgid "Story"
 msgstr ""
 
-#: .\models.py:52
+#: .\models.py:58
 msgid "Stories"
 msgstr ""
 
-#: .\models.py:86
+#: .\models.py:92
 msgid "User"
 msgstr ""
 
-#: .\models.py:91
+#: .\models.py:97
 msgid "Choice"
 msgstr ""
 
-#: .\models.py:96
+#: .\models.py:102
 msgid "Vote"
 msgstr ""
 
-#: .\models.py:97
+#: .\models.py:103
 msgid "Votes"
 msgstr ""
 
-#: .\models.py:103
+#: .\models.py:109
 #, python-brace-format
 msgid "{user} voted {choice} for story {story}"
 msgstr ""
@@ -108,15 +108,15 @@ msgstr ""
 msgid " By %(filter_title)s "
 msgstr ""
 
-#: .\templates\planning_poker\base.html:28
+#: .\templates\planning_poker\base.html:29
 msgid "You are logged in as"
 msgstr ""
 
-#: .\templates\planning_poker\base.html:33
+#: .\templates\planning_poker\base.html:36
 msgid "Admin"
 msgstr ""
 
-#: .\templates\planning_poker\base.html:35
+#: .\templates\planning_poker\base.html:40
 msgid "Logout"
 msgstr ""
 

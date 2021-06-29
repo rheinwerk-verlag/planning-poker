@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poker-App 2.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-22 09:22+0200\n"
+"POT-Creation-Date: 2021-06-29 12:43+0200\n"
 "PO-Revision-Date: 2020-09-03 16:02+0200\n"
 "Last-Translator: Thomas Scheller <thomas.scheller@rheinwerk-verlag.de>\n"
 "Language-Team: Thomas Scheller thomas.scheller@rheinwerk-verlag.de\n"
@@ -34,71 +34,71 @@ msgstr "Zu groß"
 msgid "No idea"
 msgstr "Keine Ahnung"
 
-#: .\models.py:12
+#: .\models.py:18
 msgid "Poker Date"
 msgstr "Pokerdatum"
 
-#: .\models.py:13
+#: .\models.py:19
 msgid "Name"
 msgstr "Name"
 
-#: .\models.py:17
+#: .\models.py:23
 msgid "Active Story"
 msgstr "Aktive Story"
 
-#: .\models.py:24 .\models.py:44
+#: .\models.py:30 .\models.py:50
 msgid "Poker Session"
 msgstr "Poker-Runde"
 
-#: .\models.py:25 .\templates\planning_poker\base.html:23
+#: .\models.py:31 .\templates\planning_poker\base.html:23
 msgid "Poker Sessions"
 msgstr "Poker-Runden"
 
-#: .\models.py:32
+#: .\models.py:38
 msgid "Ticket Number"
 msgstr "Ticketnummer"
 
-#: .\models.py:33
+#: .\models.py:39
 msgid "Title"
 msgstr "Titel"
 
-#: .\models.py:34
+#: .\models.py:40
 msgid "Description"
 msgstr "Beschreibung"
 
-#: .\models.py:36
+#: .\models.py:42
 msgid "Story Points"
 msgstr "Storypunkte"
 
-#: .\models.py:37
+#: .\models.py:43
 msgid "The amount of points this story takes up in the sprint"
 msgstr "Die Anzahl der Punkte, die diese Story in dem Sprint einnimmt"
 
-#: .\models.py:51 .\models.py:80
+#: .\models.py:57 .\models.py:86
 msgid "Story"
 msgstr "Story"
 
-#: .\models.py:52
+#: .\models.py:58
 msgid "Stories"
 msgstr "Stories"
 
-#: .\models.py:86
+#: .\models.py:92
 msgid "User"
 msgstr "Nutzer"
 
-#: .\models.py:91
+#: .\models.py:97
 msgid "Choice"
 msgstr "Auswahl"
 
-#: .\models.py:96
+#: .\models.py:102
 msgid "Vote"
 msgstr "Stimme"
 
-#: .\models.py:97
+#: .\models.py:103
 msgid "Votes"
 msgstr "Stimmen"
 
-#: .\models.py:103
+#: .\models.py:109
 #, python-brace-format
 msgid "{user} voted {choice} for story {story}"
 msgstr "{user} hat mit {choice} für {story} gestimmt"
@@ -108,15 +108,15 @@ msgstr "{user} hat mit {choice} für {story} gestimmt"
 msgid " By %(filter_title)s "
 msgstr " Nach %(filter_title)s "
 
-#: .\templates\planning_poker\base.html:28
+#: .\templates\planning_poker\base.html:29
 msgid "You are logged in as"
 msgstr "Sie sind angemeldet als"
 
-#: .\templates\planning_poker\base.html:33
+#: .\templates\planning_poker\base.html:36
 msgid "Admin"
 msgstr "Admin"
 
-#: .\templates\planning_poker\base.html:35
+#: .\templates\planning_poker\base.html:40
 msgid "Logout"
 msgstr "Abmelden"
 
