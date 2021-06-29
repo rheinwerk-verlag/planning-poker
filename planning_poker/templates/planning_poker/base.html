@@ -25,9 +25,11 @@
                 {% block brandslot %}{% endblock %}
             </template>
             <template v-slot:nav>
-                <span class="navbar-text pr-1">{% trans "You are logged in as" %}
-                    <span class="text-info">{{ user }}</span>
-                </span>
+                {% block logged-in-as %}
+                    <span class="navbar-text pr-1">{% trans "You are logged in as" %}
+                        <span class="text-info">{{ user }}</span>
+                    </span>
+                {% endblock logged-in-as %}
                 <span class="user-function">
                     {% if user.is_staff %}
                         <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
