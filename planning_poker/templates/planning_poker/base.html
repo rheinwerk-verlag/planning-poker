@@ -31,23 +31,30 @@
                     </span>
                 {% endblock logged-in-as %}
                 <span class="user-function">
-                    {% if user.is_staff %}
-                        <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
-                    {% endif %}
-                    <a class="nav-link" href="{{ logout_url }}">{% trans 'Logout' %}</a>
-                    <form action="{% url 'planning_poker:set_language' %}" method="post">{% csrf_token %}
-                        <input name="next" type="hidden" value=".">
-                        <select name="language" onchange="this.form.submit()">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_language_info_list for LANGUAGES as languages %}
-                            {% for language in languages %}
-                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                                    {{ language.name_local }} ({{ language.code }})
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </form>
+                    {% block admin-link %}
+                        {% if user.is_staff %}
+                            <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+                        {% endif %}
+                    {% endblock admin-link %}
+                    {% block logout-link %}
+                        <a class="nav-link" href="{{ logout_url }}">{% trans 'Logout' %}</a>
+                    {% endblock logout-link %}
+                    {% block set-language %}
+                        <form action="{% url 'planning_poker:set_language' %}" method="post">{% csrf_token %}
+                            <input name="next" type="hidden" value=".">
+                            <select name="language" onchange="this.form.submit()">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% get_language_info_list for LANGUAGES as languages %}
+                                {% for language in languages %}
+                                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                        {{ language.name_local }} ({{ language.code }})
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </form>
+                    {% endblock set-language %}
+                    {% block additional-user-functions %}{% endblock additional-user-functions %}
                 </span>
             </template>
         </navbar>
