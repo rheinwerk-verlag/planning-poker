@@ -1,5 +1,8 @@
 *.log
 
+# Development database
+planning_poker.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -85,10 +88,7 @@ target/
 *.iws
 
 # collect static output directory
-planning-poker/assets/
-planning-poker/static/
-
-planning_poker/static/js/
+planning_poker/static/planning_poker/js/
 .DS_Store
 
 # node

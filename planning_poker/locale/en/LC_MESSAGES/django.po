@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 02:08-0500\n"
+"POT-Creation-Date: 2021-06-29 12:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,137 +18,124 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.py:63
+#: .\admin.py:47
 msgid "Poker Data"
 msgstr ""
 
-#: apps.py:7
+#: .\apps.py:7
 msgid "Planning Poker"
 msgstr ""
 
-#: constants.py:18
+#: .\constants.py:18
 msgid "Too large"
 msgstr ""
 
-#: constants.py:19
+#: .\constants.py:19
 msgid "No idea"
 msgstr ""
 
-#: models.py:11
+#: .\models.py:18
 msgid "Poker Date"
 msgstr ""
 
-#: models.py:12
+#: .\models.py:19
 msgid "Name"
 msgstr ""
 
-#: models.py:16
+#: .\models.py:23
 msgid "Active Story"
 msgstr ""
 
-#: models.py:23 models.py:43
+#: .\models.py:30 .\models.py:50
 msgid "Poker Session"
 msgstr ""
 
-#: models.py:24
+#: .\models.py:31 .\templates\planning_poker\base.html:23
 msgid "Poker Sessions"
 msgstr ""
 
-#: models.py:31
+#: .\models.py:38
 msgid "Ticket Number"
 msgstr ""
 
-#: models.py:32
+#: .\models.py:39
 msgid "Title"
 msgstr ""
 
-#: models.py:33
+#: .\models.py:40
 msgid "Description"
 msgstr ""
 
-#: models.py:35
+#: .\models.py:42
 msgid "Story Points"
 msgstr ""
 
-#: models.py:36
+#: .\models.py:43
 msgid "The amount of points this story takes up in the sprint"
 msgstr ""
 
-#: models.py:50 models.py:80
+#: .\models.py:57 .\models.py:86
 msgid "Story"
 msgstr ""
 
-#: models.py:51
+#: .\models.py:58
 msgid "Stories"
 msgstr ""
 
-#: models.py:86
+#: .\models.py:92
 msgid "User"
 msgstr ""
 
-#: models.py:91
+#: .\models.py:97
 msgid "Choice"
 msgstr ""
 
-#: models.py:96
+#: .\models.py:102
 msgid "Vote"
 msgstr ""
 
-#: models.py:97
+#: .\models.py:103
 msgid "Votes"
 msgstr ""
 
-#: models.py:103
+#: .\models.py:109
 #, python-brace-format
 msgid "{user} voted {choice} for story {story}"
 msgstr ""
 
-#: templates/admin/dropdown_filter.html:2
+#: .\templates\admin\dropdown_filter.html:2
 #, python-format
 msgid " By %(filter_title)s "
 msgstr ""
 
-#: templates/admin/planning_poker/pokersession/change_form.html:7
-msgid "Ticket Backend"
+#: .\templates\planning_poker\base.html:29
+msgid "You are logged in as"
 msgstr ""
 
-#: templates/admin/planning_poker/pokersession/change_form.html:11
-msgid "Search String"
+#: .\templates\planning_poker\base.html:36
+msgid "Admin"
 msgstr ""
 
-#: templates/admin/planning_poker/pokersession/change_form.html:14
-msgid "Search"
+#: .\templates\planning_poker\base.html:40
+msgid "Logout"
 msgstr ""
 
-#: templates/admin/planning_poker/pokersession/change_form.html:17
-msgid "Fetching stories from backend..."
-msgstr ""
-
-#: templates/admin/planning_poker/pokersession/change_form.html:18
-#, python-format
-msgid "Added %%d stories"
-msgstr ""
-
-#: templates/admin/planning_poker/pokersession/change_form.html:19
-msgid "No stories found"
-msgstr ""
-
-#: templates/planning_poker/index.html:6
+#: .\templates\planning_poker\index.html:6
 msgid "Choose your Poker Session"
 msgstr ""
 
-#: templates/planning_poker/index.html:11
+#: .\templates\planning_poker\index.html:11
 msgid "Active Sessions"
 msgstr ""
 
-#: templates/planning_poker/index.html:18
+#: .\templates\planning_poker\index.html:18
 #, python-format
 msgid "%(unpokered_stories)s ticket left to poker"
 msgid_plural "%(unpokered_stories)s tickets left to poker"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/planning_poker/poker_session.html:5
+#: .\templates\planning_poker\poker_session.html:5
 #, python-format
 msgid "Poker Session: %(pokersession)s"
 msgstr ""

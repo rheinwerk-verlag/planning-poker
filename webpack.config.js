@@ -5,7 +5,6 @@ module.exports = {
     mode: 'production',
     entry: {
         'poker-session': './planning_poker/assets/js/poker-session.js',
-        'change-form': './planning_poker/assets/js/change-form.js',
         'header-app': './planning_poker/assets/js/header-app.js',
     },
     output: {

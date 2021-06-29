@@ -2,10 +2,8 @@ import pytest
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission, ContentType
 from django.core.management import call_command
-from django.test import override_settings
 
-from planning_poker.backends.ticket.jira import JiraTicketBackend
-from planning_poker.consumers import PokerConsumer, TicketConsumer
+from planning_poker.consumers import PokerConsumer
 from planning_poker.models import PokerSession, Story
 
 
@@ -36,20 +34,3 @@ def permission(db):
 @pytest.fixture
 def story(db):
     return Story.objects.create(ticket_number='test', title='story', story_points=1, description='description')
-
-
-@pytest.fixture
-def ticket_consumer():
-    return TicketConsumer(scope={})
-
-
-@pytest.fixture()
-@override_settings(TICKET_SYSTEM={
-    'BACKEND': 'test.backend',
-    'API_URL': 'http://test_url',
-    'USERNAME': 'username',
-    'PASSWORD': 'password',
-    'STORY_POINTS_FIELD': 'customfield_1337'
-})
-def jira_ticket_backend():
-    return JiraTicketBackend()

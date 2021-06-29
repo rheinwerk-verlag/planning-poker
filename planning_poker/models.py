@@ -1,8 +1,15 @@
 from collections import defaultdict, OrderedDict
+from typing import Dict, List
+try:
+    # The OrderedDict was added to the typing module in Python version 3.7.
+    # Fall back to the default Dict type in order to provide backwards compatibility for Python 3.6.
+    from typing import OrderedDict as OrderedDictType
+except ImportError:
+    OrderedDictType = Dict
 
 from django.conf import settings
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from .constants import FIBONACCI_CHOICES, ALL_VOTING_OPTIONS
 
@@ -23,7 +30,7 @@ class PokerSession(models.Model):
         verbose_name = _('Poker Session')
         verbose_name_plural = _('Poker Sessions')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -55,16 +62,15 @@ class Story(models.Model):
             ('moderate', 'Is able to moderate a planning_poker session.'),
         ]
 
-    def __str__(self):
+    def __str__(self) -> str:
         if self.title:
             return '{}: {}'.format(self.ticket_number, self.title)
         return self.ticket_number
 
-    def get_votes_with_voter_information(self):
+    def get_votes_with_voter_information(self) -> OrderedDictType[str, List[Dict[str, str]]]:
         """Return a sorted list with each choice + the users who voted for that choice.
 
         :return: A sorted list with each choice + the users who voted for that choice.
-        :rtype: OrderedDict[str, list[dict[str, str]]]
         """
         votes = defaultdict(list)
         for vote in self.votes.select_related('user'):
@@ -99,7 +105,7 @@ class Vote(models.Model):
             models.UniqueConstraint(fields=['story', 'user'], name='A user can only vote once for each story.')
         ]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return _('{user} voted {choice} for story {story}').format(
             user=self.user,
             choice=self.get_choice_display(),

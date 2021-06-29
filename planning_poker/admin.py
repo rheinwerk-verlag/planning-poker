@@ -1,22 +1,12 @@
-from django.conf import settings
+from typing import Any, Callable
+
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
+from django.contrib.admin import ModelAdmin
+from django.db.models import QuerySet
+from django.http import HttpRequest
+from django.utils.translation import gettext_lazy as _
 
-from .backends.ticket import get_ticket_system
 from .models import PokerSession, Story, Vote
-
-
-def send_points_to_backend(modeladmin, request, queryset):
-    """Send the story points for each story in the queryset to the backend.
-
-    :param modeladmin: The current ModelAdmin.
-    :param request: The current HTTP request.
-    :param queryset: Containing the set of stories selected by the user.
-    :return:
-    """
-    backend = get_ticket_system()
-    for story in queryset:
-        backend.set_story_points(story)
 
 
 class DropdownFilter(admin.filters.RelatedFieldListFilter):
@@ -52,12 +42,6 @@ class PokerSessionAdmin(admin.ModelAdmin):
 @admin.register(Story)
 class StoryAdmin(admin.ModelAdmin):
     readonly_fields = ('story_points',)
-    try:
-        settings.TICKET_SYSTEM['BACKEND']
-    except (AttributeError, KeyError):
-        pass
-    else:
-        actions = [send_points_to_backend]
     fieldsets = [
         (None, {'fields': ['ticket_number', 'title', 'description']}),
         (_('Poker Data'), {'fields': ['poker_session', 'story_points']}),
@@ -66,3 +50,17 @@ class StoryAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'story_points', 'poker_session')
     list_filter = [('poker_session', DropdownFilter), 'story_points']
     search_fields = ['ticket_number', 'title', 'poker_session__name']
+
+    @classmethod
+    def add_action(cls, action: Callable[[ModelAdmin, HttpRequest, QuerySet], Any], label: str = None):
+        """Add the given action to the list of admin actions.
+        This could be used by extensions to add story based actions.
+
+        :param action: The action which should be added to the list.
+        :param label: The human readable label which should be used to display the action in the list of actions.
+                      This will be assigned to the action's `short_description` attribute. If omitted, Django will use
+                      the function name and replace the '_' with spaces to display the action in the list.
+        """
+        if label:
+            action.short_description = label
+        cls.actions = [*cls.actions, action]
