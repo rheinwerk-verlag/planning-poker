@@ -53,6 +53,8 @@ class PokerSessionView(LoginLogoutMixin, DetailView):
             'vote': self.request.user.has_perm('planning_poker.vote'),
             'moderate': self.request.user.has_perm('planning_poker.moderate')
         }
+        context['poker_session_end_redirect_url'] = getattr(settings, 'POKER_SESSION_END_REDIRECT_URL',
+                                                            resolve_url('planning_poker:index'))
         return context
 
 

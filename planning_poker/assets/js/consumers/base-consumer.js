@@ -34,4 +34,4 @@ class BaseConsumer {
     }
 }
 
-export default BaseConsumer
+export default BaseConsumer;

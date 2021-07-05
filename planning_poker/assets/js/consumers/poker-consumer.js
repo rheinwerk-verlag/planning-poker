@@ -26,7 +26,7 @@ class PokerConsumer extends BaseConsumer {
 
         //The consumer sends out a heartbeat every 20 seconds to let the server know, that the user is still there.
         setInterval(() => {
-            this.sendMessage('heartbeat')
+            this.sendMessage('heartbeat');
         }, 20 * 1000);
     }
 
@@ -108,9 +108,9 @@ class PokerConsumer extends BaseConsumer {
                 let choice = Object.keys(data.votes).find((vote) => {
                     return data.votes[vote].some((user) => {
                         return user.id === this.userId;
-                    })
+                    });
                 });
-                if (choice != null) {
+                if (choice !== null) {
                     this.app.$refs.voteOptions.removeOption(choice);
                     this.app.$refs.storyDetail.setupOverlay(choice);
                 }
@@ -166,14 +166,12 @@ class PokerConsumer extends BaseConsumer {
     }
 
     /**
-     * End the Poker session by hiding all elements from the poker-container and playing a video.
+     * End the Poker session by redirecting to the path specified by the element with the id
+     * 'poker_session_end_redirect_url'.
      */
     endPokerSession() {
-        let video = this.container.querySelector('.stories-are-gone');
-        this.container.querySelector('.poker-container').style.display = 'none';
-        video.style.display = 'block';
-        video.volume = 0.2;
-        video.play();
+        window.location.pathname = JSON.parse(document.getElementById('poker_session_end_redirect_url')
+            .textContent);
     }
 }
 
