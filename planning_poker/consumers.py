@@ -49,7 +49,7 @@ class PokerConsumer(JsonWebsocketConsumer):
         if self.poker_session.active_story:
             self.send_active_story_information(send_to_group=False)
 
-    def disconnect(self, **kwargs):
+    def disconnect(self, status_code):
         """Remove self from the current group."""
         Room.objects.remove(self.room_group_name, self.channel_name)
 
