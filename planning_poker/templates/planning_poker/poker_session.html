@@ -26,7 +26,6 @@
 {{ request.get_host|json_script:"host" }}
 {{ pokersession.id|json_script:"pokersession-id" }}
 {{ user.id|json_script:"user-id" }}
-{{ poker_session_end_redirect_url|json_script:"poker_session_end_redirect_url" }}
 <script type="text/javascript" src="{% url 'planning_poker:javascript-catalog' %}"></script>
 {% endblock js %}
 

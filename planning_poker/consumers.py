@@ -4,6 +4,8 @@ from typing import Dict
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import JsonWebsocketConsumer
 from channels_presence.models import Presence, Room
+from django.conf import settings
+from django.shortcuts import resolve_url
 from django.utils.functional import cached_property
 
 from .models import Story, PokerSession
@@ -167,7 +169,10 @@ class PokerConsumer(JsonWebsocketConsumer):
         self.poker_session.save()
         self.send_event(
             'poker_session_ended',
-            send_to_group=True
+            send_to_group=True,
+            poker_session_end_redirect_url=resolve_url(
+                getattr(settings, 'POKER_SESSION_END_REDIRECT_URL', 'planning_poker:index')
+            )
         )
 
     def heartbeat_received(self):

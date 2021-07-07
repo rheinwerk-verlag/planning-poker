@@ -80,12 +80,12 @@ class PokerConsumer extends BaseConsumer {
      * @param {object} data Containing the amount of the submitted story points
      */
     storyPointsSubmitted(data) {
-        let storiesOverview = this.app.$refs.storiesOverview
+        let storiesOverview = this.app.$refs.storiesOverview;
         storiesOverview.activeStory.points = (data['story_points']);
         if (storiesOverview.upcomingStories.length > 0) {
             storiesOverview.makeActive(storiesOverview.upcomingStories[0].id);
         } else {
-            this.endPokerSession();
+            this.nextStoryRequested();
         }
     }
 
@@ -166,12 +166,12 @@ class PokerConsumer extends BaseConsumer {
     }
 
     /**
-     * End the Poker session by redirecting to the path specified by the element with the id
-     * 'poker_session_end_redirect_url'.
+     * End the Poker session by redirecting to the path specified by the event data.
+     *
+     * @param {Object} data Containing the path to which the user should be redirected.
      */
-    endPokerSession() {
-        window.location.pathname = JSON.parse(document.getElementById('poker_session_end_redirect_url')
-            .textContent);
+    endPokerSession(data) {
+        window.location.pathname = data['poker_session_end_redirect_url'];
     }
 }
 
