@@ -165,7 +165,7 @@ class TestPokerConsumer:
 
         assert poker_consumer.poker_session.active_story is None
         mock_send_event.assert_called_with('poker_session_ended', send_to_group=True,
-                                           poker_session_end_redirect_url='/poker/')
+                                           poker_session_end_redirect_url='/')
 
     @pytest.mark.django_db
     def test_participants_changed(self, poker_consumer):
