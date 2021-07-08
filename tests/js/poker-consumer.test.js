@@ -20,7 +20,7 @@ describe("PokerConsumer", () => {
     createJSONElement({moderate: false, vote: true}, "permissions");
 
     let pokerConsumer = new PokerConsumer(document.body, 'ws://test', '1');
-    pokerConsumer.websocket.close()
+    pokerConsumer.websocket.close();
 
     Vue.prototype.$t = jest.fn();
     Vue.prototype.$interpolate = jest.fn();
@@ -45,22 +45,35 @@ describe("PokerConsumer", () => {
     const voteOptions = pokerConsumer.app.$refs.voteOptions;
     const voteOverview = pokerConsumer.app.$refs.voteOverview;
 
-    it("sets the points of the current active and changes the active story to the first story in the upcoming stories list", () => {
-        pokerConsumer.storyPointsSubmitted({"story_points": "3"});
-        expect(storiesOverview.activeStory.id).toEqual(1);
-        let lastPreviousStories = storiesOverview.previousStories[storiesOverview.previousStories.length - 1];
-        expect(lastPreviousStories.points).toEqual("3");
-        expect(lastPreviousStories.id).toEqual(1337);
+    describe("sets the points of the currently active story", () => {
+        let mockNextStoryRequested = jest.fn();
+        pokerConsumer.nextStoryRequested = mockNextStoryRequested;
+        it("and changes the active story to the first story in the upcoming stories list", () => {
+            pokerConsumer.storyPointsSubmitted({"story_points": "3"});
+            expect(storiesOverview.activeStory.id).toEqual(1);
+            let lastPreviousStories = storiesOverview.previousStories[storiesOverview.previousStories.length - 1];
+            expect(lastPreviousStories.points).toEqual("3");
+            expect(lastPreviousStories.id).toEqual(1337);
+            expect(mockNextStoryRequested.mock.calls[0]).toEqual([1]);
+        });
+
+        it("and calls nextStoryRequested with no parameters when the list of upcoming stories is empty", () => {
+            storiesOverview.upcomingStories = [];
+            pokerConsumer.storyPointsSubmitted({"story_points": "3"});
+            expect(mockNextStoryRequested.mock.calls[1]).toEqual([]);
+        });
     });
 
     describe("storyChanged", () => {
         it("doesn't remove the user's choice when they haven't voted.", () => {
+            let story = {id: 3, title: "Story 3", description: "<p>Description of Story #3</p>"};
             const data = {
-                id: 3,
-                title: "Story 3",
-                description: "<p>Description of Story #3</p>",
+                id: story.id,
+                title: story.title,
+                description: story.description,
                 votes: {3: [{id: 20, name: "Thorsten"}]}
             };
+            storiesOverview.upcomingStories = [story];
             pokerConsumer.storyChanged(data);
 
             expect(pokerConsumer.storyId).toEqual(3);
@@ -69,12 +82,14 @@ describe("PokerConsumer", () => {
         });
 
         it("removes the user's choice when they have voted.", () => {
+            let story = {id: 2, title: "Story 2", description: "<p>Description of Story #2</p>"};
             const data = {
-                id: 2,
-                title: "Story 2",
-                description: "<p>Description of Story #2</p>",
+                id: story.id,
+                title: story.title,
+                description: story.description,
                 votes: {3: [{id: 1, name: "Thorsten"}]}
             };
+            storiesOverview.upcomingStories = [story];
             pokerConsumer.storyChanged(data);
 
             expect(pokerConsumer.storyId).toEqual(2);
