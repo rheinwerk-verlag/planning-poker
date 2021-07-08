@@ -166,12 +166,12 @@ class PokerConsumer extends BaseConsumer {
     }
 
     /**
-     * End the Poker session by redirecting to the path specified by the event data.
+     * End the Poker session by redirecting to the url specified by the event data.
      *
-     * @param {Object} data Containing the path to which the user should be redirected.
+     * @param {Object} data Containing the url to which the user should be redirected.
      */
     endPokerSession(data) {
-        window.location.pathname = data['poker_session_end_redirect_url'];
+        window.location.assign(data['poker_session_end_redirect_url']);
     }
 }
 
