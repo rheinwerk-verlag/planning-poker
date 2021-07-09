@@ -38,3 +38,5 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels.layers.InMemoryChannelLayer'
     },
 }
+
+POKER_SESSION_END_REDIRECT_URL = 'index'

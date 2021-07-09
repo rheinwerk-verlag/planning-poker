@@ -26,7 +26,7 @@ class PokerConsumer extends BaseConsumer {
 
         //The consumer sends out a heartbeat every 20 seconds to let the server know, that the user is still there.
         setInterval(() => {
-            this.sendMessage('heartbeat')
+            this.sendMessage('heartbeat');
         }, 20 * 1000);
     }
 
@@ -80,12 +80,12 @@ class PokerConsumer extends BaseConsumer {
      * @param {object} data Containing the amount of the submitted story points
      */
     storyPointsSubmitted(data) {
-        let storiesOverview = this.app.$refs.storiesOverview
+        let storiesOverview = this.app.$refs.storiesOverview;
         storiesOverview.activeStory.points = (data['story_points']);
         if (storiesOverview.upcomingStories.length > 0) {
             storiesOverview.makeActive(storiesOverview.upcomingStories[0].id);
         } else {
-            this.endPokerSession();
+            this.nextStoryRequested();
         }
     }
 
@@ -108,9 +108,9 @@ class PokerConsumer extends BaseConsumer {
                 let choice = Object.keys(data.votes).find((vote) => {
                     return data.votes[vote].some((user) => {
                         return user.id === this.userId;
-                    })
+                    });
                 });
-                if (choice != null) {
+                if (choice !== null) {
                     this.app.$refs.voteOptions.removeOption(choice);
                     this.app.$refs.storyDetail.setupOverlay(choice);
                 }
@@ -166,14 +166,12 @@ class PokerConsumer extends BaseConsumer {
     }
 
     /**
-     * End the Poker session by hiding all elements from the poker-container and playing a video.
+     * End the Poker session by redirecting to the url specified by the event data.
+     *
+     * @param {Object} data Containing the url to which the user should be redirected.
      */
-    endPokerSession() {
-        let video = this.container.querySelector('.stories-are-gone');
-        this.container.querySelector('.poker-container').style.display = 'none';
-        video.style.display = 'block';
-        video.volume = 0.2;
-        video.play();
+    endPokerSession(data) {
+        window.location.assign(data['poker_session_end_redirect_url']);
     }
 }
 
