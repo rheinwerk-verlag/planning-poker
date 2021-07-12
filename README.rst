@@ -35,19 +35,21 @@ application.
 Do you have Django installed? Follow these steps `here <https://docs.djangoproject.com/en/3.2/topics/install/>`_ if you
 haven't.
 
-* Have an existing project where you want to include the Planning Poker app or create a new one. ::
+Following these steps will give you a site which you can use to test the Planning Poker App.
+
+#. Have an existing project where you want to include the Planning Poker app or create a new one. ::
 
     $ django-admin startproject planning-poker-site
 
-* Install the app via pip. ::
+#. Install the app via pip. ::
 
     $ pip install planning-poker
 
-* Configure your settings. They are located in `planning-poker-site/settings.py` if you chose to setup a new project.
-  Youl'll find the minimal settings required for the Planning Poker app below. See `configuration` for more ways to
-  customize the application to fit your needs.
+#. Configure your settings. They are located in `planning-poker-site/settings.py` if you chose to setup a new project.
+   Youl'll find the minimal settings required for the Planning Poker app below. See `configuration` for more ways to
+   customize the application to fit your needs.
 
-  .. code-block:: python
+   .. code-block:: python
 
         INSTALLED_APPS = [
             ...
@@ -65,9 +67,9 @@ haven't.
         LOGIN_URL = 'admin:login'
         LOGOUT_URL = 'admin:logout'
 
-* Include `planning-poker`'s URLs in your urls which can be found in `planning-poker-site/urls.py` in the fresh project.
+#. Include `planning-poker`'s URLs in your urls which can be found in `planning-poker-site/urls.py` in the fresh project.
 
-  .. code-block:: python
+   .. code-block:: python
 
     from django.urls import include, path
 
@@ -77,11 +79,11 @@ haven't.
         path('poker/', include('planning_poker.urls')),
     ]
 
-* Run the migrations. ::
+#. Run the migrations. ::
 
     $ python manage.py migrate
 
-* You can now start your server. ::
+#. You can now start your server. ::
 
     $ python manage.py runserver 0.0.0.0:8000
 
