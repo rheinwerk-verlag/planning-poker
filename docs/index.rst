@@ -1,18 +1,14 @@
 Welcome to Planning Poker's documentation!
 ===========================================================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
-   readme
-   install
+   start
    deploy
-   tests
-   api
-   license
-   changelog
+   user_docs/index
+
 
 Indices and tables
 ==================
