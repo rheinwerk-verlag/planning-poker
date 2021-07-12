@@ -7,3 +7,4 @@ User documentation
 
    configuration
    roles
+   user_interface

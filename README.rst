@@ -16,7 +16,7 @@ Features
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
   See `roles` for more information
 
-* 👥 See who participates in your session via a **live updated list of users**.
+* 👥 See who participates in your session via a **live updated list of participants**.
 
   .. figure:: docs/static/participants_overview.gif
      :alt: Live updated list of participants

@@ -7,7 +7,7 @@ Welcome to Planning Poker's documentation!
 
    user_docs/index
 
-.. include:: readme.rst
+.. include:: ../README.rst
 
 Indices and tables
 ==================
