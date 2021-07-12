@@ -44,10 +44,10 @@ haven't.
     $ pip install planning-poker
 
 * Configure your settings. They are located in `planning-poker-site/settings.py` if you chose to setup a new project.
-Youl'll find the minimal settings required for the Planning Poker app below. See `configuration` for more ways to
-customize the application to fit your needs.
+  Youl'll find the minimal settings required for the Planning Poker app below. See `configuration` for more ways to
+  customize the application to fit your needs.
 
-.. code-block:: python
+  .. code-block:: python
 
         INSTALLED_APPS = [
             ...
@@ -67,7 +67,7 @@ customize the application to fit your needs.
 
 * Include `planning-poker`'s URLs in your urls which can be found in `planning-poker-site/urls.py` in the fresh project.
 
-.. code-block:: python
+  .. code-block:: python
 
     from django.urls import include, path
 

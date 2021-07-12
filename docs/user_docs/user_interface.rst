@@ -57,8 +57,20 @@ Votes Overview
 .. figure:: static/votes_overview.png
    :alt: Shows all the voters' votes.
 
+This overview shows which voter voted for what option. These cards are either revealed or face down. A moderator's cards
+are always face up, while a voter's cards are first revealed after they have voted.The options are sorted by the amount
+of votes they got when they are face up. When the cards are face down, the different options are sorted in a random
+order to prevent people from gaming the system.
+
+A moderator can also click on these options in order to set the story points for the currently active story. This is
+probably the most comfortable way for them to set the story points since most of the time the moderator is choosing the
+option with the most votes anyways.
+
 Participants List
 -----------------
 
 .. figure:: static/participants_list.png
    :alt: When hovered over shows a list of all the participants in this poker session.
+
+This small component always shows the amount of participants in the poker session. When moused over, you'll see a list
+of all the participants and their roles.
