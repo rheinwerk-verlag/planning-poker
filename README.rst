@@ -45,9 +45,9 @@ Following these steps will give you a site which you can use to test the Plannin
 
     $ pip install planning-poker
 
-#. Configure your settings. They are located in `planning-poker-site/settings.py` if you chose to setup a new project.
-   Youl'll find the minimal settings required for the Planning Poker app below. See `configuration` for more ways to
-   customize the application to fit your needs.
+#. Configure your settings. They are located in :code:`planning-poker-site/settings.py` if you chose to setup a new
+   project. Youl'll find the minimal settings required for the Planning Poker app below. See :ref:`configuration` for
+   more ways to customize the application to fit your needs.
 
    .. code-block:: python
 
@@ -67,7 +67,8 @@ Following these steps will give you a site which you can use to test the Plannin
         LOGIN_URL = 'admin:login'
         LOGOUT_URL = 'admin:logout'
 
-#. Include `planning-poker`'s URLs in your urls which can be found in `planning-poker-site/urls.py` in the fresh project.
+#. Include :code:`planning-poker`'s URLs in your urls which can be found in :code:`planning-poker-site/urls.py` in the
+   fresh project.
 
    .. code-block:: python
 
@@ -87,4 +88,4 @@ Following these steps will give you a site which you can use to test the Plannin
 
     $ python manage.py runserver 0.0.0.0:8000
 
-See the user `docs` for more information on how to use the Planning Poker app.
+See the user :ref:`user-docs` for more information on how to use the Planning Poker app.

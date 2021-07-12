@@ -1,4 +1,6 @@
-User documentation
+.. _user-docs:
+
+User Documentation
 ==================
 
 .. toctree::

@@ -1,3 +1,5 @@
+.. _configuration:
+
 Configuration
 =============
 The Planning Poker app provides a few options you can set in your settings to customize your experience.
@@ -26,5 +28,5 @@ Optional Settings
 
   .. note::
      If you don't want to change the default value of the :code:`POKER_SESSION_END_REDIRECT_URL` setting, make sure that
-     :code:`'planning_poker:index'` is a valid view name for your project by including :code:`planning_poker.urls` in your
-     :code:`urls.py`
+     :code:`'planning_poker:index'` is a valid view name for your project by including :code:`planning_poker.urls` in
+     your :code:`urls.py`
