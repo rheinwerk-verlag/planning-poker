@@ -4,6 +4,10 @@ The participants of a poker session are separated into two groups: `Voter`_ and 
 different tasks during a poker session and can thus interact with the page differently. A participant can be part of
 both groups at the same time and will behave a little bit differently. See `Voter + Moderator`_ for more information.
 
+.. note::
+   A user with no assigned role can still spectate a poker session and see the current story and the other participants'
+   votes.
+
 Voter
 ------
 The majority of a session's participants are probably Voters. It's their job to discuss and evaluate the scope of story
@@ -31,24 +35,24 @@ A user is considered a Voter + Moderator if they have both the permissions of a 
 Permissions
 -----------
 
-+------------------+-------------------------+-----------+-------------------------+
-|      Action      |          Voter          | Moderator |    Voter + Moderator    |
-+==================+=========================+===========+=========================+
-|                                   Stories List                                   |
-+------------------+-------------------------+-----------+-------------------------+
-|   Choose Story   |            n            |     y     |            y            |
-+------------------+-------------------------+-----------+-------------------------+
-|                                   Current Story                                  |
-+------------------+-------------------------+-----------+-------------------------+
-|  Vote for Points |            y            |     n     |            y            |
-+------------------+-------------------------+-----------+-------------------------+
-| Set Story Points |            n            |     y     |            y            |
-|                  |                         |           | (after they have voted) |
-+------------------+-------------------------+-----------+-------------------------+
-|    Reset Votes   |            n            |     y     |            y            |
-+------------------+-------------------------+-----------+-------------------------+
-|                                  Votes Overview                                  |
-+------------------+-------------------------+-----------+-------------------------+
-|     See Votes    |            y            |     y     |            y            |
-|                  | (after they have voted) |           | (after they have voted) |
-+------------------+-------------------------+-----------+-------------------------+
++------------------+---------+-------------------------+-----------+-------------------------+
+|      Action      | No Role |          Voter          | Moderator |    Voter + Moderator    |
++==================+=========+=========================+===========+=========================+
+|                                        Stories List                                        |
++------------------+---------+-------------------------+-----------+-------------------------+
+|   Choose Story   |    n    |            n            |     y     |            y            |
++------------------+---------+-------------------------+-----------+-------------------------+
+|                                        Current Story                                       |
++------------------+---------+-------------------------+-----------+-------------------------+
+|  Vote for Points |    n    |            y            |     n     |            y            |
++------------------+---------+-------------------------+-----------+-------------------------+
+| Set Story Points |    n    |            n            |     y     |            y            |
+|                  |         |                         |           | (after they have voted) |
++------------------+---------+-------------------------+-----------+-------------------------+
+|    Reset Votes   |    n    |            n            |     y     |            y            |
++------------------+---------+-------------------------+-----------+-------------------------+
+|                                       Votes Overview                                       |
++------------------+---------+-------------------------+-----------+-------------------------+
+|     See Votes    |    y    |            y            |     y     |            y            |
+|                  |         | (after they have voted) |           | (after they have voted) |
++------------------+---------+-------------------------+-----------+-------------------------+
