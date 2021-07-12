@@ -3,26 +3,37 @@ Planning Poker
 
 The idea for the Planning Poker app came to life during the 2020 Covid pandemic with the aim to provide agile teams with
 an easy way to perform their planning poker sessions from the safety of their homes. It was developed with flexibility
-and extensibility in mind. Powered by a Django backend and Vue frontend.
+and extensibility in mind. Powered by a Django backend and frontend written in Vue.js.
 
 Features
 ========
-* 🔍 This app comes with an **easy to use interface** and provides all the necessary data for estimating the scope of your stories on a single page.
+* 🔍 This app comes with an **easy to use interface** and provides all the necessary data for estimating the scope of
+  your stories on a single page.
 
-* 🧑‍💻 The users are separated into **voters** and **moderators** who see and do different things during a session. See `roles` for more information
+  .. figure:: docs/static/ui_overview.png
+     :alt: You can see all the necessary information on a single page
+
+* 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
+  See `roles` for more information
 
 * 👥 See who participates in your session via a **live updated list of users**.
 
-* 🌙 Native **dark mode**
+  .. figure:: docs/static/participants_overview.gif
+     :alt: Live updated list of participants
+
+* 🌙 Native **dark mode**.
+
+  .. figure:: docs/static/dark_mode.png
+     :alt: Natively supported dark mode
 
 
 Quickstart
 ==========
-Do you have Django installed? Follow these steps `here <https://docs.djangoproject.com/en/3.2/topics/install/>`_ if you
-haven't.
-
 Basic understanding of Python and Django is not required but definitely recommended before you start installing this
 application.
+
+Do you have Django installed? Follow these steps `here <https://docs.djangoproject.com/en/3.2/topics/install/>`_ if you
+haven't.
 
 * Have an existing project where you want to include the Planning Poker app or create a new one. ::
 
@@ -32,9 +43,11 @@ application.
 
     $ pip install planning-poker
 
-* Configure your settings. They are located in `planning-poker-site/settings.py` if you chose to setup a new project. Youl'll find the minimal settings required for the Planning Poker app below. See `configuration` for more ways to customize the application to fit your needs.
+* Configure your settings. They are located in `planning-poker-site/settings.py` if you chose to setup a new project.
+Youl'll find the minimal settings required for the Planning Poker app below. See `configuration` for more ways to
+customize the application to fit your needs.
 
-    .. code-block:: python
+.. code-block:: python
 
         INSTALLED_APPS = [
             ...
