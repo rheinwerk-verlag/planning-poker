@@ -6,7 +6,7 @@ an easy way to perform their planning poker sessions from the safety of their ho
 and extensibility in mind. Powered by a Django backend and frontend written in Vue.js.
 
 Features
-========
+--------
 * 🔍 This app comes with an **easy to use interface** and provides all the necessary data for estimating the scope of
   your stories on a single page.
 
@@ -28,7 +28,7 @@ Features
 
 
 Quickstart
-==========
+----------
 Basic understanding of Python and Django is not required but definitely recommended before you start installing this
 application.
 
