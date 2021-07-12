@@ -5,4 +5,5 @@ User documentation
    :maxdepth: 2
    :caption: Contents:
 
+   configuration
    roles
