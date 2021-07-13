@@ -11,7 +11,7 @@ Features
   your stories on a single page.
 
   .. figure:: docs/static/ui_overview.png
-     :width: 100%
+     :width: 75%
      :alt: You can see all the necessary information on a single page
 
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
@@ -26,7 +26,7 @@ Features
 * 🌙 Native **dark mode**.
 
   .. figure:: docs/static/dark_mode.png
-     :width: 100%
+     :width: 75%
      :alt: Natively supported dark mode
 
 
