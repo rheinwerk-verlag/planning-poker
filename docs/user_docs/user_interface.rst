@@ -35,7 +35,7 @@ This list is split up into three parts:
 
 #. **Upcoming Stories**: This shows all the stories which are left in the poker session.
 
-Both the Previous Stores and Upcoming Stories sublists can be expanded/collapsed to show show/hide all of their stories
+Both the Previous Stores and Upcoming Stories sublists can be expanded/collapsed to show/hide all of their stories
 inside.
 
 Voting Options
@@ -46,10 +46,10 @@ Voting Options
 
 These are the options a participant has in order to vote/set the story points for the current story. Clicking on one of
 them as a voter will send the vote to the server and from there to the other participants. These votes will then be
-shown in the `Votes Overview`_. The moderator will not see the two buttons :code:`Too large` and :code:`No idea` since
-they are not valid options for the final story points. Clicking on the cards as a moderator will set the story's points
-to the selected value and set the next unpokered story from the Upcoming Stories list as the new currently active story
-for all participants.
+shown in the `Votes Overview`_ component. The moderator will not see the two buttons :code:`Too large` and
+:code:`No idea` since they are not valid options for the final story points. Clicking on the cards as a moderator will
+set the story's points to the selected value and set the next unpokered story from the Upcoming Stories list as the new
+currently active story for all participants.
 
 Votes Overview
 --------------
@@ -58,8 +58,8 @@ Votes Overview
    :alt: Shows all the voters' votes.
 
 This overview shows which voter voted for what option. These cards are either revealed or face down. A moderator's cards
-are always face up, while a voter's cards are first revealed after they have voted.The options are sorted by the amount
-of votes they got when they are face up. When the cards are face down, the different options are sorted in a random
+are always face up, while a voter's cards are first revealed after they have voted. The options are sorted by the amount
+of votes they have when they are face up. When the cards are face down, the different options are sorted in a random
 order to prevent people from gaming the system.
 
 A moderator can also click on these options in order to set the story points for the currently active story. This is

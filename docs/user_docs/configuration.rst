@@ -24,7 +24,7 @@ Optional Settings
 - :code:`POKER_SESSION_END_REDIRECT_URL` - default :code:`'planning_poker:index'`: This URL will be used to redirect
   users when the last story of a poker session has been pokered and the points are set by a moderator. The value can be
   anything URL-like e.g. a hardcoded string :code:`'https://rheinwerk-verlag.de'`, a view name (like the default value),
-  or the return value of Django's :code:`reverse()`.
+  or the return value of Django's :code:`reverse()` function.
 
   .. note::
      If you don't want to change the default value of the :code:`POKER_SESSION_END_REDIRECT_URL` setting, make sure that

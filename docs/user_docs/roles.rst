@@ -12,18 +12,18 @@ both groups at the same time and will behave a little bit differently. See `Vote
 
 Voter
 ------
-The majority of a session's participants are probably Voters. It's their job to discuss and evaluate the scope of story
-in order to estimate the amount of points it'll take up during a sprint.
+The majority of a session's participants are probably Voters. It's their job to discuss and evaluate the scope of a
+story in order to estimate the amount of points it'll take up during a sprint.
 
-To make an user a voter give them the :code:`Can vote for a story.` permission with the codename :code:`vote`
+To make a user a voter give them the :code:`Can vote for a story.` permission with the codename :code:`vote`
 
 Moderator
 ---------
-The moderator is responsible for administration the current session. They can skip/choose specific stories to match the
+The moderator is responsible for administrating the current session. They can skip/choose specific stories to match the
 flow of the session, reset the votes if the voters deadlocked themselves in a discussion over a draw, and choose the
 final points for a story.
 
-To make an user a moderator give them the :code:`Is able to moderate a planning_poker session.` permission with the
+To make a user a moderator give them the :code:`Is able to moderate a planning_poker session.` permission with the
 codename :code:`moderate`
 
 Voter + Moderator

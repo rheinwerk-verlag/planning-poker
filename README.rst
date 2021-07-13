@@ -23,7 +23,7 @@ Features
      :width: 50%
      :alt: Live updated list of participants
 
-* 🌙 Native **dark mode**.
+* 🌙 Natively supported **dark mode**.
 
   .. figure:: docs/static/dark_mode.png
      :width: 75%
@@ -48,7 +48,7 @@ Following these steps will give you a site which you can use to test the Plannin
 
     $ pip install planning-poker
 
-#. Configure your settings. They are located in :code:`planning-poker-site/settings.py` if you chose to setup a new
+#. Configure your settings. They are located in :code:`planning_poker_site/settings.py` if you chose to setup a new
    project. Youl'll find the minimal settings required for the Planning Poker app below. See :ref:`configuration` for
    more ways to customize the application to fit your needs.
 
@@ -94,7 +94,7 @@ Following these steps will give you a site which you can use to test the Plannin
         'websocket': AuthMiddlewareStack(URLRouter(planning_poker.routing.websocket_urlpatterns)),
     })
 
-#. Include :code:`planning-poker`'s URLs in your urls which can be found in :code:`planning-poker-site/urls.py` in the
+#. Include :code:`planning_poker`'s URLs in your urls which can be found in :code:`planning-poker-site/urls.py` in the
    fresh project.
 
    .. code-block:: python
