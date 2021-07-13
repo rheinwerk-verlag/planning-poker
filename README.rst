@@ -42,7 +42,7 @@ Following these steps will give you a site which you can use to test the Plannin
 
 #. Have an existing project where you want to include the Planning Poker app or create a new one. ::
 
-    $ django-admin startproject planning-poker-site
+    $ django-admin startproject planning_poker_site
 
 #. Install the app via pip. ::
 
@@ -54,10 +54,20 @@ Following these steps will give you a site which you can use to test the Plannin
 
    .. code-block:: python
 
+        import mimetypes
+        import os
+
+        ...
+
         INSTALLED_APPS = [
             ...
+            'django.contrib.humanize',
+            'channels',
+            'channels_presence',
             'planning_poker'
         ]
+
+        ASGI_APPLICATION = 'planning_poker_site.routing.application'
 
         # This is not the optimal channel layer and should not be used for production.
         # See https://channels.readthedocs.io/en/stable/topics/channel_layers.html for an alternative.
@@ -67,17 +77,34 @@ Following these steps will give you a site which you can use to test the Plannin
             }
         }
 
+        mimetypes.add_type('application/javascript', '.js', True)
+
         LOGIN_URL = 'admin:login'
         LOGOUT_URL = 'admin:logout'
+
+#. Create a :code:`routing.py` with the following content.
+
+   .. code-block:: python
+
+    from channels.routing import ProtocolTypeRouter, URLRouter
+    from channels.auth import AuthMiddlewareStack
+    import planning_poker.routing
+
+    application = ProtocolTypeRouter({
+        'websocket': AuthMiddlewareStack(URLRouter(planning_poker.routing.websocket_urlpatterns)),
+    })
 
 #. Include :code:`planning-poker`'s URLs in your urls which can be found in :code:`planning-poker-site/urls.py` in the
    fresh project.
 
    .. code-block:: python
 
+    from django.contrib import admin
     from django.urls import include, path
+    from django.views.generic.base import RedirectView
 
     urlpatterns = [
+        path('admin/', admin.site.urls),
         # The first entry isn't needed but nice to have if the sole purpose of this project is serving the Planning Poker app.
         path('', RedirectView.as_view(pattern_name='planning_poker:index'), name='redirect_to_poker_index'),
         path('poker/', include('planning_poker.urls')),
