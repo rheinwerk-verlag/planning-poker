@@ -1,5 +1,5 @@
 Planning Poker
-================================
+==============
 
 The idea for the Planning Poker app came to life during the 2020 Covid pandemic with the aim to provide agile teams with
 an easy way to perform their planning poker sessions from the safety of their homes. It was developed with flexibility
@@ -11,6 +11,7 @@ Features
   your stories on a single page.
 
   .. figure:: docs/static/ui_overview.png
+     :width: 100%
      :alt: You can see all the necessary information on a single page
 
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
@@ -19,11 +20,13 @@ Features
 * 👥 See who participates in your session via a **live updated list of participants**.
 
   .. figure:: docs/static/participants_overview.gif
+     :width: 50%
      :alt: Live updated list of participants
 
 * 🌙 Native **dark mode**.
 
   .. figure:: docs/static/dark_mode.png
+     :width: 100%
      :alt: Natively supported dark mode
 
 

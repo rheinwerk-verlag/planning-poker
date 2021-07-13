@@ -6,7 +6,7 @@ roles of the user.
 Current Story
 -------------
 
-.. figure:: static/current_story.png
+.. figure:: /static/current_story.png
    :alt: The component showing the title and the description of the currently active story.
 
 This is the main component of the poker session view. This component shows the title and the description of the
@@ -20,7 +20,7 @@ estimation of the story's points.
 Stories Overview
 ----------------
 
-.. figure:: static/stories_overview.png
+.. figure:: /static/stories_overview.png
    :alt: A list of the stories which are a part of this poker session.
 
 This is a list of all the stories in the poker session. Any stories which already have their points estimated are marked
@@ -41,7 +41,7 @@ inside.
 Voting Options
 --------------
 
-.. figure:: static/voting_options.png
+.. figure:: /static/voting_options.png
    :alt: The options a participant has to vote for the current story.
 
 These are the options a participant has in order to vote/set the story points for the current story. Clicking on one of
@@ -54,7 +54,7 @@ for all participants.
 Votes Overview
 --------------
 
-.. figure:: static/votes_overview.png
+.. figure:: /static/votes_overview.png
    :alt: Shows all the voters' votes.
 
 This overview shows which voter voted for what option. These cards are either revealed or face down. A moderator's cards
@@ -69,7 +69,7 @@ option with the most votes anyways.
 Participants List
 -----------------
 
-.. figure:: static/participants_list.png
+.. figure:: /static/participants_list.png
    :alt: When hovered over shows a list of all the participants in this poker session.
 
 This small component always shows the amount of participants in the poker session. When moused over, you'll see a list
