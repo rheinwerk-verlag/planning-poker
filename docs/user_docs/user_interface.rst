@@ -47,11 +47,12 @@ Voting Options
 These are the options a participant has in order to vote/set the story points for the current story. Clicking on one of
 them as a voter will send the vote to the server and from there to the other participants. These votes will then be
 shown in the `Votes Overview`_ component. The moderator will not see the two buttons ``Too large`` and ``No idea`` since
-they are not valid options for the final story points, unless they are also a voter (see :ref:`Voter + Moderator`).
-Clicking on the cards as a moderator will set the story's points to the selected value and set the next unpokered story
-from the Upcoming Stories list as the new currently active story for all participants. Being a voter and moderator at
-the same time means that this component serves two functionalities. The first time it is clicked will count as a vote.
-The second time however will only show the numbered cards and a click sets the final story points.
+they are not valid options for the final story points, unless they are also a voter (see
+:ref:`user_docs/roles:Voter + Moderator`). Clicking on the cards as a moderator will set the story's points to the
+selected value and set the next unpokered story from the Upcoming Stories list as the new currently active story for all
+participants. Being a voter and moderator at the same time means that this component serves two functionalities.
+The first time it is clicked will count as a vote. The second time however will only show the numbered cards and a click
+sets the final story points.
 
 Any spectators do not see this component.
 
@@ -62,9 +63,9 @@ Votes Overview
    :alt: Shows all the voters' votes.
 
 This overview shows which voter voted for what option. These cards are either revealed or face down. Any voters (this
-includes :ref:`Voter + Moderator`) will only see the votes *after* they have voted. Any non-voters will always see the
-cards face up. The options are sorted by the amount of votes they have when they are face up. When the cards are face
-down, the different options are sorted in a random order to prevent people from gaming the system.
+includes :ref:`user_docs/roles:Voter + Moderator`) will only see the votes *after* they have voted. Any non-voters will
+always see the cards face up. The options are sorted by the amount of votes they have when they are face up. When the
+cards are face down, the different options are sorted in a random order to prevent people from gaming the system.
 
 A moderator can also click on these options in order to set the story points for the currently active story. This is
 probably the most comfortable way for them to set the story points since most of the time the moderator is choosing the

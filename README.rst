@@ -15,7 +15,7 @@ Features
      :alt: You can see all the necessary information on a single page
 
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
-  See :ref:`roles` for more information.
+  See :ref:`user_docs/roles:Roles` for more information.
 
 * 👥 See who participates in your session via a **live updated list of participants**.
 
@@ -49,8 +49,8 @@ Following these steps will give you a site which you can use to test the Plannin
     $ pip install planning-poker
 
 #. Configure your settings. They are located in ``planning_poker_site/settings.py`` if you chose to setup a new
-   project. You'll find the minimal settings required for the Planning Poker app below. See :ref:`configuration` for
-   more ways to customize the application to fit your needs.
+   project. You'll find the minimal settings required for the Planning Poker app below. See
+   :ref:`user_docs/configuration:Configuration` for more ways to customize the application to fit your needs.
 
    .. code-block:: python
 
@@ -118,4 +118,4 @@ Following these steps will give you a site which you can use to test the Plannin
 
     $ python manage.py runserver 0.0.0.0:8000
 
-See the user :ref:`user-docs` for more information on how to use the Planning Poker app.
+See the :ref:`user_docs/index:User Documentation` for more information on how to use the Planning Poker app.
