@@ -88,7 +88,6 @@ STATICFILES_FINDERS = (
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-mimetypes.add_type('application/javascript', '.js', True)
 
 # Please note, that the in-memory layer should not be used in production.
 # Instead install and use the channels-redis layers backend.

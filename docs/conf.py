@@ -15,6 +15,9 @@
 import sys
 import os
 
+from docutils import nodes
+from sphinx.transforms import SphinxTransform
+
 # If extensions (or modules to document with autodoc) are in another
 # directory, add these directories to sys.path here. If the directory is
 # relative to the documentation root, use os.path.abspath to make it
@@ -283,3 +286,17 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+
+class ReadmeImagePathTransform(SphinxTransform):
+    default_priority = 409
+
+    def apply(self, **kwargs):
+        for node in self.document.traverse(nodes.image):
+            if 'README.rst' in node.source:
+                uri = node.attributes['uri']
+                node.attributes['uri'] = uri[uri.rfind('static'):]
+
+
+def setup(app):
+    app.add_transform(ReadmeImagePathTransform)

@@ -10,7 +10,7 @@ Features
 * 🔍 This app comes with an **easy-to-use interface** and provides all the necessary data for estimating the scope of
   your stories on a single page.
 
-  .. figure:: https://gitlab.intern.rheinwerk.de/rheinwerk/planning-poker/-/raw/development/docs/static/ui_overview.png
+  .. figure:: docs/static/ui_overview.png
      :width: 100%
      :alt: You can see all the necessary information on a single page
 
@@ -19,13 +19,13 @@ Features
 
 * 👥 See who participates in your session via a **live updated list of participants**.
 
-  .. figure:: https://gitlab.intern.rheinwerk.de/rheinwerk/planning-poker/-/raw/development/docs/static/participants_overview.gif
+  .. figure:: docs/static/participants_overview.gif
      :width: 50%
      :alt: Live updated list of participants
 
 * 🌙 Natively supported **dark mode**.
 
-  .. figure:: https://gitlab.intern.rheinwerk.de/rheinwerk/planning-poker/-/raw/development/docs/static/dark_mode.png
+  .. figure:: docs/static/dark_mode.png
      :width: 100%
      :alt: Natively supported dark mode
 
@@ -54,7 +54,6 @@ Following these steps will give you a site which you can use to test the Plannin
 
    .. code-block:: python
 
-        import mimetypes
         import os
 
         ...
@@ -76,8 +75,6 @@ Following these steps will give you a site which you can use to test the Plannin
                 'BACKEND': 'channels.layers.InMemoryChannelLayer'
             }
         }
-
-        mimetypes.add_type('application/javascript', '.js', True)
 
         LOGIN_URL = 'admin:login'
         LOGOUT_URL = 'admin:logout'
