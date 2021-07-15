@@ -3,11 +3,11 @@ Planning Poker
 
 The idea for the Planning Poker app came to life during the 2020 Covid pandemic with the aim to provide agile teams with
 an easy way to perform their planning poker sessions from the safety of their homes. It was developed with flexibility
-and extensibility in mind. Powered by a Django backend and frontend written in Vue.js.
+and extensibility in mind. Powered by a Django backend and a frontend written in Vue.js.
 
 Features
 --------
-* 🔍 This app comes with an **easy to use interface** and provides all the necessary data for estimating the scope of
+* 🔍 This app comes with an **easy-to-use interface** and provides all the necessary data for estimating the scope of
   your stories on a single page.
 
   .. figure:: docs/static/ui_overview.png
@@ -15,7 +15,7 @@ Features
      :alt: You can see all the necessary information on a single page
 
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
-  See :ref:`roles` for more information
+  See :ref:`roles` for more information.
 
 * 👥 See who participates in your session via a **live updated list of participants**.
 
@@ -35,8 +35,8 @@ Quickstart
 Basic understanding of Python and Django is not required but definitely recommended before you start installing this
 application.
 
-Do you have Django installed? Follow these steps `here <https://docs.djangoproject.com/en/3.2/topics/install/>`_ if you
-haven't.
+Do you have Django installed? Follow these steps `here <https://docs.djangoproject.com/en/stable/topics/install/>`_ if
+you haven't.
 
 Following these steps will give you a site which you can use to test the Planning Poker App.
 
@@ -48,8 +48,8 @@ Following these steps will give you a site which you can use to test the Plannin
 
     $ pip install planning-poker
 
-#. Configure your settings. They are located in :code:`planning_poker_site/settings.py` if you chose to setup a new
-   project. Youl'll find the minimal settings required for the Planning Poker app below. See :ref:`configuration` for
+#. Configure your settings. They are located in ``planning_poker_site/settings.py`` if you chose to setup a new
+   project. You'll find the minimal settings required for the Planning Poker app below. See :ref:`configuration` for
    more ways to customize the application to fit your needs.
 
    .. code-block:: python
@@ -82,7 +82,7 @@ Following these steps will give you a site which you can use to test the Plannin
         LOGIN_URL = 'admin:login'
         LOGOUT_URL = 'admin:logout'
 
-#. Create a :code:`routing.py` with the following content.
+#. Create a ``routing.py`` with the following content.
 
    .. code-block:: python
 
@@ -94,7 +94,7 @@ Following these steps will give you a site which you can use to test the Plannin
         'websocket': AuthMiddlewareStack(URLRouter(planning_poker.routing.websocket_urlpatterns)),
     })
 
-#. Include :code:`planning_poker`'s URLs in your urls which can be found in :code:`planning-poker-site/urls.py` in the
+#. Include ``planning_poker``'s URLs in your urls which can be found in ``planning-poker-site/urls.py`` in the
    fresh project.
 
    .. code-block:: python

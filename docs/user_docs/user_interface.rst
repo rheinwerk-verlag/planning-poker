@@ -46,10 +46,10 @@ Voting Options
 
 These are the options a participant has in order to vote/set the story points for the current story. Clicking on one of
 them as a voter will send the vote to the server and from there to the other participants. These votes will then be
-shown in the `Votes Overview`_ component. The moderator will not see the two buttons :code:`Too large` and
-:code:`No idea` since they are not valid options for the final story points. Clicking on the cards as a moderator will
-set the story's points to the selected value and set the next unpokered story from the Upcoming Stories list as the new
-currently active story for all participants.
+shown in the `Votes Overview`_ component. The moderator will not see the two buttons ``Too large`` and ``No idea`` since
+they are not valid options for the final story points. Clicking on the cards as a moderator will set the story's points
+to the selected value and set the next unpokered story from the Upcoming Stories list as the new currently active story
+for all participants.
 
 Votes Overview
 --------------
