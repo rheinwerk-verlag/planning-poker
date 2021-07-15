@@ -61,8 +61,8 @@ Votes Overview
 .. figure:: /static/votes_overview.png
    :alt: Shows all the voters' votes.
 
-This overview shows which voter voted for what option. These cards are either revealed or face down. Any voter (this
-includes :ref:`Voter + Moderator`) will only see the votes *after* they have voted. Any non-voter will always see the
+This overview shows which voter voted for what option. These cards are either revealed or face down. Any voters (this
+includes :ref:`Voter + Moderator`) will only see the votes *after* they have voted. Any non-voters will always see the
 cards face up. The options are sorted by the amount of votes they have when they are face up. When the cards are face
 down, the different options are sorted in a random order to prevent people from gaming the system.
 
