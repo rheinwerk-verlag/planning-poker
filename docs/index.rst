@@ -5,9 +5,8 @@ Welcome to Planning Poker's documentation!
    :maxdepth: 2
    :caption: Contents
 
+   readme
    user_docs/index
-
-.. include:: ../README.rst
 
 Indices and tables
 ==================
