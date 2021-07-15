@@ -1,5 +1,3 @@
-.. _configuration:
-
 Configuration
 =============
 The Planning Poker app provides a few options you can set in your settings to customize your experience.

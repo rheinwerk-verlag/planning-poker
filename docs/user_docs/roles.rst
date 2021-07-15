@@ -1,5 +1,3 @@
-.. _roles:
-
 Roles
 =====
 The participants of a poker session are separated into two groups: `Voter`_ and `Moderator`_. Both these groups perform
