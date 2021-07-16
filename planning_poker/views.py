@@ -16,7 +16,7 @@ class LoginLogoutMixin(LoginRequiredMixin):
 
     def get_logout_url(self) -> str:
         """
-        Override this method to override the logout_url attribute.
+        Override this method to override the way the logout url is determined.
         """
         logout_url = self.logout_url or getattr(settings, 'LOGOUT_URL', None)
         if not logout_url:
