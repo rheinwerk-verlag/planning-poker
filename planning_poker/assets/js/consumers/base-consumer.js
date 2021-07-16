@@ -1,4 +1,11 @@
 class BaseConsumer {
+
+    /**
+     * Construct a BaseConsumer with the given parameters.
+     *
+     * @param {Element} container A DOM element containing all other needed elements.
+     * @param {string} websocketURL The url to the websocket to which should be connected.
+     */
     constructor(container, websocketURL) {
         let consumer = this;
         this.container = container;

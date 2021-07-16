@@ -30,9 +30,18 @@ Server-Side
 Client-Side
 -----------
 
-The PokerConsumer on the client-side functions similarly to the consumer on the server-side. The same things that were
-said about the server-side consumer also apply to the client-side consumer. Use ``sendEvent`` to send an event to the
-server and expand ``this.commands`` to respond to custom events.
+.. js:autoclass:: BaseConsumer
+   :members:
+
+   The ``BaseConsumer`` and its subclasses on the client-side function similarly to the ``PokerConsumer`` on
+   the server-side. The same things that were said about the server-side consumer also apply to the client-side
+   consumers. Use ``sendEvent`` to send an event to the server and expand ``this.commands`` to respond to custom events.
+
+   .. attribute:: commands
+      :type: Object
+
+      This Object has the event names as attributes and their corresponding value are the function which should be used
+      to handle the data. The data object will be passed as an argument to the handler function.
 
 .. js:autoclass:: PokerConsumer
    :members:
