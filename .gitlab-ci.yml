@@ -1,3 +1,7 @@
+include:
+    - project: "rheinwerk/gitlab-ci-job-templates"
+      file: "pages.yml"
+
 .test: &test
   stage: test
   script:
@@ -27,21 +31,11 @@ test:js:
 
 
 pages:
-  stage: deploy
-  script:
-    - pip install -r requirements/dev.txt
-    - pip install "Django>=3.0,<3.1"
-    - cd docs
-    - make html
-    - cd ..
-    - mv docs/_build/html/ public
-  artifacts:
-    paths:
-      - public
+  extends: .pages-python-3
+  variables:
+    EXTRA_BEFORE_SCRIPT: "apt-get update -qq; apt-get install nodejs npm; npm install"
   tags:
     - python38
-  only:
-    - development
 
 publish:
   stage: deploy
