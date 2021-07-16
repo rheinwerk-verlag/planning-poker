@@ -7,6 +7,7 @@ Welcome to Planning Poker's documentation!
 
    readme
    user_docs/index
+   dev_docs/index
    changelog
 
 Indices and tables
