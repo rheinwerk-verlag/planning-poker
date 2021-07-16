@@ -288,15 +288,15 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 
-class ReadmeImagePathTransform(SphinxTransform):
+class RepoImagePathTransform(SphinxTransform):
     default_priority = 409
 
     def apply(self, **kwargs):
         for node in self.document.traverse(nodes.image):
-            if 'README.rst' in node.source:
-                uri = node.attributes['uri']
-                node.attributes['uri'] = uri[uri.rfind('static'):]
+            uri = node.attributes['uri']
+            if uri.startswith('docs/'):
+                node.attributes['uri'] = uri[5:]
 
 
 def setup(app):
-    app.add_transform(ReadmeImagePathTransform)
+    app.add_transform(RepoImagePathTransform)
