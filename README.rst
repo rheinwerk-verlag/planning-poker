@@ -54,8 +54,6 @@ Following these steps will give you a site which you can use to test the Plannin
 
    .. code-block:: python
 
-        import os
-
         ...
 
         INSTALLED_APPS = [
