@@ -35,7 +35,7 @@ This list is split up into three parts:
 
 #. **Upcoming Stories**: This shows all the stories which are left in the poker session.
 
-Both the Previous Stores and Upcoming Stories sublists can be expanded/collapsed to show/hide all of their stories
+Both the Previous Stories and Upcoming Stories sublists can be expanded/collapsed to show/hide all of their stories
 inside.
 
 Voting Options
