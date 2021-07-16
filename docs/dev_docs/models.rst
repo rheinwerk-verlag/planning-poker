@@ -65,6 +65,6 @@ Models
       The user who casted this vote.
 
    .. attribute:: choice
-      :type: django.db.models.ChoiceField
+      :type: django.db.models.CharField
 
       The option which was voted for. See :ref:`dev_docs/constants:All Voting Options` for all possible values.
