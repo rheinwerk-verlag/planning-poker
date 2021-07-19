@@ -10,7 +10,6 @@ Developer Documentation
    models
    views
    constants
-   components
 
 Development
 -----------
