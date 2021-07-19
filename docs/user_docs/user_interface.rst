@@ -46,15 +46,18 @@ Voting Options
 
 These are the options a participant has in order to vote/set the story points for the current story. Clicking on one of
 them as a voter will send the vote to the server and from there to the other participants. These votes will then be
-shown in the `Votes Overview`_ component. The moderator will not see the two buttons ``Too large`` and ``No idea`` since
-they are not valid options for the final story points, unless they are also a voter (see
-:ref:`user_docs/roles:Voter + Moderator`). Clicking on the cards as a moderator will set the story's points to the
-selected value and set the next unpokered story from the Upcoming Stories list as the new currently active story for all
-participants. Being a voter and moderator at the same time means that this component serves two functionalities.
-The first time it is clicked will count as a vote. The second time however will only show the numbered cards and a click
-sets the final story points.
+shown in the `Votes Overview`_ component.
 
-Any spectators do not see this component.
+Moderators will not see the two buttons ``Too large`` and ``No idea`` since they are not valid options for the final
+story points, unless they are also a voter (see :ref:`user_docs/roles:Voter + Moderator`). Clicking on the cards as a
+moderator will set the story's points to the selected value and set the next unpokered story from the Upcoming Stories
+list as the new currently active story for all participants.
+
+Being a voter and moderator at the same time means that this component serves two functionalities. The first time it is
+clicked will count as a vote. The second time however will only show the numbered cards and a click sets the final story
+points.
+
+Spectators do not see this component.
 
 Votes Overview
 --------------

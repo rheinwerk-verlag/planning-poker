@@ -4,7 +4,7 @@ The participants of a poker session are separated into two groups: `Voter`_ and 
 different tasks during a poker session and can thus interact with the page differently. A participant can be part of
 both groups at the same time and will behave a little bit differently. See `Voter + Moderator`_ for more information.
 
-To make a user part of a group give them the corresponding permission in the Django admin. Which permission is required
+To make a user part of a group, give them the corresponding permission in the Django admin. Which permission is required
 for a specific group is explained in the following two sections.
 
 .. note::
