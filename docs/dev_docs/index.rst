@@ -20,5 +20,5 @@ functionality, you should consider writing an extension app. Feel free and see t
 `Jira extension <https://github.com/rheinwerk-verlag/planning-poker-jira>`_ for inspiration on how to design your
 extension.
 
-One thing that might be special is that the Django backend can communicate with the users' clients via websockets
-provided by `Django Channels <https://channels.readthedocs.io/en/stable/>`_.
+One thing that might be special in this project is that the Django backend can communicate with the users' clients via
+websockets provided by `Django Channels <https://channels.readthedocs.io/en/stable/>`_.

@@ -25,7 +25,8 @@ Models
    .. attribute:: story_points
       :type: django.db.models.PositiveSmallIntegerField
 
-      The estimated story points. The possible values are :ref:`dev_docs/constants:Fibonacci Choices` and ``None``.
+      The estimated story points. The value is either an element of :ref:`dev_docs/constants:Fibonacci Choices` or
+      ``None``.
 
    .. attribute:: poker_session
       :type: django.db.models.ForeignKey
