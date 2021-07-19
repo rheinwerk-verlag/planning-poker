@@ -28,6 +28,9 @@ Server-Side
          ``user.has_perm(required_permission)`` to see whether they are allowed to respond to the event or ``None`` if
          no permission is required.
 
+Constants
+^^^^^^^^^
+
 The ``consumers.py`` module also provides two constants which you can use for the ``command``'s ``required_permission``
 option to make sure that the user is either a :ref:`user_docs/roles:Voter` or a :ref:`user_docs/roles:Moderator`. The
 constants are:

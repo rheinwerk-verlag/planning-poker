@@ -1,5 +1,8 @@
 Admin
 =====
+
+.. automodule:: planning_poker.admin
+
 .. autoclass:: planning_poker.admin.StoryAdmin
    :members:
 

@@ -69,6 +69,8 @@ intersphinx_mapping = {
                'https://docs.djangoproject.com/en/3.0/_objects/'),
 }
 
+autodoc_member_order = 'bysource'
+
 add_module_names = False
 
 # Add any paths that contain templates here, relative to this directory.

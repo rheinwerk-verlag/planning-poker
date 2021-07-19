@@ -1,6 +1,8 @@
 Models
 ======
 
+.. automodule:: planning_poker.models
+
 .. autoclass:: planning_poker.models.Story
    :members:
    :exclude-members: DoesNotExist, MultipleObjectsReturned
