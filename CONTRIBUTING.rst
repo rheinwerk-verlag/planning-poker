@@ -14,7 +14,7 @@ Making changes
 --------------
 
 Create a fork of this repository and follow the steps in the :ref:`readme:Quickstart` guide included in the readme file
-in order to get a system.
+in order to get a running system.
 
 Coding style
 ^^^^^^^^^^^^
