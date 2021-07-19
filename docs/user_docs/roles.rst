@@ -12,7 +12,7 @@ for a specific group is explained in the following two sections.
    votes.
 
 Voter
-------
+-----
 The majority of a session's participants are probably voters. It's their job to discuss and evaluate the scope of a
 story in order to estimate the amount of points it'll take up during a sprint.
 
