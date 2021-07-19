@@ -1,85 +1,116 @@
 Planning Poker
-================================
+==============
 
-A Django app which allows teams to perform a remote planning poker session
+The idea for the Planning Poker app came to life during the 2020 Covid pandemic with the aim to provide agile teams with
+an easy way to perform their planning poker sessions from the safety of their homes. It was developed with flexibility
+and extensibility in mind. Powered by a Django backend and a frontend written in Vue.js.
+
+Features
+--------
+* 🔍 This app comes with an **easy-to-use interface** and provides all the necessary data for estimating the scope of
+  your stories on a single page.
+
+  .. figure:: docs/static/ui_overview.png
+     :width: 100%
+     :alt: You can see all the necessary information on a single page
+
+* 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
+  See :ref:`user_docs/roles:Roles` for more information.
+
+* 👥 See who participates in your session via a **live updated list of participants**.
+
+  .. figure:: docs/static/participants_overview.gif
+     :width: 50%
+     :alt: Live updated list of participants
+
+* 🌙 Natively supported **dark mode**.
+
+  .. figure:: docs/static/dark_mode.png
+     :width: 100%
+     :alt: Natively supported dark mode
+
 
 Quickstart
 ----------
+Basic understanding of Python and Django is not required but definitely recommended before you start installing this
+application.
 
-Clone repo::
+Do you have Django installed? Follow these steps `here <https://docs.djangoproject.com/en/stable/topics/install/>`_ if
+you haven't.
 
-    $ git clone git@gitlab.intern.rheinwerk.de:rheinwerk/planning-poker
-    $ cd planning-poker
+Following these steps will give you a site which you can use to test the Planning Poker App.
 
-Install tox, either system-wide via your distribution's package manager,
-e.g. on debian/Ubuntu with::
+#. Have an existing project where you want to include the Planning Poker app or create a new one. ::
 
-    $ sudo apt-get install python-tox
+    $ django-admin startproject planning_poker_site
 
-... or create a virtualenv and install tox into it::
+#. Install the app via pip. ::
 
-    $ mkvirtualenv planning-poker
-    (planning-poker)$ pip install tox
+    $ pip install planning-poker
 
-Run the tests with the default Python version::
+#. Configure your settings. They are located in ``planning_poker_site/settings.py`` if you chose to setup a new
+   project. You'll find the minimal settings required for the Planning Poker app below. See
+   :ref:`user_docs/configuration:Configuration` for more ways to customize the application to fit your needs.
 
-    $ py.test -v tests/
+   .. code-block:: python
 
-or::
+        ...
 
-    $ make test
+        INSTALLED_APPS = [
+            ...
+            'django.contrib.humanize',
+            'channels',
+            'channels_presence',
+            'planning_poker'
+        ]
 
-Run the tests via tox for all Python versions configured in ``tox.ini``::
+        ASGI_APPLICATION = 'planning_poker_site.routing.application'
 
-    $ tox
+        # This is not the optimal channel layer and should not be used for production.
+        # See https://channels.readthedocs.io/en/stable/topics/channel_layers.html for an alternative.
+        CHANNEL_LAYERS = {
+            'default': {
+                'BACKEND': 'channels.layers.InMemoryChannelLayer'
+            }
+        }
 
-To see all available make target just run ``make`` without arguments.
+        LOGIN_URL = 'admin:login'
+        LOGOUT_URL = 'admin:logout'
 
-NodeJS and npm are required to package the app.
-In order to install all javascript requirements run::
+#. Create a ``routing.py`` with the following content.
 
-    $ npm install
+   .. code-block:: python
 
-Code Quality Assurance
-----------------------
+    from channels.routing import ProtocolTypeRouter, URLRouter
+    from channels.auth import AuthMiddlewareStack
+    import planning_poker.routing
 
-The included Makefile is set up to run several Python static code
-checking and reporting tools. To print a list of available Makefile
-targets and the tools they run, simple run::
+    application = ProtocolTypeRouter({
+        'websocket': AuthMiddlewareStack(URLRouter(planning_poker.routing.websocket_urlpatterns)),
+    })
 
-    $ make
+#. Include ``planning_poker``'s URLs in your urls which can be found in ``planning-poker-site/urls.py`` in the
+   fresh project.
 
-Unless noted otherwise, these targets run all tools directly, i.e.
-without tox, which means they need to be installed in your Python
-environment, preferably in a project-specific virtual environment.
-To create a virtual environment with Python 3 (you may have to
-install the package ``python3-virtualenv`` first) run::
+   .. code-block:: python
 
-    $ python3 -m venv planning-poker
+    from django.contrib import admin
+    from django.urls import include, path
+    from django.views.generic.base import RedirectView
 
-Or with Python 2 (you may have to install the packages ``virtualenv``
-and ``virtualenvwrapper``) run::
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        # The first entry isn't needed but nice to have if the sole purpose of this project is serving the Planning Poker app.
+        path('', RedirectView.as_view(pattern_name='planning_poker:index'), name='redirect_to_poker_index'),
+        path('poker/', include('planning_poker.urls')),
+    ]
 
-    $ mkvirtualenv planning-poker --python=python3.5
+#. Run the migrations. ::
 
-and to install all supported tools and their dependencies run::
+    $ python manage.py migrate
 
-    (planning-poker)$ pip install -r requirements/dev.txt
+#. You can now start your server. ::
 
-Then run the Makefile target of your choice, e.g.::
+    $ python manage.py runserver 0.0.0.0:8000
 
-    $ make flake8
-
-Documentation
--------------
-
-Package documentation is generated by Sphinx. The documentation can be build
-with::
-
-    $ make docs
-
-After a successful build the documentation index is opened in your web browser.
-You can override the command to open the browser (default ``xdg-open``) with
-the ``BROWSER`` make variable, e.g.::
-
-    $ make BROWSER=chromium-browser docs
+See the :ref:`user_docs/index:User Documentation` for more information on how to use the Planning Poker app.

@@ -15,7 +15,8 @@
 import sys
 import os
 
-from recommonmark.parser import CommonMarkParser
+from docutils import nodes
+from sphinx.transforms import SphinxTransform
 
 # If extensions (or modules to document with autodoc) are in another
 # directory, add these directories to sys.path here. If the directory is
@@ -50,17 +51,15 @@ exec(open(os.path.join(project_root, 'planning_poker', 'version.py')).read(), {}
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx', 'sphinx.ext.viewcode']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosectionlabel', 'sphinx.ext.intersphinx', 'sphinx.ext.viewcode']
+
+autosectionlabel_prefix_document = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-source_parsers = {
-    '.md': CommonMarkParser,
-}
-
 # The suffix of source filenames.
-source_suffix = ['.rst', '.md']
+source_suffix = ['.rst']
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -287,3 +286,22 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+
+class RepoImagePathTransform(SphinxTransform):
+    """Remove the leading 'docs/' directory where possible from all image URIs.
+    The relative paths of the images in the 'README.rst' all start with the 'docs' directory in order to show them
+    on the repository overview page. Since the same readme file should also be used inside the docs, the directory has
+    to be removed from the paths when building the docs.
+    """
+    default_priority = 409
+
+    def apply(self, **kwargs):
+        for node in self.document.traverse(nodes.image):
+            uri = node.attributes['uri']
+            if uri.startswith('docs/'):
+                node.attributes['uri'] = uri[5:]
+
+
+def setup(app):
+    app.add_transform(RepoImagePathTransform)

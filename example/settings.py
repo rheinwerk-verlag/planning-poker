@@ -1,5 +1,4 @@
 # Django settings for example project.
-import mimetypes
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -88,7 +87,6 @@ STATICFILES_FINDERS = (
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-mimetypes.add_type('application/javascript', '.js', True)
 
 # Please note, that the in-memory layer should not be used in production.
 # Instead install and use the channels-redis layers backend.
