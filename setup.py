@@ -48,7 +48,7 @@ def run_wrapper(self):
     """
     self.announce("Creating the javascript bundle file...", level=distutils.log.INFO)
     return_code = subprocess.call(['npm', 'run', 'build'])
-    if return_code is not 0:
+    if return_code != 0:
         msg = "Error creating the javascript bundle file. Command exited with return code {}".format(return_code)
         self.announce(msg, level=distutils.log.ERROR)
         raise RuntimeError(msg)
