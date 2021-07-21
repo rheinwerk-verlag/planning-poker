@@ -11,6 +11,7 @@ Developer Documentation
    views
    presence
    constants
+   setup
 
 Development
 -----------

@@ -13,8 +13,8 @@ one else has reported it yet.
 Making changes
 --------------
 
-Create a fork of this repository and follow the steps in the :ref:`readme:Quickstart` guide included in the readme file
-in order to get a running system.
+Create a fork of this repository and follow the steps in the :ref:`dev_docs/setup:Development Setup` guide included in
+order to get a running system.
 
 Coding style
 ^^^^^^^^^^^^
