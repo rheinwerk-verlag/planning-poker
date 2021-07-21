@@ -9,6 +9,7 @@ Developer Documentation
    consumers
    models
    views
+   presence
    constants
 
 Development
