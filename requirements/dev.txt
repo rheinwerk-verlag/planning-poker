@@ -15,13 +15,15 @@ asgiref==3.4.1
     #   django
 astroid==1.6.6
     # via pylint
+atomicwrites==1.4.0
+    # via pytest
 attrs==21.2.0
     # via
     #   automat
     #   pytest
     #   service-identity
     #   twisted
-autobahn==21.2.2
+autobahn==21.2.1
     # via
     #   -r tox.in
     #   daphne
@@ -35,10 +37,16 @@ cffi==1.14.6
     # via cryptography
 channels==2.4.0
     # via -r tox.in
-charset-normalizer==2.0.2
+charset-normalizer==2.0.3
     # via requests
 click==8.0.1
     # via pip-tools
+colorama==0.4.4
+    # via
+    #   click
+    #   pylint
+    #   pytest
+    #   sphinx
 constantly==15.1.0
     # via twisted
 coverage==5.5
@@ -105,7 +113,7 @@ packaging==21.0
     #   sphinx
 parsimonious==0.7.0
     # via sphinx-js
-pep517==0.10.0
+pep517==0.11.0
     # via pip-tools
 pep8==1.7.1
     # via pytest-pep8
@@ -201,9 +209,10 @@ sqlparse==0.4.1
     # via django
 toml==0.10.2
     # via
-    #   pep517
     #   pytest
     #   pytest-cov
+tomli==1.0.4
+    # via pep517
 twisted[tls]==21.2.0
     # via daphne
 txaio==21.2.1
