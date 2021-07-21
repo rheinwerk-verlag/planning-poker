@@ -12,6 +12,7 @@ Developer Documentation
    presence
    constants
    setup
+   deployment
 
 Development
 -----------
@@ -22,4 +23,4 @@ functionality, you should consider writing an extension app. Feel free and see t
 extension.
 
 One thing that might be special in this project is that the Django backend can communicate with the users' clients via
-websockets provided by `Django Channels <https://channels.readthedocs.io/en/stable/>`_.
+websockets provided by `Django Channels <https://channels.readthedocs.io/en/2.x/>`_.

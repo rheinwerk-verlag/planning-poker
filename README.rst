@@ -67,7 +67,7 @@ Following these steps will give you a site which you can use to test the Plannin
         ASGI_APPLICATION = 'planning_poker_site.routing.application'
 
         # This is not the optimal channel layer and should not be used for production.
-        # See https://channels.readthedocs.io/en/stable/topics/channel_layers.html for an alternative.
+        # See https://channels.readthedocs.io/en/2.x/topics/channel_layers.html for an alternative.
         CHANNEL_LAYERS = {
             'default': {
                 'BACKEND': 'channels.layers.InMemoryChannelLayer'

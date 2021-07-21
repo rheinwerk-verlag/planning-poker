@@ -1,7 +1,7 @@
 Development Setup
 =================
 
-If you want to help the development of this application and need a working setup you can follow the steps below:
+If you want to help the development of this application and need a working setup, you can follow the steps below:
 
 #. Clone the repository and move into the directory. ::
 
