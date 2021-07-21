@@ -15,8 +15,11 @@ from .constants import FIBONACCI_CHOICES, ALL_VOTING_OPTIONS
 
 
 class PokerSession(models.Model):
+    #: The date on which the poker session should take place.
     poker_date = models.DateField(verbose_name=_('Poker Date'))
+    #: The poker session's name used for displaying it to the user.
     name = models.CharField(max_length=200, verbose_name=_('Name'))
+    #: The story which is currently active in this poker session.
     active_story = models.OneToOneField(
         'Story',
         on_delete=models.SET_NULL,
@@ -35,9 +38,14 @@ class PokerSession(models.Model):
 
 
 class Story(models.Model):
+    #: The story's ticket number. Used for displaying the story to the user.
     ticket_number = models.CharField(max_length=200, verbose_name=_('Ticket Number'))
+    #: The story's title. Used for displaying the story to the user.
     title = models.CharField(max_length=200, verbose_name=_('Title'), blank=True)
+    #: The story's description. This is the main source of information for participants in a poker session.
     description = models.TextField(verbose_name=_('Description'), blank=True)
+    #: The estimated story points. The value is either an element of
+    #: :py:data:`planning_poker.constants.FIBONACCI_CHOICES` or ``None``.
     story_points = models.PositiveSmallIntegerField(
         verbose_name=_('Story Points'),
         help_text=_('The amount of points this story takes up in the sprint'),
@@ -45,6 +53,7 @@ class Story(models.Model):
         blank=True,
         choices=[(None, '-')] + [(int(number), label) for number, label in FIBONACCI_CHOICES]
     )
+    #: The poker session to which this story belongs to.
     poker_session = models.ForeignKey(
         PokerSession, on_delete=models.SET_NULL,
         verbose_name=_('Poker Session'),
@@ -79,19 +88,22 @@ class Story(models.Model):
 
 
 class Vote(models.Model):
-
+    #: The story for which this vote was casted for.
     story = models.ForeignKey(
         Story,
         on_delete=models.CASCADE,
         verbose_name=_('Story'),
         related_name='votes'
     )
+    #: The user who casted the vote.
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         verbose_name=_('User'),
         related_name='votes'
     )
+    #: The option which was voted for. See :py:data:`planning_poker.constants.ALL_VOTING_OPTIONS` for all possible
+    #: values.
     choice = models.CharField(
         max_length=200,
         verbose_name=_('Choice'),
