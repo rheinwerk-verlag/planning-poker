@@ -1,6 +1,24 @@
 Consumers
 =========
 
+Communication between the consumers
+-----------------------------------
+
+There are two consumers for each participant in a poker session in order to communicate between the server and the
+client. They talk to each other using messages in JSON format, which always contain the name of the event they want
+to trigger at the recipient(s) and any additional data they want to send alongside with the message. The consumers on
+both sides provide a method you can use to send an event.
+
+Both consumers contain an attribute, defining which events will be handled, which can be expanded to suit your needs for
+any custom events. See the :ref:`dev_docs/consumers:Server-Side` or :ref:`dev_docs/consumers:Client-Side` consumers for
+more information on how these attributes are defined.
+
+.. note::
+
+   Consumers in the frontend can only talk to their corresponding consumer on the backend. Whereas the consumer on the
+   backend can either message all the front end consumers or only send messages to their counterpart.
+
+
 Server-Side
 -----------
 
@@ -52,8 +70,8 @@ Client-Side
    .. attribute:: commands
       :type: Object
 
-      This Object has the event names as attributes and their corresponding value are the function which should be used
-      to handle the data. The data object will be passed as an argument to the handler function.
+      This Object contains the event names as attributes and their corresponding values are the function which should be
+      used to handle the data. The data object will be passed as an argument to the handler function.
 
 .. js:autoclass:: PokerConsumer
    :members:
