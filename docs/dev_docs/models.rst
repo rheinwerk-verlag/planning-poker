@@ -25,8 +25,8 @@ Models
    .. attribute:: story_points
       :type: django.db.models.PositiveSmallIntegerField
 
-      The estimated story points. The value is either an element of :ref:`dev_docs/constants:Fibonacci Choices` or
-      ``None``.
+      The estimated story points. The value is either an element of
+      :py:data:`planning_poker.constants.FIBONACCI_CHOICES` or ``None``.
 
    .. attribute:: poker_session
       :type: django.db.models.ForeignKey
@@ -70,4 +70,4 @@ Models
    .. attribute:: choice
       :type: django.db.models.CharField
 
-      The option which was voted for. See :ref:`dev_docs/constants:All Voting Options` for all possible values.
+      The option which was voted for. See :py:data:`planning_poker.constants.ALL_VOTING_OPTIONS` for all possible values.
