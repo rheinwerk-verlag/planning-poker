@@ -64,11 +64,6 @@ js_source_path = JS_ROOT
 
 autosectionlabel_prefix_document = True
 
-intersphinx_mapping = {
-    'django': ('https://docs.djangoproject.com/en/3.0/',
-               'https://docs.djangoproject.com/en/3.0/_objects/'),
-}
-
 autodoc_member_order = 'bysource'
 
 add_module_names = False

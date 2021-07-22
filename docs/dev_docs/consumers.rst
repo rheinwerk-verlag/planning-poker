@@ -1,7 +1,7 @@
 Consumers
 =========
 
-Communication between the consumers
+Communication Between the consumers
 -----------------------------------
 
 There are two consumers for each participant in a poker session in order to communicate between the server and the
@@ -23,14 +23,15 @@ Server-Side
 -----------
 
 .. automodule:: planning_poker.consumers
+   :members:
+   :exclude-members: PokerConsumer
 
 .. autoclass:: planning_poker.consumers.PokerConsumer
     :members:
     :show-inheritance:
 
     Use the provided ``send_event`` method to send events to the client-side consumers. ``Events`` are strings used to
-    determine how the included data should be handled. Expand the ``self.commands`` dictionary to respond to custom
-    events.
+    determine how the included data should be handled. Expand the ``commands`` dictionary to respond to custom events.
 
     .. attribute:: commands
        :type: Dict[str, Dict[str, Any]]
@@ -46,17 +47,6 @@ Server-Side
          ``user.has_perm(required_permission)`` to see whether they are allowed to respond to the event or ``None`` if
          no permission is required.
 
-Constants
-^^^^^^^^^
-
-The ``consumers.py`` module also provides two constants which you can use for the ``command``'s ``required_permission``
-option to make sure that the user is either a :ref:`user_docs/roles:Voter` or a :ref:`user_docs/roles:Moderator`. The
-constants are:
-
-- ``MODERATE_PERMISSION``: Moderators will have this permission.
-
-- ``VOTE_PERMISSION``: Voters will have this permission.
-
 Client-Side
 -----------
 
@@ -65,7 +55,7 @@ Client-Side
 
    The ``BaseConsumer`` and its subclasses on the client-side function similarly to the ``PokerConsumer`` on
    the server-side. The same things that were said about the server-side consumer also apply to the client-side
-   consumers. Use ``sendEvent`` to send an event to the server and expand ``this.commands`` to respond to custom events.
+   consumers. Use ``sendEvent`` to send an event to the server and expand ``commands`` to respond to custom events.
 
    .. attribute:: commands
       :type: Object

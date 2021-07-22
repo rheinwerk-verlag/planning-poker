@@ -20,13 +20,13 @@ If you want to help the development of this application and need a working setup
 
    $ python manage.py migrate
 
-#. Collect the static data. ::
+#. Collect the static files. ::
 
    $ python manage.py collectstatic
 
 #. [Optional] If you plan to make changes to the Vue components or any other JS files, you should navigate to the
-   project directory in a different shell and run the webpack building process. This will automatically re-bundle your
-   JS files whenever you make any changes to them. ::
+   project directory in a different terminal and run the webpack building process. This will automatically re-bundle
+   your JS files whenever you make any changes to them. ::
 
    $ npm run build-dev
 

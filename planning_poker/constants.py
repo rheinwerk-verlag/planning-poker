@@ -12,7 +12,7 @@ FIBONACCI_CHOICES = [
     ('34', '34'),
 ]
 
-#: The value which represents the story's scope being to large.
+#: The value which represents the story's scope being too large.
 TOO_LARGE = 'Too large'
 #: The value which represents a voter not being able to estimate a story's scope.
 NO_IDEA = 'No idea'

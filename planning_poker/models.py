@@ -17,7 +17,7 @@ from .constants import FIBONACCI_CHOICES, ALL_VOTING_OPTIONS
 class PokerSession(models.Model):
     #: The date on which the poker session should take place.
     poker_date = models.DateField(verbose_name=_('Poker Date'))
-    #: The poker session's name used for displaying it to the user.
+    #: The poker session's name. Used for displaying it to the user.
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     #: The story which is currently active in this poker session.
     active_story = models.OneToOneField(
