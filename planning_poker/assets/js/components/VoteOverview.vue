@@ -51,7 +51,7 @@
                 return this.shuffle(Object.keys(this.votes));
             },
             voters: function () {
-                return this.participants.filter(participant => participant.permissions.includes('poker.vote'));
+                return this.participants.filter(participant => participant.permissions.includes('planning_poker.vote'));
             }
         },
         methods: {
