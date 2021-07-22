@@ -215,6 +215,10 @@ nav .participants-list .participants-tooltip ul li span.muted {
     max-width: 150px;
 }
 
+.votes-overview .vote .voter-names {
+    overflow-wrap: break-word;
+}
+
 .votes-overview > button {
     background-color: var(--accent);
     color: var(--background);
