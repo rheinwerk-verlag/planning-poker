@@ -231,7 +231,6 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 .votes-overview .heading-wrapper > button {
-    height: 22px;
     background-color: var(--accent);
     color: var(--background);
     border-radius: 5px;
