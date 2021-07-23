@@ -59,13 +59,13 @@ describe("Vote", () => {
             users: users
         });
         await wrapper.vm.$nextTick;
-        expect(wrapper.vm.usersString).toEqual("Katharina, Laura, Thorsten");
+        expect(wrapper.vm.voterNames).toEqual("Katharina, Laura, Thorsten");
 
         wrapper.setProps({
             users: [{name: "Donald"}]
         });
         await wrapper.vm.$nextTick;
-        expect(wrapper.vm.usersString).toEqual("Donald");
+        expect(wrapper.vm.voterNames).toEqual("Donald");
     });
 
     it("returns the correct amount of cards", async () => {

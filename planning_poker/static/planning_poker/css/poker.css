@@ -190,6 +190,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 
 .votes-overview {
     grid-column: 1 / 3;
+    overflow-y: auto;
 }
 
 .votes-overview .vote {
@@ -215,13 +216,27 @@ nav .participants-list .participants-tooltip ul li span.muted {
     max-width: 150px;
 }
 
-.votes-overview > button {
+.votes-overview .vote .voter-names {
+    overflow-wrap: break-word;
+}
+
+.votes-overview .heading-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.votes-overview .heading-wrapper h2 {
+    margin-right: 10px;
+}
+
+.votes-overview .heading-wrapper > button {
     background-color: var(--accent);
     color: var(--background);
     border-radius: 5px;
 }
 
-.votes-overview > button:hover {
+.votes-overview .heading-wrapper > button:hover {
     background-color: var(--hightlight);
     color: var(--background);
 }
