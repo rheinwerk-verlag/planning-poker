@@ -190,6 +190,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 
 .votes-overview {
     grid-column: 1 / 3;
+    overflow-y: scroll;
 }
 
 .votes-overview .vote {
