@@ -50,7 +50,7 @@ describe('VoteOverview', () => {
             await wrapper.vm.$nextTick;
 
             expect(wrapper.findAllComponents(Vote)).toHaveLength(2);
-            expect(wrapper.findAll(".votes-overview > button")).toHaveLength(1);
+            expect(wrapper.findAll(".votes-overview .heading-wrapper > button")).toHaveLength(1);
         });
     });
 
