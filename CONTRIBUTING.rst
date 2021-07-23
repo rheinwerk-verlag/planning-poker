@@ -1,7 +1,7 @@
 Contributing to Planning Poker
 ==============================
 
-First of all: thanks for your interest in this project and taking the time to contribute.
+First of all: Thanks for your interest in this project and taking the time to contribute.
 
 Reporting bugs
 ---------------
@@ -27,10 +27,10 @@ Creating a pull request
 
 Before creating a pull request make sure to check whether:
 
-* existing docstrings have to be updated
-* new code has valid docstrings
-* existing `tests <https://github.com/rheinwerk-verlag/planning-poker/tree/development/tests>`_ have to be fixed
-* new tests have to be written first
-* the documentation (in particular the
+* Existing docstrings have to be updated
+* New code has valid docstrings
+* Existing `tests <https://github.com/rheinwerk-verlag/planning-poker/tree/development/tests>`_ have to be fixed
+* New tests have to be written first
+* The documentation (in particular the
   `Sphinx documentation <https://github.com/rheinwerk-verlag/planning-poker/tree/development/docs>`_) has to be modified
 
