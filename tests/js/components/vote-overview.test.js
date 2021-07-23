@@ -4,7 +4,7 @@ import Vote from "../../../planning_poker/assets/js/components/Vote";
 import VoteOverview from "../../../planning_poker/assets/js/components/VoteOverview";
 
 describe('VoteOverview', () => {
-    const participantPermissions = ["poker.vote"];
+    const participantPermissions = ["planning_poker.vote"];
     const participant1 = {id: 37, name: "Kevin", permissions: participantPermissions};
     const participant2 = {id: 1, name: "Manfred", permissions: participantPermissions};
     const participant3 = {id: 30, name: "Charlotte", permissions: participantPermissions};
@@ -50,7 +50,7 @@ describe('VoteOverview', () => {
             await wrapper.vm.$nextTick;
 
             expect(wrapper.findAllComponents(Vote)).toHaveLength(2);
-            expect(wrapper.findAll(".votes-overview > button")).toHaveLength(1);
+            expect(wrapper.findAll(".votes-overview .heading-wrapper > button")).toHaveLength(1);
         });
     });
 

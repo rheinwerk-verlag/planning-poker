@@ -42,13 +42,9 @@ msgstr "Aktive Story"
 msgid "Upcoming Stories"
 msgstr "Anstehende Stories"
 
-#: assets/js/components/VoteOverview.vue:34
-msgid "Reset Votes"
-msgstr "Stimmen zurücksetzen"
-
-#: assets/js/components/VoteOverview.vue:37
-msgid "Votes"
-msgstr "Stimmen"
+#: assets/js/components/StoryDetail.vue:40
+msgid "No description available."
+msgstr "Keine Beschreibung verfügbar."
 
 #: assets/js/components/StoriesList.vue:63
 msgid "Show more (+%s)"
@@ -58,6 +54,10 @@ msgstr "Mehr anzeigen (+%s)"
 msgid "Show less"
 msgstr "Weniger anzeigen"
 
-#: assets/js/components/StoryDetail.vue:40
-msgid "No description available."
-msgstr "Keine Beschreibung verfügbar."
+#: assets/js/components/VoteOverview.vue:37
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: assets/js/components/VoteOverview.vue:40
+msgid "Votes"
+msgstr "Stimmen"

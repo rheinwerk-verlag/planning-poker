@@ -13,8 +13,7 @@
                     :key="_">
             </PlayingCard>
         </div>
-        <span class="ellipsis-overflow"
-              :title="usersString">{{ usersString }}</span>
+        <span class="voter-names" :title="voterNames">{{ voterNames }}</span>
     </div>
 </template>
 
@@ -35,7 +34,7 @@
         }
         ,
         computed: {
-            usersString: function () {
+            voterNames: function () {
                 return `${this.users.map(user => user.name).join(', ')}`;
             },
             displayedCardsAmount: function () {

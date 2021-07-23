@@ -302,6 +302,11 @@ texinfo_documents = [
 
 
 class RepoImagePathTransform(SphinxTransform):
+    """Remove the leading 'docs/' directory where possible from all image URIs.
+    The relative paths of the images in the 'README.rst' all start with the 'docs' directory in order to show them
+    on the repository overview page. Since the same readme file should also be used inside the docs, the directory has
+    to be removed from the paths when building the docs.
+    """
     default_priority = 409
 
     def apply(self, **kwargs):

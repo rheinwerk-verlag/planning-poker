@@ -20,4 +20,4 @@ Optional Settings
 
 - ``POKER_SESSION_END_REDIRECT_URL`` - default ``'planning_poker:index'``: This URL will be used to redirect users when
   the last story of a poker session has been pokered and the points are set by a moderator. The value can be anything
-  URL-like e.g. a hardcoded string ``'https://rheinwerk-verlag.de'`` or a view name (like the default value).
+  URL-like, e.g. a hardcoded string ``'https://rheinwerk-verlag.de'`` or a view name (like the default value).
