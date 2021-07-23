@@ -220,13 +220,24 @@ nav .participants-list .participants-tooltip ul li span.muted {
     overflow-wrap: break-word;
 }
 
-.votes-overview > button {
+.votes-overview .heading-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.votes-overview .heading-wrapper h2 {
+    margin-right: 10px;
+}
+
+.votes-overview .heading-wrapper > button {
+    height: 22px;
     background-color: var(--accent);
     color: var(--background);
     border-radius: 5px;
 }
 
-.votes-overview > button:hover {
+.votes-overview .heading-wrapper > button:hover {
     background-color: var(--hightlight);
     color: var(--background);
 }
