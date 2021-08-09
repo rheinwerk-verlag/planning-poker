@@ -1,7 +1,7 @@
 -r tox.in
 
 channels
-django<3.2
+django
 django-channels-presence
 isort==4.3.20
 pip-tools

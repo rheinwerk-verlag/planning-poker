@@ -8,12 +8,18 @@
 
 astroid==1.6.6
     # via pylint
+atomicwrites==1.4.0
+    # via pytest
 attrs==21.2.0
     # via pytest
 autobahn==21.2.1
     # via -r tox.in
 cffi==1.14.6
     # via cryptography
+colorama==0.4.4
+    # via
+    #   pylint
+    #   pytest
 coverage==5.5
     # via
     #   -r tox.in
@@ -30,7 +36,7 @@ idna==3.2
     # via hyperlink
 iniconfig==1.1.1
     # via pytest
-isort==5.9.2
+isort==5.9.3
     # via pylint
 lazy-object-proxy==1.6.0
     # via astroid

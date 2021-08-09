@@ -15,6 +15,8 @@ asgiref==3.4.1
     #   django
 astroid==1.6.6
     # via pylint
+atomicwrites==1.4.0
+    # via pytest
 attrs==21.2.0
     # via
     #   automat
@@ -35,10 +37,16 @@ cffi==1.14.6
     # via cryptography
 channels==3.0.4
     # via -r dev.in
-charset-normalizer==2.0.3
+charset-normalizer==2.0.4
     # via requests
 click==8.0.1
     # via pip-tools
+colorama==0.4.4
+    # via
+    #   click
+    #   pylint
+    #   pytest
+    #   sphinx
 constantly==15.1.0
     # via twisted
 coverage==5.5
@@ -52,7 +60,7 @@ cryptography==3.4.7
     #   service-identity
 daphne==3.0.2
     # via channels
-django==3.1.13
+django==3.2.6
     # via
     #   -r dev.in
     #   channels
@@ -176,7 +184,7 @@ snowballstemmer==2.1.0
     # via
     #   pydocstyle
     #   sphinx
-sphinx==4.1.1
+sphinx==4.1.2
     # via
     #   -r dev.in
     #   sphinx-js
@@ -203,12 +211,14 @@ toml==0.10.2
     # via
     #   pytest
     #   pytest-cov
-tomli==1.1.0
+tomli==1.2.1
     # via pep517
-twisted[tls]==21.2.0
+twisted[tls]==21.7.0
     # via daphne
 txaio==21.2.1
     # via autobahn
+typing-extensions==3.10.0.0
+    # via twisted
 urllib3==1.26.6
     # via requests
 wheel==0.36.2
