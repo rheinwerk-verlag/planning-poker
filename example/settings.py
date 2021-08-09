@@ -13,7 +13,7 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'planning_poker/templates'),
 )
 
-ASGI_APPLICATION = 'example.routing.application'
+ASGI_APPLICATION = 'example.asgi.application'
 
 DATABASES = {
     'default': {
