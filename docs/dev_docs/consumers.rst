@@ -9,6 +9,33 @@ client. They talk to each other using messages in JSON format, which always cont
 to trigger at the recipient(s) and any additional data they want to send alongside with the message. The consumers on
 both sides provide a method you can use to send an event.
 
+.. code-block:: python
+
+   # Sample message sent by the server to the client.
+   {
+     "type": "send_json",
+     "event": "story_changed",
+     "data": {
+       "id": 1,
+       "story_label": "Foo: Bar",
+       "description": "Baz",
+       "votes": {
+         "3": [
+           {
+             "id": 1,
+             "name": "admin"
+           }
+         ],
+         "8": [
+           {
+             "id": 2,
+             "name": "Thomas"
+           }
+         ]
+       }
+     }
+   }
+
 Both consumers contain an attribute, defining which events will be handled, which can be expanded to suit your needs for
 any custom events. See the :ref:`dev_docs/consumers:Server-Side` or :ref:`dev_docs/consumers:Client-Side` consumers for
 more information on how these attributes are defined.
@@ -27,7 +54,30 @@ Server-Side
     :show-inheritance:
 
     Use the provided ``send_event`` method to send events to the client-side consumers. ``Events`` are strings used to
-    determine how the included data should be handled. Expand the ``commands`` dictionary to respond to custom events.
+    determine how the included data should be handled. These are the events sent by the server by default:
+
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Event Name             | Data                                                                                                                                                                                                                           |
+    |                        +--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    |                        | Field Name                     | Example                                                          | Description                                                                                                                |
+    +========================+================================+==================================================================+============================================================================================================================+
+    | story_points_submitted | story_points                   | ``5``                                                            | The amount of points which should be set                                                                                   |
+    +------------------------+--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    | story_changed          | id                             | ``1``                                                            | The id of the story which should be changed to                                                                             |
+    |                        +--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    |                        | story_label                    | ``"Poker 2: Create Screenshots"``                                | The label of the story                                                                                                     |
+    |                        +--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    |                        | description                    | ``"<b>Description</b>..."``                                      | The description of the story                                                                                               |
+    |                        +--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    |                        | votes                          | ``{5: [{id: 1, name: "John Doe"}]}``                             | Object where the keys are the story points and their corresponding values are lists of the voters who voted for the option |
+    +------------------------+--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    | poker_session_ended    | poker_session_end_redirect_url | ``"/poker/"``                                                    | The URL to which the participants of the poker session should be redirected to when the session ends                       |
+    +------------------------+--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    | participants_changed   | participants                   | ``[{id: 1, name: "John Doe"}, {id: 2, name: "Max Mustermann"}]`` | An array of user objects with a *unique* id and a username                                                                 |
+    +------------------------+--------------------------------+------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+
+    Expand the ``commands`` dictionary to respond to custom events.
+
 
     .. attribute:: commands
        :type: Dict[str, Dict[str, Any]]
