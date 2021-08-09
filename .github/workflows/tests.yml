@@ -28,7 +28,7 @@ jobs:
     - name: Run tests via tox
       run: |
         export TOXFACTOR=$(echo "py${{ matrix.python-version }}" | sed 's/\.//g')
-        tox -p
+        tox
 
   js-tests:
 
