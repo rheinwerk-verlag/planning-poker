@@ -9,9 +9,10 @@ client. They talk to each other using messages in JSON format, which always cont
 to trigger at the recipient(s) and any additional data they want to send alongside with the message. The consumers on
 both sides provide a method you can use to send an event.
 
-.. code-block:: js
+Sample event:
 
-   # Sample message sent by the server to the client.
+.. code-block:: json
+
    {
      "type": "send_json",
      "event": "story_changed",
@@ -42,7 +43,7 @@ how these attributes are defined.
 
 .. note::
 
-   Consumers in the frontend can only talk to their corresponding consumer on the backend. Whereas the consumer on the
+   Consumers in the frontend can only talk to their corresponding consumer on the backend, whereas the consumer on the
    backend can either message all the front end consumers or only send messages to their counterpart.
 
 
@@ -53,7 +54,7 @@ Server-Side
     :members:
     :show-inheritance:
 
-    Use the provided ``send_event`` method to send events to the client-side consumers. ``Events`` are strings used to
+    Use the provided ``send_event`` method to send events to the client-side consumers. Events are strings used to
     determine how the included data should be handled. These are the events sent by the server by default:
 
     +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
