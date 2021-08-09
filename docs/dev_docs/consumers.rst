@@ -1,7 +1,7 @@
 Consumers
 =========
 
-Communication Between the consumers
+Communication Between the Consumers
 -----------------------------------
 
 There are two consumers for each participant in a poker session in order to communicate between the server and the
@@ -21,10 +21,6 @@ more information on how these attributes are defined.
 
 Server-Side
 -----------
-
-.. automodule:: planning_poker.consumers
-   :members:
-   :exclude-members: PokerConsumer
 
 .. autoclass:: planning_poker.consumers.PokerConsumer
     :members:
@@ -46,6 +42,11 @@ Server-Side
          permission string (e.g. ``MODERATE_PERMISSION``) which will be used to evaluate the user's permission via
          ``user.has_perm(required_permission)`` to see whether they are allowed to respond to the event or ``None`` if
          no permission is required.
+
+.. automodule:: planning_poker.consumers
+   :members:
+   :exclude-members: PokerConsumer
+
 
 Client-Side
 -----------
