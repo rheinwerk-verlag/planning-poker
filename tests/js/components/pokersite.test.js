@@ -9,14 +9,14 @@ import VoteOptions from '../../../planning_poker/assets/js/components/VoteOption
 import VoteOverview from '../../../planning_poker/assets/js/components/VoteOverview.vue';
 
 describe('PokerSite', () => {
-    createJSONElement({moderate: false, vote: true}, 'permissions');
+  createJSONElement({moderate: false, vote: true}, 'permissions');
 
-    const wrapper = shallowMount(PokerSite);
+  const wrapper = shallowMount(PokerSite);
 
-    it('displays all other components correctly', async () => {
-        expect(wrapper.findComponent(VoteOverview)).toBeTruthy();
-        expect(wrapper.findComponent(StoryDetail)).toBeTruthy();
-        expect(wrapper.findComponent(StoriesOverview)).toBeTruthy();
-        expect(wrapper.findComponent(VoteOptions)).toBeTruthy();
-    });
+  it('displays all other components correctly', async () => {
+    expect(wrapper.findComponent(VoteOverview)).toBeTruthy();
+    expect(wrapper.findComponent(StoryDetail)).toBeTruthy();
+    expect(wrapper.findComponent(StoriesOverview)).toBeTruthy();
+    expect(wrapper.findComponent(VoteOptions)).toBeTruthy();
+  });
 });

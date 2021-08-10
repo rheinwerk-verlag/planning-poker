@@ -14,12 +14,12 @@ Vue.prototype.$t = window.gettext;
 Vue.prototype.$interpolate = window.interpolate;
 
 let app = new Vue({
-    el: '#app',
-    components: {
-        Navbar,
-        PokerSite,
-        ParticipantsList
-    }
+  el: '#app',
+  components: {
+    Navbar,
+    PokerSite,
+    ParticipantsList
+  }
 });
 
 Vue.prototype.$consumer = new PokerConsumer(document.body.querySelector('#app'), `ws://${host}/poker/${pokerSessionId}/`, userId);
