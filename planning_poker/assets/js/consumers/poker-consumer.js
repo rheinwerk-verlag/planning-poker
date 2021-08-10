@@ -21,7 +21,7 @@ class PokerConsumer extends BaseConsumer {
       'story_changed': this.storyChanged.bind(this),
       'poker_session_ended': this.endPokerSession.bind(this),
       'story_points_submitted': this.storyPointsSubmitted.bind(this),
-      'participants_changed': this.updateParticipantsList.bind(this)
+      'participants_changed': this.updateParticipantsList.bind(this),
     };
 
     //The consumer sends out a heartbeat every 20 seconds to let the server know, that the user is still there.
@@ -51,11 +51,7 @@ class PokerConsumer extends BaseConsumer {
    * @param {String} choice Containing the voter's choice.
    */
   submitStoryPoints(choice) {
-    this.sendMessage(
-      'points_submitted',
-      {
-        'story_points': choice
-      });
+    this.sendMessage('points_submitted', {'story_points': choice});
   }
 
   /**
@@ -68,7 +64,7 @@ class PokerConsumer extends BaseConsumer {
     this.sendMessage(
       'vote_submitted',
       {
-        'choice': choice
+        'choice': choice,
       });
   }
 

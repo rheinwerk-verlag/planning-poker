@@ -19,10 +19,12 @@ let app = new Vue({
     Navbar,
     PokerSite,
     ParticipantsList
-  }
+  },
 });
 
-Vue.prototype.$consumer = new PokerConsumer(document.body.querySelector('#app'), `ws://${host}/poker/${pokerSessionId}/`, userId);
+Vue.prototype.$consumer = new PokerConsumer(
+  document.body.querySelector('#app'), `ws://${host}/poker/${pokerSessionId}/`, userId
+);
 
 //Find the PokerSite component, which has access to the different $refs of the other components.
 Vue.prototype.$consumer.app = app.$children.find(child => child.$options._componentTag === 'poker-site');

@@ -39,8 +39,8 @@ JavaScript and Vue
 """"""""""""""""""
 
 Follow `Google's style guide <https://google.github.io/styleguide/jsguide.html>`_ for the JavaScript code and
-`Vue's style guide <https://vuejs.org/v2/style-guide/>`_ for the Vue specific code. There is currently no linting set up
-for these style guides.
+`Vue's style guide <https://vuejs.org/v2/style-guide/>`_ for the Vue specific code. The maximum line length also is 120
+characters. There is currently no linting set up for these style guides.
 
 Creating a pull request
 ^^^^^^^^^^^^^^^^^^^^^^^

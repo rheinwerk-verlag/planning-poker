@@ -36,7 +36,7 @@ class BaseConsumer {
   sendMessage(event, data = {}) {
     this.websocket.send(JSON.stringify({
       event: event,
-      data: data
+      data: data,
     }));
   }
 }

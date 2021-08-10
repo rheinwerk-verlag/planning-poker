@@ -20,7 +20,7 @@ function appendChildrenWithClass(container, children) {
  * @param {Node} container The container in which the element should be included. Defaults to document.body.
  */
 function createJSONElement(object, id, container = document.body) {
-  let element = document.createElement("span");
+  let element = document.createElement('span');
   element.textContent = JSON.stringify(object);
   element.id = id;
   container.appendChild(element);
