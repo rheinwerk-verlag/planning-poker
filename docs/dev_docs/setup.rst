@@ -12,7 +12,7 @@ If you want to help the development of this application and need a working setup
 
    $ pip install -r requirements/dev.txt
 
-#. Install the JavaScript requirements. ::
+#. Install the JavaScript requirements (you should at least use node version 12). ::
 
    $ npm install
 

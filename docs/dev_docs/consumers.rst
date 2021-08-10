@@ -54,8 +54,11 @@ Server-Side
     :members:
     :show-inheritance:
 
-    Use the provided ``send_event`` method to send events to the client-side consumers. Events are strings used to
-    determine how the included data should be handled. These are the events sent by the server by default:
+    Use the provided ``send_event`` method to send events to the client-side consumers. Events are strings signaling an
+    event which occurred. Any event listeners can then differentiate between different events and perform special
+    reactions based on their name.
+
+    These are the events sent by the server by default:
 
     +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | Event Name             | Data                                                                                                                                                                                                                                   |
@@ -68,7 +71,7 @@ Server-Side
     |                        +--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
     |                        | story_label                    | ``"Poker 2: Create Screenshots"``                                        | The label of the story                                                                                                     |
     |                        +--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    |                        | description                    | ``"<b>Description</b>..."``                                              | The description of the story                                                                                               |
+    |                        | description                    | ``"<h1>HTML Ipsum</h1>\r\n\r\n<p><strong>Pellentesque hab..."``          | The description of the story                                                                                               |
     |                        +--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
     |                        | votes                          | ``{"3": [{"id": 1, "name": "John Doe"}]}``                               | Object where the keys are the story points and their corresponding values are lists of the voters who voted for the option |
     +------------------------+--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
