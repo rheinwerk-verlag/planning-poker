@@ -5,17 +5,14 @@ Developer Documentation
    :maxdepth: 2
    :caption: Contents
 
-   admin
+   setup
    consumers
    models
    views
    presence
+   admin
    constants
-   setup
    deployment
-
-Development
------------
 
 The Planning Poker app can be used and expanded like any other Django app. If you want to extend this app's
 functionality, you should consider writing an extension app. Feel free and see the
