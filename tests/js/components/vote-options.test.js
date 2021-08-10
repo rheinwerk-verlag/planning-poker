@@ -2,9 +2,9 @@ import {shallowMount} from '@vue/test-utils';
 
 import {createJSONElement} from '../../../planning_poker/assets/js/utils';
 
-import VoteOptions from '../../../planning_poker/assets/js/components/VoteOptions';
-import PlayingCardButton from '../../../planning_poker/assets/js/components/PlayingCardButton';
-import PokerSite from '../../../planning_poker/assets/js/components/PokerSite';
+import VoteOptions from '../../../planning_poker/assets/js/components/VoteOptions.vue';
+import PlayingCardButton from '../../../planning_poker/assets/js/components/PlayingCardButton.vue';
+import PokerSite from '../../../planning_poker/assets/js/components/PokerSite.vue';
 
 describe('VoteOptions', () => {
     const options = {

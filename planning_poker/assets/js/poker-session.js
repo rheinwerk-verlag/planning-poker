@@ -3,7 +3,7 @@ import Vue from 'vue';
 import Navbar from './components/Navbar.vue';
 import ParticipantsList from './components/ParticipantsList.vue';
 import PokerSite from './components/PokerSite.vue';
-import PokerConsumer from './consumers/poker-consumer.js';
+import {PokerConsumer} from './consumers/poker-consumer.js';
 
 
 let host = JSON.parse(document.getElementById('host').textContent);

@@ -1,4 +1,4 @@
-import BaseConsumer from '../../planning_poker/assets/js/consumers/base-consumer.js';
+import {BaseConsumer} from '../../planning_poker/assets/js/consumers/base-consumer.js';
 
 let container = document.createElement('body');
 

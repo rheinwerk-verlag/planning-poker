@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 import {createJSONElement} from '../../planning_poker/assets/js/utils.js';
-import PokerConsumer from '../../planning_poker/assets/js/consumers/poker-consumer.js';
+import {PokerConsumer} from '../../planning_poker/assets/js/consumers/poker-consumer.js';
 import PokerSite from '../../planning_poker/assets/js/components/PokerSite.vue';
 
 describe("PokerConsumer", () => {

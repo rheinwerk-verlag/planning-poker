@@ -1,7 +1,7 @@
 import {shallowMount} from '@vue/test-utils';
 
-import Vote from '../../../planning_poker/assets/js/components/Vote';
-import VoteOverview from '../../../planning_poker/assets/js/components/VoteOverview';
+import Vote from '../../../planning_poker/assets/js/components/Vote.vue';
+import VoteOverview from '../../../planning_poker/assets/js/components/VoteOverview.vue';
 
 describe('VoteOverview', () => {
     const participantPermissions = ["planning_poker.vote"];

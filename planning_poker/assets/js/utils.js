@@ -26,4 +26,4 @@ function createJSONElement(object, id, container = document.body) {
     container.appendChild(element);
 }
 
-export {appendChildrenWithClass, createJSONElement}
+export {appendChildrenWithClass, createJSONElement};

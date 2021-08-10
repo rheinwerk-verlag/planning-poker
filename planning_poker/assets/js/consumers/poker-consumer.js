@@ -1,6 +1,6 @@
 'use strict'
 
-import BaseConsumer from './base-consumer.js';
+import {BaseConsumer} from './base-consumer.js';
 
 class PokerConsumer extends BaseConsumer {
 
@@ -175,4 +175,4 @@ class PokerConsumer extends BaseConsumer {
     }
 }
 
-export default PokerConsumer;
+export {PokerConsumer};
