@@ -43,3 +43,5 @@ If you want to help the development of this application and need a working setup
    There is an example project in this repository which has configured all the necessary settings for a minimal working
    setup. Feel free to configure the project to your liking while developing. See the
    :ref:`user_docs/configuration:Configuration` section for more ways you can configure this setup.
+
+See the :ref:`dev_docs/testing:Testing` page and run the tests to verify that you have correctly set everything up.

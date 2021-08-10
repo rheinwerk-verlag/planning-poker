@@ -6,6 +6,7 @@ Developer Documentation
    :caption: Contents
 
    setup
+   testing
    consumers
    models
    views
