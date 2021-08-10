@@ -1,6 +1,6 @@
 'use strict'
 
-import BaseConsumer from "./base-consumer.js";
+import BaseConsumer from './base-consumer.js';
 
 class PokerConsumer extends BaseConsumer {
 
