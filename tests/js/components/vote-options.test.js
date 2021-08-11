@@ -1,6 +1,6 @@
 import {shallowMount} from '@vue/test-utils';
 
-import {createJSONElement} from '../../../planning_poker/assets/js/utils';
+import {createJSONElement} from '../../../planning_poker/assets/js/utils.js';
 
 import VoteOptions from '../../../planning_poker/assets/js/components/VoteOptions.vue';
 import PlayingCardButton from '../../../planning_poker/assets/js/components/PlayingCardButton.vue';
