@@ -2,7 +2,7 @@ Testing
 =======
 
 All tests can be found in the
-`tests directory<https://github.com/rheinwerk-verlag/planning-poker/tree/development/tests>`_. Before you can run the
+`tests directory <https://github.com/rheinwerk-verlag/planning-poker/tree/development/tests>`_. Before you can run the
 tests, you should have a working :ref:`dev_docs/setup:Development Setup`.
 
 Any changes to the existing code should still pass the test suite (there are of course exceptions where you'll have to

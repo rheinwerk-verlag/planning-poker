@@ -39,8 +39,8 @@ JavaScript and Vue
 """"""""""""""""""
 
 Follow `Google's style guide <https://google.github.io/styleguide/jsguide.html>`_ for the JavaScript code and
-`Vue's style guide <https://vuejs.org/v2/style-guide/>`_ for the Vue specific code. The maximum line length also is 120
-characters. There is currently no linting set up for these style guides.
+`Vue's style guide <https://vuejs.org/v2/style-guide/>`_ for the Vue specific code. The maximum line length was also
+extended to 120 characters. There is currently no linting set up for these style guides.
 
 Creating a pull request
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -66,3 +66,5 @@ Before creating a pull request make sure to check whether:
 * Any user-facing changes are documented in the changelog
 * You added yourself to the list of authors
 
+New features or minor bug fixes should be merged into the ``development`` branch, whereas critical bug or security fixes
+should be merged into the ``main`` branch.

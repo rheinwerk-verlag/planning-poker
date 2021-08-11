@@ -2,7 +2,7 @@ Deployment
 ==========
 
 Since this essentially is a Channels application, you should see
-`their docs on deployment <https://channels.readthedocs.io/en/2.x/deploying.html>`_ for examples.
+`their docs on deployment <https://channels.readthedocs.io/en/stable/deploying.html>`_ for examples.
 But there are a few additional things you should be aware of when you deploy this application.
 
 * .. warning::
