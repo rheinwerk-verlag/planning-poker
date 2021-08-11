@@ -8,8 +8,9 @@
 
 alabaster==0.7.12
     # via sphinx
-asgiref==3.4.1
+asgiref==3.3.4
     # via
+    #   -r dev.in
     #   channels
     #   daphne
     #   django
@@ -221,7 +222,7 @@ typing-extensions==3.10.0.0
     # via twisted
 urllib3==1.26.6
     # via requests
-wheel==0.36.2
+wheel==0.37.0
     # via pip-tools
 wrapt==1.12.1
     # via astroid

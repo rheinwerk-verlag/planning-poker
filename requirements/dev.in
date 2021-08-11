@@ -1,5 +1,6 @@
 -r tox.in
 
+asgiref<3.4.0
 channels
 django
 django-channels-presence
