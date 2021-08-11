@@ -42,6 +42,12 @@ Follow `Google's style guide <https://google.github.io/styleguide/jsguide.html>`
 `Vue's style guide <https://vuejs.org/v2/style-guide/>`_ for the Vue specific code. The maximum line length was also
 extended to 120 characters. There is currently no linting set up for these style guides.
 
+CSS
+"""
+
+Follow `Google's style guide <https://google.github.io/styleguide/htmlcssguide.html#CSS>`_ for any styling changes you
+want to make.
+
 Creating a pull request
 ^^^^^^^^^^^^^^^^^^^^^^^
 
