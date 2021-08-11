@@ -9,7 +9,7 @@ client. They talk to each other using messages in JSON format, which always cont
 to trigger at the recipient(s) and any additional data they want to send alongside with the message. The consumers on
 both sides provide a method you can use to send an event.
 
-Sample event:
+Sample message:
 
 .. code-block:: json
 
