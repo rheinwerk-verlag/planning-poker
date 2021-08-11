@@ -1,13 +1,13 @@
 :root {
   --accent: hsl(180, 40%, 29%);
   --background: hsl(0, 0%, 100%);
-  --hightlight: hsl(180, 67%, 37%);
+  --highlight: hsl(180, 67%, 37%);
   --muted-text: hsl(0, 0%, 37%);
   --text: hsl(0, 0%, 17%);
 }
 
 *::selection {
-  background-color: var(--hightlight);
+  background-color: var(--highlight);
   color: hsl(0, 0%, 100%);
 }
 
@@ -59,7 +59,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--hightlight);
+  color: var(--highlight);
 }
 
 nav h2.brand {
@@ -161,11 +161,11 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--hightlight);
+  background: var(--highlight);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: var(--hightlight);
+  background: var(--highlight);
 }
 
 .ellipsis-overflow {
@@ -237,7 +237,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 .votes-overview .heading-wrapper > button:hover {
-  background-color: var(--hightlight);
+  background-color: var(--highlight);
   color: var(--background);
 }
 
@@ -293,7 +293,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 .story-detail .description-wrapper .description-text a:hover {
-  color: var(--hightlight);
+  color: var(--highlight);
 }
 
 /* stories overview */
@@ -330,7 +330,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 .stories-overview button.show-more:hover {
-  color: var(--hightlight);
+  color: var(--highlight);
 }
 
 .stories-overview button.list-story > span {
@@ -352,8 +352,8 @@ nav .participants-list .participants-tooltip ul li span.muted {
 .stories-overview .active-story .list-story,
 .stories-overview .stories-list .list-story.scored:hover,
 .stories-overview .list-story:hover {
-  background-color: var(--hightlight);
-  border-color: var(--hightlight);
+  background-color: var(--highlight);
+  border-color: var(--highlight);
   color: var(--background);
 }
 
@@ -418,7 +418,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 .buttons-wrapper button:hover, .buttons-wrapper button:focus {
-  background-color: var(--hightlight);
+  background-color: var(--highlight);
   color: var(--background);
 }
 
@@ -714,7 +714,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 .centered-flex form input {
-  background-color: var(--hightlight);
+  background-color: var(--highlight);
   border: transparent solid 2px;
   font-size: 24px;
   height: 35px;
@@ -748,7 +748,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
 }
 
 .poker-session-row:hover {
-  background-color: var(--hightlight);
+  background-color: var(--highlight);
 }
 
 .poker-session-row div {
@@ -826,7 +826,7 @@ nav .participants-list .participants-tooltip ul li span.muted {
   :root {
     --accent: hsl(196, 14%, 85%);
     --background: hsl(180, 40%, 19%);
-    --hightlight: hsl(180, 67%, 28%);
+    --highlight: hsl(180, 67%, 28%);
     --muted-text: hsl(196, 14%, 55%);
     --text: hsl(196, 14%, 65%);
     --vote-options-bg: hsl(180, 40%, 22%);
