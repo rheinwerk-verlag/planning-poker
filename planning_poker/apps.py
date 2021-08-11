@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class PlanningPokerConfig(AppConfig):
+    default = True
     default_auto_field = 'django.db.models.AutoField'
     name = 'planning_poker'
     verbose_name = _('Planning Poker')

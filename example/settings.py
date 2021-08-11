@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'channels',
     'planning_poker.apps.ChannelsPresenceConfig',
-    'planning_poker.apps.PlanningPokerConfig',
+    'planning_poker',
 )
 
 MIDDLEWARE = [
