@@ -14,7 +14,7 @@ asgiref==3.3.4
     #   channels
     #   daphne
     #   django
-astroid==1.6.6
+astroid==2.6.6
     # via pylint
 atomicwrites==1.4.0
     # via pytest
@@ -88,7 +88,7 @@ incremental==21.3.0
     # via twisted
 iniconfig==1.1.1
     # via pytest
-isort==4.3.20
+isort==5.9.3
     # via
     #   -r dev.in
     #   pylint
@@ -128,13 +128,13 @@ pycodestyle==2.7.0
     # via flake8
 pycparser==2.20
     # via cffi
-pydocstyle==2.1.1
+pydocstyle==6.1.1
     # via -r dev.in
 pyflakes==2.3.1
     # via flake8
 pygments==2.9.0
     # via sphinx
-pylint==1.8.2
+pylint==2.9.6
     # via -r dev.in
 pyopenssl==20.0.1
     # via twisted
@@ -162,11 +162,8 @@ service-identity==21.1.0
     # via twisted
 six==1.16.0
     # via
-    #   astroid
     #   automat
     #   parsimonious
-    #   pydocstyle
-    #   pylint
     #   pyopenssl
     #   service-identity
 snowballstemmer==2.1.0
@@ -198,6 +195,7 @@ sqlparse==0.4.1
     # via django
 toml==0.10.2
     # via
+    #   pylint
     #   pytest
     #   pytest-cov
 tomli==1.2.1
