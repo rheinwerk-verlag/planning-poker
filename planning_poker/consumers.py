@@ -138,7 +138,7 @@ class PokerConsumer(JsonWebsocketConsumer):
         self.send_event('story_points_submitted', story_points=story_points)
 
     def vote_submitted(self, choice: str):
-        """Dispatch an event containing the user and their choice + the same information in a signed string.
+        """Update or create the vote for the user with their choice for the current story and broadcast it to all users.
 
         :param choice: The choice for the story's points the user made.
         """
