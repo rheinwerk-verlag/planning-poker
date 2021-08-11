@@ -38,15 +38,15 @@ changes conform with the rest of this project's code.
 JavaScript and Vue
 """"""""""""""""""
 
-Follow `Google's style guide <https://google.github.io/styleguide/jsguide.html>`_ for the JavaScript code and
+Follow `Google's JS style guide <https://google.github.io/styleguide/jsguide.html>`_ for the JavaScript code and
 `Vue's style guide <https://vuejs.org/v2/style-guide/>`_ for the Vue specific code. The maximum line length was also
 extended to 120 characters. There is currently no linting set up for these style guides.
 
 CSS
 """
 
-Follow `Google's style guide <https://google.github.io/styleguide/htmlcssguide.html#CSS>`_ for any styling changes you
-want to make.
+Follow `Google's CSS style guide <https://google.github.io/styleguide/htmlcssguide.html#CSS>`_ for any styling changes
+you want to make.
 
 Creating a pull request
 ^^^^^^^^^^^^^^^^^^^^^^^

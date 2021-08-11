@@ -21,5 +21,5 @@ functionality, you should consider writing an extension app. Feel free and see t
 extension.
 
 This project uses websockets provided by `Django Channels <https://channels.readthedocs.io/en/stable/>`_ to communicate
-with the users and utilizes `django-channels-presence <https://django-channels-presence.readthedocs.io/en/latest/>` to
+with the users and utilizes `django-channels-presence <https://django-channels-presence.readthedocs.io/en/latest/>`_ to
 track the participants of a poker session.
