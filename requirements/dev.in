@@ -4,8 +4,11 @@ asgiref<3.4.0
 channels
 django
 django-channels-presence
+flake8
 isort==4.3.20
 pip-tools
+pydocstyle==2.1.1
+pylint==1.8.2
 Sphinx
 sphinx-js
 sphinx-rtd-theme

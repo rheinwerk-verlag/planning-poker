@@ -71,10 +71,8 @@ docutils==0.16
     # via
     #   sphinx
     #   sphinx-rtd-theme
-execnet==1.9.0
-    # via pytest-cache
 flake8==3.9.2
-    # via -r tox.in
+    # via -r dev.in
 hyperlink==21.0.0
     # via
     #   autobahn
@@ -106,8 +104,6 @@ mccabe==0.6.1
     # via
     #   flake8
     #   pylint
-more-itertools==8.8.0
-    # via -r tox.in
 packaging==21.0
     # via
     #   pytest
@@ -116,8 +112,6 @@ parsimonious==0.7.0
     # via sphinx-js
 pep517==0.11.0
     # via pip-tools
-pep8==1.7.1
-    # via pytest-pep8
 pip-tools==6.2.0
     # via -r dev.in
 pluggy==0.13.1
@@ -135,13 +129,13 @@ pycodestyle==2.7.0
 pycparser==2.20
     # via cffi
 pydocstyle==2.1.1
-    # via -r tox.in
+    # via -r dev.in
 pyflakes==2.3.1
     # via flake8
 pygments==2.9.0
     # via sphinx
 pylint==1.8.2
-    # via -r tox.in
+    # via -r dev.in
 pyopenssl==20.0.1
     # via twisted
 pyparsing==2.4.7
@@ -149,18 +143,12 @@ pyparsing==2.4.7
 pytest==6.2.4
     # via
     #   -r tox.in
-    #   pytest-cache
     #   pytest-cov
     #   pytest-django
-    #   pytest-pep8
     #   pytest-pythonpath
-pytest-cache==1.0
-    # via pytest-pep8
 pytest-cov==2.12.1
     # via -r tox.in
 pytest-django==4.4.0
-    # via -r tox.in
-pytest-pep8==1.0.6
     # via -r tox.in
 pytest-pythonpath==0.7.3
     # via -r tox.in
