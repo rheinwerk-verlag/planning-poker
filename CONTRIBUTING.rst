@@ -11,6 +11,7 @@ page first and feel free to create a `new issue <https://github.com/rheinwerk-ve
 one else has reported it yet.
 
 When reporting a bug, it is helpful to include additional information about the problem you have encountered:
+
 * A traceback and or screenshots of the issue
 * The versions of the involved packages
 * ideally a code example which can be used to consistently reproduce the bug
@@ -72,5 +73,5 @@ Before creating a pull request make sure to check whether:
 * Any user-facing changes are documented in the changelog
 * You added yourself to the list of authors
 
-New features or minor bug fixes should be merged into the ``development`` branch, whereas critical bug or security fixes
-should be merged into the ``main`` branch.
+New features should be merged into the ``development`` branch, whereas smaller bugs can be directly merged into the
+``main`` branch.

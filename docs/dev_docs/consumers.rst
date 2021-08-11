@@ -108,7 +108,7 @@ Client-Side
 .. js:autoclass:: BaseConsumer
    :members:
 
-   The ``BaseConsumer`` and its subclasses on the client-side function similarly to the ``PokerConsumer`` on
+   The ``BaseConsumer`` and its subclass on the client-side function similarly to the ``PokerConsumer`` on
    the server-side. The same things that were said about the server-side consumer also apply to the client-side
    consumers. Use ``sendEvent`` to send an event to the server and expand ``commands`` to respond to custom events.
 
