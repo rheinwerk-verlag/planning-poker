@@ -60,7 +60,7 @@ Following these steps will give you a site which you can use to test the Plannin
             ...
             'django.contrib.humanize',
             'channels',
-            'channels_presence',
+            'planning_poker.apps.ChannelsPresenceConfig',
             'planning_poker'
         ]
 
