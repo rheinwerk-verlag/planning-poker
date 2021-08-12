@@ -1,22 +1,22 @@
-import {shallowMount} from "@vue/test-utils";
+import {shallowMount} from '@vue/test-utils';
 
-import {createJSONElement} from "../../../planning_poker/assets/js/utils";
+import {createJSONElement} from '../../../planning_poker/assets/js/utils.js';
 
-import PokerSite from "../../../planning_poker/assets/js/components/PokerSite";
-import StoryDetail from "../../../planning_poker/assets/js/components/StoryDetail";
-import StoriesOverview from "../../../planning_poker/assets/js/components/StoriesOverview";
-import VoteOptions from "../../../planning_poker/assets/js/components/VoteOptions";
-import VoteOverview from "../../../planning_poker/assets/js/components/VoteOverview";
+import PokerSite from '../../../planning_poker/assets/js/components/PokerSite.vue';
+import StoryDetail from '../../../planning_poker/assets/js/components/StoryDetail.vue';
+import StoriesOverview from '../../../planning_poker/assets/js/components/StoriesOverview.vue';
+import VoteOptions from '../../../planning_poker/assets/js/components/VoteOptions.vue';
+import VoteOverview from '../../../planning_poker/assets/js/components/VoteOverview.vue';
 
 describe('PokerSite', () => {
-    createJSONElement({moderate: false, vote: true}, "permissions");
+  createJSONElement({moderate: false, vote: true}, 'permissions');
 
-    const wrapper = shallowMount(PokerSite);
+  const wrapper = shallowMount(PokerSite);
 
-    it('displays all other components correctly', async () => {
-        expect(wrapper.findComponent(VoteOverview)).toBeTruthy();
-        expect(wrapper.findComponent(StoryDetail)).toBeTruthy();
-        expect(wrapper.findComponent(StoriesOverview)).toBeTruthy();
-        expect(wrapper.findComponent(VoteOptions)).toBeTruthy();
-    });
+  it('displays all other components correctly', async () => {
+    expect(wrapper.findComponent(VoteOverview)).toBeTruthy();
+    expect(wrapper.findComponent(StoryDetail)).toBeTruthy();
+    expect(wrapper.findComponent(StoriesOverview)).toBeTruthy();
+    expect(wrapper.findComponent(VoteOptions)).toBeTruthy();
+  });
 });

@@ -12,7 +12,7 @@ If you want to help the development of this application and need a working setup
 
    $ pip install -r requirements/dev.txt
 
-#. Install the JavaScript requirements. ::
+#. Install the JavaScript requirements (you should at least use node version 10). ::
 
    $ npm install
 
@@ -20,13 +20,13 @@ If you want to help the development of this application and need a working setup
 
    $ python manage.py migrate
 
-#. Collect the static files. ::
+#. Bundle the JS files. ::
 
-   $ python manage.py collectstatic
+   $ npm run build
 
-#. [Optional] If you plan to make changes to the Vue components or any other JS files, you should navigate to the
-   project directory in a different terminal and run the webpack building process. This will automatically re-bundle
-   your JS files whenever you make any changes to them. ::
+   [Optional] If you plan to make changes to the Vue components or any other JS files during your development process,
+   you should navigate to the project directory in a different terminal and run the webpack building process. This will
+   automatically re-bundle your JS files whenever you make any changes to them. ::
 
    $ npm run build-dev
 
@@ -43,3 +43,5 @@ If you want to help the development of this application and need a working setup
    There is an example project in this repository which has configured all the necessary settings for a minimal working
    setup. Feel free to configure the project to your liking while developing. See the
    :ref:`user_docs/configuration:Configuration` section for more ways you can configure this setup.
+
+See the :ref:`dev_docs/testing:Testing` page and run the tests to verify that you have correctly set everything up.

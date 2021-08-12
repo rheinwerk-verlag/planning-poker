@@ -11,25 +11,25 @@
 </template>
 
 <script>
-    import PlayingCard from "./PlayingCard.vue";
+    import PlayingCard from './PlayingCard.vue';
 
     export default {
         props: {
             isFront: Boolean,
             rank: String,
-            value: String
+            value: String,
         },
         data: function () {
             return {
                 isSmall: false,
                 isMedium: true,
-                chosen: false
+                chosen: false,
             };
         },
         methods: {
             makeChosen: function () {
                 this.$emit('make-chosen', this);
-            }
+            },
         },
         components: {PlayingCard}
     }

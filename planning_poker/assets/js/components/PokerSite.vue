@@ -14,20 +14,18 @@
 </template>
 
 <script>
-    import VoteOverview from "./VoteOverview.vue";
-    import StoryDetail from "./StoryDetail.vue";
-    import StoriesOverview from "./StoriesOverview.vue";
-    import VoteOptions from "./VoteOptions.vue";
+    import VoteOverview from './VoteOverview.vue';
+    import StoryDetail from './StoryDetail.vue';
+    import StoriesOverview from './StoriesOverview.vue';
+    import VoteOptions from './VoteOptions.vue';
 
     export default {
         data: function () {
             return {
                 userVoted: false,
-                permissions: JSON.parse(document.getElementById('permissions').textContent)
-            }
+                permissions: JSON.parse(document.getElementById('permissions').textContent),
+            };
         },
-        components: {
-            VoteOverview, StoryDetail, StoriesOverview, VoteOptions
-        }
+        components: {VoteOverview, StoryDetail, StoriesOverview, VoteOptions},
     }
 </script>

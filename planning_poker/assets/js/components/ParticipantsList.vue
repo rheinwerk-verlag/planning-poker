@@ -27,7 +27,7 @@
         computed: {
             permissions: function () {
                 return {'planning_poker.vote': this.$t('Voter'), 'planning_poker.moderate': this.$t('Moderator')};
-            }
+            },
         },
         methods: {
             userPermissions: function (user) {
@@ -36,7 +36,7 @@
             permissionsDisplay: function (user) {
                 let userPermissions = this.userPermissions(user);
                 return userPermissions.length === 0 ? '' : `(${userPermissions.sort().join(', ')})`;
-            }
-        }
+            },
+        },
     }
 </script>

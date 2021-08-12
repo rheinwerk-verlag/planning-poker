@@ -18,21 +18,20 @@
 </template>
 
 <script>
-    import PlayingCard from "./PlayingCard.vue";
+    import PlayingCard from './PlayingCard.vue';
 
     export default {
         props: {
             showValue: Boolean,
             value: String,
             users: Array,
-            permissions: Object
+            permissions: Object,
         },
         methods: {
             submitPoints: function () {
                 this.$consumer.submitStoryPoints(this.value);
-            }
-        }
-        ,
+            },
+        },
         computed: {
             voterNames: function () {
                 return `${this.users.map(user => user.name).join(', ')}`;
@@ -42,7 +41,7 @@
             },
             isClickable: function () {
                 return this.showValue && this.value.match(/^[0-9]+$/) != null && this.permissions.moderate;
-            }
+            },
         },
         components: {PlayingCard}
     }
