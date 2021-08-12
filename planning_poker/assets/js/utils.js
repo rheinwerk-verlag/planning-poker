@@ -19,11 +19,11 @@ function appendChildrenWithClass(container, children) {
  * @param {String} id The id of the element in the DOM.
  * @param {Node} container The container in which the element should be included. Defaults to document.body.
  */
-function createJSONElement(object, id, container = document.body) {
+function createJsonElement(object, id, container = document.body) {
   let element = document.createElement('span');
   element.textContent = JSON.stringify(object);
   element.id = id;
   container.appendChild(element);
 }
 
-export {appendChildrenWithClass, createJSONElement};
+export {appendChildrenWithClass, createJsonElement};

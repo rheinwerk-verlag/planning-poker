@@ -8,11 +8,11 @@ class PokerConsumer extends BaseConsumer {
    * Construct a PokerConsumer with the given parameters.
    *
    * @param {Element} container A DOM element containing all other needed elements.
-   * @param {string} websocketURL The url to the websocket to which should be connected.
+   * @param {string} websocketUrl The url to the websocket to which should be connected.
    * @param {string} userId The user's id in the database.
    */
-  constructor(container, websocketURL, userId) {
-    super(container, websocketURL);
+  constructor(container, websocketUrl, userId) {
+    super(container, websocketUrl);
     this.container = container;
     this.userId = parseInt(userId);
     this.storyId = null;

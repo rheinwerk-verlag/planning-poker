@@ -4,13 +4,13 @@ class BaseConsumer {
    * Construct a BaseConsumer with the given parameters.
    *
    * @param {Element} container A DOM element containing all other needed elements.
-   * @param {string} websocketURL The url to the websocket to which should be connected.
+   * @param {string} websocketUrl The url to the websocket to which should be connected.
    */
-  constructor(container, websocketURL) {
+  constructor(container, websocketUrl) {
     let consumer = this;
     this.container = container;
 
-    this.websocket = new WebSocket(websocketURL);
+    this.websocket = new WebSocket(websocketUrl);
     this.websocket.onmessage = function (e) {
       consumer.processMessage(JSON.parse(e.data));
     };
