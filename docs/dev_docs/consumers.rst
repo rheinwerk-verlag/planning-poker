@@ -58,30 +58,74 @@ Server-Side
     specific thing occurred. Any event listeners can then differentiate between different events and perform special
     reactions based on their name.
 
-    These are the events sent by the server by default:
 
-    +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Event Name             | Data                                                                                                                                                                                                                                   |
-    |                        +--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    |                        | Field Name                     | Example                                                                  | Description                                                                                                                |
-    +========================+================================+==========================================================================+============================================================================================================================+
-    | story_points_submitted | story_points                   | ``5``                                                                    | The amount of points which should be set                                                                                   |
-    +------------------------+--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    | story_changed          | id                             | ``1``                                                                    | The id of the story which should be changed to                                                                             |
-    |                        +--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    |                        | story_label                    | ``"Poker 2: Create Screenshots"``                                        | The label of the story                                                                                                     |
-    |                        +--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    |                        | description                    | ``"<h1>HTML Ipsum</h1>\r\n\r\n<p><strong>Pellentesque hab..."``          | The description of the story                                                                                               |
-    |                        +--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    |                        | votes                          | ``{"3": [{"id": 1, "name": "John Doe"}]}``                               | Object where the keys are the story points and their corresponding values are lists of the voters who voted for the option |
-    +------------------------+--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    | poker_session_ended    | poker_session_end_redirect_url | ``"/poker/"``                                                            | The URL to which the participants of the poker session should be redirected to when the session ends                       |
-    +------------------------+--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-    | participants_changed   | participants                   | ``[{"id": 1, "name": "John Doe"}, {"id": 2, "name": "Max Mustermann"}]`` | An array of user objects with a *unique* id and a username                                                                 |
-    +------------------------+--------------------------------+--------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
+    .. list-table:: These are the events sent by the server by default
+       :widths: auto
+       :header-rows: 1
+
+       * - Event Name
+         - Send to group
+         - Data
+       * - ``story_points_submitted``
+         - ✅
+         - .. code-block:: python
+
+              {
+                  "story_points": 5  # The amount of points which should be set
+              }
+       * - ``story_changed``
+         - both
+         - .. code-block:: python
+
+              {
+                  "id": 1,  # The ID of the story to display
+                  "story_label": "Poker 2: Create Screenshots",  # The label of the story
+                  "description": "<h1>HTML Ipsum</h1>\r\n\r\n<p><strong>Pellentes…",  # The description of the story
+                  "votes": {  # Object containing the story points and their voters
+                      "3": [  # A list of users who voted for this amount of story points
+                          {
+                              "id": 1,  # The ID of the user
+                              "name": "John Doe"  # The name of the user
+                          },
+                          {
+                              "id": 2,
+                              "name": "Max Mustermann"
+                          }
+                      ],
+                      "5": [
+                          {
+                              "id": 3,
+                              "name": "Thomas"
+                          }
+                      ]
+                  }
+              }
+       * - ``poker_session_ended``
+         - ✅
+         - .. code-block:: python
+
+              {
+                  # The URL to which the participants of the poker session should be redirected to when the session ends
+                  "poker_session_end_redirect_url": "/poker/"
+              }
+       * - ``participants_changed``
+         - ✅
+         - .. code-block:: python
+
+              {
+                  "participants": [  # A list of all participants
+                      {
+                          "id": 1,  # The ID of the user
+                          "name": "John Doe"  # The name of the user
+                      },
+                      {
+                          "id": 2,
+                          "name": "Max Mustermann"
+                      }
+                  ],
+              }
 
     Expand the ``commands`` dictionary to respond to custom events.
-
 
     .. attribute:: commands
        :type: Dict[str, Dict[str, Any]]
