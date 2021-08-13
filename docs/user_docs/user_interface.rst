@@ -72,7 +72,7 @@ cards are face down, the different options are sorted in a random order to preve
 
 A moderator can also click on these options in order to set the story points for the currently active story. This is
 probably the most comfortable way for them to set the story points since most of the time the moderator is choosing the
-option with the most votes anyways. The button at the bottom of this component also provides them with the option to
+option with the most votes anyways. The button at the top of this component also provides them with the option to
 reset the votes of all participants.
 
 Participants List

@@ -23,12 +23,12 @@
 </template>
 
 <script>
-    import PlayingCardButton from "./PlayingCardButton.vue";
+    import PlayingCardButton from './PlayingCardButton.vue';
 
     export default {
         props: {
             permissions: Object,
-            userVoted: Boolean
+            userVoted: Boolean,
         },
         data: function () {
             return {
@@ -36,7 +36,7 @@
                 isFront: true,
                 isSmall: false,
                 isMedium: true,
-                choice: null
+                choice: null,
             };
         },
         computed: {
@@ -51,7 +51,7 @@
             },
             displayNonPointOptions: function () {
                 return !this.moderate && this.displayPointOptions;
-            }
+            },
         },
         methods: {
             vote: function (choice) {
@@ -83,7 +83,7 @@
                     this.$consumer.app.$refs.storyDetail.setupOverlay(card.rank);
                     this.removeOption(card.rank);
                 }
-            }
+            },
         },
         components: {PlayingCardButton},
     }

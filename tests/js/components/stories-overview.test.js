@@ -1,6 +1,6 @@
 import {shallowMount} from "@vue/test-utils";
 
-import {createJSONElement} from "../../../planning_poker/assets/js/utils";
+import {createJsonElement} from "../../../planning_poker/assets/js/utils";
 
 import AsideStory from "../../../planning_poker/assets/js/components/AsideStory";
 import StoriesOverview from "../../../planning_poker/assets/js/components/StoriesOverview";
@@ -18,7 +18,7 @@ describe("Vote", () => {
         });
     }
 
-    createJSONElement(generateStories(), "initial-stories");
+    createJsonElement(generateStories(), "initial-stories");
 
     const wrapper = shallowMount(StoriesOverview, {
         propsData: {

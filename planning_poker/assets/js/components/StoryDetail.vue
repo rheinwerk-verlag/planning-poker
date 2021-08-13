@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import PlayingCard from "./PlayingCard.vue";
+    import PlayingCard from './PlayingCard.vue';
 
     export default {
         data: function () {
@@ -32,8 +32,8 @@
                 title: '',
                 description: '',
                 showOverlay: false,
-                rank: ''
-            }
+                rank: '',
+            };
         },
         computed: {
             noDescriptionString: function () {
@@ -41,7 +41,7 @@
             },
             descriptionString: function () {
                 return this.description || this.noDescriptionString;
-            }
+            },
         },
         methods: {
             setupOverlay: function (rank) {
@@ -51,7 +51,7 @@
             resetOverlay: function () {
                 this.showOverlay = false;
                 this.rank = '';
-            }
+            },
         },
         components: {PlayingCard}
     }
