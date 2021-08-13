@@ -165,21 +165,35 @@ Client-Side
 .. js:autoclass:: PokerConsumer
    :members:
 
-   These are the events sent by the client by default:
+   .. list-table:: These are the events sent by the client by default
+       :widths: auto
+       :header-rows: 1
 
-   +----------------------+------------------------------------------------------------------------------------------+
-   | Event Name           | Data                                                                                     |
-   |                      +--------------+---------+-----------------------------------------------------------------+
-   |                      | Field Name   | Example | Description                                                     |
-   +======================+==============+=========+=================================================================+
-   | next_story_requested | story_id     | ``1``   | The id of the story which should be changed to                  |
-   +----------------------+--------------+---------+-----------------------------------------------------------------+
-   | points_submitted     | story_points | ``"5"`` | The amount of points which should be set                        |
-   +----------------------+--------------+---------+-----------------------------------------------------------------+
-   | vote_submitted       | choice       | ``"3"`` | The story points the voter voted for                            |
-   +----------------------+--------------+---------+-----------------------------------------------------------------+
-   | reset_requested      |              |         | No data. Signals the server that the votes should be reset      |
-   +----------------------+--------------+---------+-----------------------------------------------------------------+
-   | heartbeat            |              |         | No data. Signals the server that the participant still partakes |
-   |                      |              |         | in the poker session                                            |
-   +----------------------+--------------+---------+-----------------------------------------------------------------+
+       * - Event Name
+         - Data
+       * - ``next_story_requested``
+         - .. code-block:: python
+
+              {
+                  "story_id": 1  # The ID of the requested story
+              }
+       * - ``points_submitted``
+         - .. code-block:: python
+
+              {
+                  "story_points": "5"  # The amount of points the story should be set to
+              }
+       * - ``vote_submitted``
+         - .. code-block:: python
+
+              {
+                  "choice": "3"  # The story points the voter voted for
+              }
+       * - ``reset_requested``
+         - .. code-block:: python
+
+              {}  # Signals the server that the votes should be reset
+       * - ``heartbeat``
+         - .. code-block:: python
+
+              {}  # Signals the server that the participant still partakes in the poker session

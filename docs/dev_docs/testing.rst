@@ -12,7 +12,7 @@ Python Tests
 ------------
 
 The Python tests are written using `pytest <https://docs.pytest.org/en/latest/>`_ and
-`django-pytest <https://pytest-django.readthedocs.io/en/latest/>`_. In order to run them, use ::
+`pytest-django <https://pytest-django.readthedocs.io/en/latest/>`_. In order to run them, use ::
 
 $ pytest
 
