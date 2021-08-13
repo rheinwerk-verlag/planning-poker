@@ -118,7 +118,7 @@ Server-Side
               {
                   # The URL to which the participants
                   # of the poker session should be
-                  # redirected to when the session ends
+                  # redirected when the session ends
                   "poker_session_end_redirect_url": "/poker/"
               }
        * - ``participants_changed``
