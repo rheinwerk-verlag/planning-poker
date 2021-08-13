@@ -15,10 +15,11 @@ def django_db_setup(django_db_setup, django_db_blocker):
 
 @pytest.fixture
 def poker_consumer(db):
-    consumer = PokerConsumer(scope={
+    consumer = PokerConsumer()
+    consumer.scope = {
         'url_route': {'kwargs': {'poker_session': 1}},
         'user': get_user_model().objects.create(username='username', password='password')
-    })
+    }
     return consumer
 
 

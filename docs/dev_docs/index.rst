@@ -12,6 +12,7 @@ Developer Documentation
    presence
    admin
    constants
+   apps
    testing
    deployment
 

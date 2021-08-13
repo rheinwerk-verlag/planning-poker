@@ -64,28 +64,29 @@ def command_factory(name, base_class):
 exec(read('planning_poker', 'version.py'))
 
 classifiers = """\
-# The next line is important: it prevents accidental upload to PyPI!
-Private :: Do Not Upload
-Development Status :: 2 - Pre-Alpha
+Development Status :: 5 - Production/Stable
+Environment :: Web Environment
+Framework :: Django
+Framework :: Django :: 3.0
+Framework :: Django :: 3.1
+Framework :: Django :: 3.2
+Intended Audience :: Developers
+Intended Audience :: End Users/Desktop
+License :: Other/Proprietary License
+Operating System :: OS Independent
+Programming Language :: JavaScript
 Programming Language :: Python
 Programming Language :: Python :: 3.6
 Programming Language :: Python :: 3.7
 Programming Language :: Python :: 3.8
 Programming Language :: Python :: 3.9
-Framework :: Django
-Framework :: Django :: 3.0
-Intended Audience :: Developers
-License :: Other/Proprietary License
-#Operating System :: Microsoft :: Windows
-Operating System :: POSIX
-#Operating System :: MacOS :: MacOS X
 Topic :: Internet
 """
 
 install_requires = [
-    'channels>=2.4.0,<3.0.0',
-    'Django>=3.0.3',
-    'django-channels-presence>=1.0.0',
+    'channels>=3',
+    'Django>=3',
+    'django-channels-presence>=1',
 ]
 
 tests_require = [
@@ -94,7 +95,6 @@ tests_require = [
     'pydocstyle',
     'pylint',
     'pytest-django',
-    'pytest-pep8',
     'pytest-cov',
     'pytest-pythonpath',
     'pytest',

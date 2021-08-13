@@ -1,7 +1,14 @@
 -r tox.in
 
-isort==4.3.20
+asgiref<3.4.0
+channels
+django
+django-channels-presence
+flake8
+isort
 pip-tools
+pydocstyle
+pylint
 Sphinx
 sphinx-js
 sphinx-rtd-theme
