@@ -33,7 +33,7 @@ test:js:
 pages:
   extends: .pages-python-3
   variables:
-    EXTRA_BEFORE_SCRIPT: "apt-get update -qq; apt-get install nodejs npm; npm install"
+    EXTRA_BEFORE_SCRIPT: "apt-get update -qq; apt-get install -y -qq nodejs npm; npm install"
   tags:
     - python38
 
