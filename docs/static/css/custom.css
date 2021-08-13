@@ -3,6 +3,13 @@
     white-space: pre-wrap !important;
 }
 
+.wy-table-responsive td,
+.wy-table-responsive th {
+    white-space: normal !important;
+}
+
+
+
 .rst-content .wy-table-responsive div[class^=highlight] {
     margin-bottom: 1px !important;
 }

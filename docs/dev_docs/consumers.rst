@@ -60,14 +60,14 @@ Server-Side
 
 
     .. list-table:: These are the events sent by the server by default
-       :widths: auto
+       :widths: 10 10 80
        :header-rows: 1
 
        * - Event Name
-         - Send to group
+         - Targets
          - Data
        * - ``story_points_submitted``
-         - ✅
+         - All consumers
          - .. code-block:: python
 
               {
@@ -75,7 +75,7 @@ Server-Side
                   "story_points": 5
               }
        * - ``story_changed``
-         - both
+         - All consumers or a single consumer
          - .. code-block:: python
 
               {
@@ -111,7 +111,7 @@ Server-Side
                   }
               }
        * - ``poker_session_ended``
-         - ✅
+         - All consumers
          - .. code-block:: python
 
               {
@@ -121,7 +121,7 @@ Server-Side
                   "poker_session_end_redirect_url": "/poker/"
               }
        * - ``participants_changed``
-         - ✅
+         - All consumers
          - .. code-block:: python
 
               {
