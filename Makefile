@@ -75,8 +75,6 @@ metrics: ## print code metrics with radon
 	radon mi -s $(PYTHON_PACKAGE) $(TEST_PACKAGE)
 
 docs: ## generate Sphinx HTML documentation
-	rm -f docs/$(PYTHON_PACKAGE).rst
-	rm -f docs/modules.rst
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	@echo "See docs/_build/html/index.html"
