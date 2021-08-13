@@ -19,7 +19,7 @@ Sample message:
      "data": {
        "id": 2,
        "story_label": "Poker 2: Create Screenshots",
-       "description": "<h1>HTML Ipsum</h1>\r\n\r\n<p><strong>Pellentesque habitant morbi</strong>...",
+       "description": "<h1>HTML Ipsum</h1>\r\n\r\n<p><strong>Pellentesque habitant</strong>...",
        "votes": {
          "3": [
            {
@@ -71,21 +71,31 @@ Server-Side
          - .. code-block:: python
 
               {
-                  "story_points": 5  # The amount of points which should be set
+                  # The amount of points the story should be set to
+                  "story_points": 5
               }
        * - ``story_changed``
          - both
          - .. code-block:: python
 
               {
-                  "id": 1,  # The ID of the story to display
-                  "story_label": "Poker 2: Create Screenshots",  # The label of the story
-                  "description": "<h1>HTML Ipsum</h1>\r\n\r\n<p><strong>Pellentes…",  # The description of the story
-                  "votes": {  # Object containing the story points and their voters
-                      "3": [  # A list of users who voted for this amount of story points
+                  # The ID of the story to display
+                  "id": 1,
+                  # The label of the story
+                  "story_label": "Poker 2: Create Screenshots",
+                  # The description of the story
+                  "description": "<h1>HTML Ipsum</h1>\r\n\r\n<p><strong>Pellentes...",
+                  # Object containing the story points
+                  # and their voters
+                  "votes": {
+                      # A list of users who voted for
+                      # this amount of story points
+                      "3": [
                           {
-                              "id": 1,  # The ID of the user
-                              "name": "John Doe"  # The name of the user
+                              # The ID of the user
+                              "id": 1,
+                              # The name of the user
+                              "name": "John Doe"
                           },
                           {
                               "id": 2,
@@ -105,7 +115,9 @@ Server-Side
          - .. code-block:: python
 
               {
-                  # The URL to which the participants of the poker session should be redirected to when the session ends
+                  # The URL to which the participants
+                  # of the poker session should be
+                  # redirected to when the session ends
                   "poker_session_end_redirect_url": "/poker/"
               }
        * - ``participants_changed``
@@ -113,10 +125,13 @@ Server-Side
          - .. code-block:: python
 
               {
-                  "participants": [  # A list of all participants
+                  # A list of all participants
+                  "participants": [
                       {
-                          "id": 1,  # The ID of the user
-                          "name": "John Doe"  # The name of the user
+                          # The ID of the user
+                          "id": 1,
+                          # The name of the user
+                          "name": "John Doe"
                       },
                       {
                           "id": 2,
@@ -175,25 +190,31 @@ Client-Side
          - .. code-block:: python
 
               {
-                  "story_id": 1  # The ID of the requested story
+                  # The ID of the requested story
+                  "story_id": 1
               }
        * - ``points_submitted``
          - .. code-block:: python
 
               {
-                  "story_points": "5"  # The amount of points the story should be set to
+                  # The amount of points the story should be set to
+                  "story_points": "5"
               }
        * - ``vote_submitted``
          - .. code-block:: python
 
               {
-                  "choice": "3"  # The story points the voter voted for
+                  # The story points the voter voted for
+                  "choice": "3"
               }
        * - ``reset_requested``
          - .. code-block:: python
 
-              {}  # Signals the server that the votes should be reset
+              # Signals the server that the votes should be reset
+              {}
        * - ``heartbeat``
          - .. code-block:: python
 
-              {}  # Signals the server that the participant still partakes in the poker session
+              # Signals the server that the participant still partakes in
+              # the poker session
+              {}
