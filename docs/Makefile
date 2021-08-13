@@ -1,5 +1,6 @@
 # Makefile for Sphinx documentation
 #
+export PATH := ../node_modules/.bin/:$(PATH)
 
 # You can set these variables from the command line.
 SPHINXOPTS    =

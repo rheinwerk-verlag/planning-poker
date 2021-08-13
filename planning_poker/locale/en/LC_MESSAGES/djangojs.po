@@ -27,6 +27,10 @@ msgstr ""
 msgid "Upcoming Stories"
 msgstr ""
 
+#: assets/js/components/StoryDetail.vue:40
+msgid "No description available."
+msgstr ""
+
 #: assets/js/components/StoriesList.vue:63
 msgid "Show more (+%s)"
 msgstr ""
@@ -35,14 +39,10 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-#: assets/js/components/StoryDetail.vue:40
-msgid "No description available."
-msgstr ""
-
-#: assets/js/components/VoteOverview.vue:34
-msgid "Reset Votes"
-msgstr ""
-
 #: assets/js/components/VoteOverview.vue:37
+msgid "Reset"
+msgstr ""
+
+#: assets/js/components/VoteOverview.vue:40
 msgid "Votes"
 msgstr ""

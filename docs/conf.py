@@ -35,6 +35,8 @@ sys.path.insert(0, project_root)
 # Setup Django
 import django
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'example.settings')
 if 'setup' in dir(django):
     django.setup()
@@ -51,9 +53,20 @@ exec(open(os.path.join(project_root, 'planning_poker', 'version.py')).read(), {}
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosectionlabel', 'sphinx.ext.intersphinx', 'sphinx.ext.viewcode']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosectionlabel', 'sphinx.ext.intersphinx', 'sphinx.ext.viewcode',
+              'sphinx_js']
+
+JS_ROOT = os.path.join(BASE_DIR, 'planning_poker', 'assets', 'js')
+
+jsdoc_config_path = os.path.join(BASE_DIR, 'docs', 'jsdoc.json')
+
+js_source_path = JS_ROOT
 
 autosectionlabel_prefix_document = True
+
+autodoc_member_order = 'bysource'
+
+add_module_names = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -155,7 +168,11 @@ html_theme = 'sphinx_rtd_theme'
 # here, relative to this directory. They are copied after the builtin
 # static files, so a file named "default.css" will overwrite the builtin
 # "default.css".
-#html_static_path = ['_static']
+html_static_path = ['static']
+
+html_css_files = [
+    'css/custom.css',
+]
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page
 # bottom, using the given strftime format.

@@ -20,14 +20,14 @@
 </template>
 
 <script>
-    import AsideStory from "./AsideStory.vue";
+    import AsideStory from './AsideStory.vue';
 
     export default {
         props: {
             title: String,
             stories: Array,
             showLast: Boolean,
-            permissions: Object
+            permissions: Object,
         },
         data: function () {
             return {
@@ -40,7 +40,7 @@
             },
             toggleShowMore: function () {
                 this.showMore = !this.showMore;
-            }
+            },
         },
         computed: {
             displayedStories: function () {
@@ -64,7 +64,7 @@
             },
             showLessString: function () {
                 return this.$t('Show less');
-            }
+            },
         },
         components: {AsideStory}
     }

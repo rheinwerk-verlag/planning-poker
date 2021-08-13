@@ -1,0 +1,23 @@
+/* Center table text */
+.wy-table-responsive table.align-center {
+    text-align: center;
+}
+
+/* Remove bottom margin for line-blocks in tables */
+.wy-table-responsive tr div.line-block {
+    margin-bottom: 0;
+}
+
+/* Prevent tables from getting a horizontal scrollbar. */
+.wy-table-responsive td div[class^=highlight] pre {
+    white-space: pre-wrap !important;
+}
+
+.wy-table-responsive td,
+.wy-table-responsive th {
+    white-space: normal !important;
+}
+
+.wy-table-responsive div[class^=highlight] {
+    margin-bottom: 1px !important;
+}

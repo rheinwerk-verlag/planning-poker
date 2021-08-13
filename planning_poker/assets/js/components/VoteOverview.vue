@@ -1,6 +1,12 @@
 <template>
     <div class="votes-overview">
-        <h2>{{ title }}</h2>
+        <div class="heading-wrapper">
+           <h2>{{ title }}</h2>
+            <button v-if="permissions.moderate && Object.keys(votes).length > 0" @click="reset" class="clickable">
+                {{ resetString }}
+            </button>
+        </div>
+
         <transition-group name="votes-overview">
             <Vote v-for="vote in displayedVotes"
                   :showValue="showVotes"
@@ -10,14 +16,11 @@
                   :key="vote">
             </Vote>
         </transition-group>
-        <button v-if="permissions.moderate && Object.keys(votes).length > 0" @click="reset" class="clickable">{{
-            resetString }}
-        </button>
     </div>
 </template>
 
 <script>
-    import Vote from "./Vote.vue";
+    import Vote from './Vote.vue';
 
     export default {
         props: {
@@ -27,11 +30,11 @@
             return {
                 votes: {},
                 participants: [],
-            }
+            };
         },
         computed: {
             resetString: function () {
-                return this.$t('Reset Votes');
+                return this.$t('Reset');
             },
             title: function () {
                 return this.$t('Votes');
@@ -51,8 +54,8 @@
                 return this.shuffle(Object.keys(this.votes));
             },
             voters: function () {
-                return this.participants.filter(participant => participant.permissions.includes('poker.vote'));
-            }
+                return this.participants.filter(participant => participant.permissions.includes('planning_poker.vote'));
+            },
         },
         methods: {
             reset: function () {
@@ -76,7 +79,7 @@
                 }
 
                 return array;
-            }
+            },
         },
         components: {Vote}
     }
