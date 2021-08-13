@@ -1,6 +1,6 @@
 import {shallowMount} from '@vue/test-utils';
 
-import {createJSONElement} from '../../../planning_poker/assets/js/utils.js';
+import {createJsonElement} from '../../../planning_poker/assets/js/utils.js';
 
 import PokerSite from '../../../planning_poker/assets/js/components/PokerSite.vue';
 import StoryDetail from '../../../planning_poker/assets/js/components/StoryDetail.vue';
@@ -9,7 +9,7 @@ import VoteOptions from '../../../planning_poker/assets/js/components/VoteOption
 import VoteOverview from '../../../planning_poker/assets/js/components/VoteOverview.vue';
 
 describe('PokerSite', () => {
-  createJSONElement({moderate: false, vote: true}, 'permissions');
+  createJsonElement({moderate: false, vote: true}, 'permissions');
 
   const wrapper = shallowMount(PokerSite);
 

@@ -1,23 +1,23 @@
 import Vue from 'vue';
 
-import {createJSONElement} from '../../planning_poker/assets/js/utils.js';
+import {createJsonElement} from '../../planning_poker/assets/js/utils.js';
 import {PokerConsumer} from '../../planning_poker/assets/js/consumers/poker-consumer.js';
 import PokerSite from '../../planning_poker/assets/js/components/PokerSite.vue';
 
 describe('PokerConsumer', () => {
   document.body.innerHTML = `<PokerSite id='planning_poker-container'></PokerSite>`;
 
-  createJSONElement({
+  createJsonElement({
     non_point_options: [['A', 'A'], ['B', 'B']],
     point_options: [['1', '1'], ['2', '2'], ['3', '3'], ['5', '5']],
   }, 'options');
 
-  createJSONElement([...Array(5).keys()].map(i => {
+  createJsonElement([...Array(5).keys()].map(i => {
     let j = i + 1;
     return {id: j, story_label: `Story ${j}`, description: `<p>Description of Story #${j}</p>`};
   }), 'initial-stories');
 
-  createJSONElement({moderate: false, vote: true}, 'permissions');
+  createJsonElement({moderate: false, vote: true}, 'permissions');
 
   let pokerConsumer = new PokerConsumer(document.body, 'ws://test', '1');
   pokerConsumer.websocket.close();

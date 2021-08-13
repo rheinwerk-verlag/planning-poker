@@ -1,6 +1,6 @@
 import {shallowMount} from '@vue/test-utils';
 
-import {createJSONElement} from '../../../planning_poker/assets/js/utils.js';
+import {createJsonElement} from '../../../planning_poker/assets/js/utils.js';
 
 import VoteOptions from '../../../planning_poker/assets/js/components/VoteOptions.vue';
 import PlayingCardButton from '../../../planning_poker/assets/js/components/PlayingCardButton.vue';
@@ -24,8 +24,8 @@ describe('VoteOptions', () => {
     },
   };
 
-  createJSONElement(options, 'options');
-  createJSONElement({'moderate': false, 'vote': false}, 'permissions');
+  createJsonElement(options, 'options');
+  createJsonElement({'moderate': false, 'vote': false}, 'permissions');
 
   const wrapper = shallowMount(VoteOptions, {
     propsData: {
