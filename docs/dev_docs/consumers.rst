@@ -71,7 +71,8 @@ Server-Side
          - .. code-block:: python
 
               {
-                  # The amount of points the story should be set to
+                  # The amount of points the story should
+                  # be set to
                   "story_points": 5
               }
        * - ``story_changed``
