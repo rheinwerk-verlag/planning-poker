@@ -32,18 +32,18 @@
 </template>
 
 <script>
-    import StoriesList from "./StoriesList.vue";
-    import AsideStory from "./AsideStory.vue";
+    import StoriesList from './StoriesList.vue';
+    import AsideStory from './AsideStory.vue';
 
     export default {
         props: {
-            permissions: Object
+            permissions: Object,
         },
         data: function () {
             return {
                 previousStories: [],
                 activeStory: null,
-                upcomingStories: JSON.parse(document.getElementById('initial-stories').textContent)
+                upcomingStories: JSON.parse(document.getElementById('initial-stories').textContent),
             };
         },
         computed: {
@@ -58,12 +58,12 @@
             },
             upcomingStoriesTitle: function () {
                 return this.$t('Upcoming Stories');
-            }
+            },
         },
         methods: {
             makeActive: function (storyId) {
                 if (this.activeStory !== null) {
-                    if (this.activeStory.id == storyId) {
+                    if (this.activeStory.id === storyId) {
                         return;
                     }
                 }
@@ -73,7 +73,10 @@
                     if (this.activeStory !== null) {
                         this.upcomingStories.unshift(this.activeStory);
                     }
-                    this.upcomingStories.unshift(...this.previousStories.splice(index + 1, this.previousStories.length - index - 1));
+                    this.upcomingStories.unshift(...this.previousStories.splice(
+                        index + 1,
+                        this.previousStories.length - index - 1)
+                    );
                     this.activeStory = this.previousStories.pop();
                 } else {
                     if (this.activeStory !== null) {
@@ -83,7 +86,7 @@
                     this.activeStory = this.upcomingStories.shift();
                 }
                 this.$consumer.nextStoryRequested(this.activeStory.id)
-            }
+            },
         },
         components: {AsideStory, StoriesList}
     }

@@ -26,7 +26,7 @@
                     return this.rank[0];
                 }
                 return this.rank;
-            }
-        }
+            },
+        },
     }
 </script>

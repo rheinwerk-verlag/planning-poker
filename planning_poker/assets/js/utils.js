@@ -4,11 +4,11 @@
  * @param {Array} children An array containing data about the children. each element looks like [tagName, cssClass].
  */
 function appendChildrenWithClass(container, children) {
-    children.forEach(child_data => {
-        let child = document.createElement(child_data[0]);
-        child.classList.add(child_data[1]);
-        container.appendChild(child);
-    })
+  children.forEach(child_data => {
+    let child = document.createElement(child_data[0]);
+    child.classList.add(child_data[1]);
+    container.appendChild(child);
+  });
 }
 
 /**
@@ -19,11 +19,11 @@ function appendChildrenWithClass(container, children) {
  * @param {String} id The id of the element in the DOM.
  * @param {Node} container The container in which the element should be included. Defaults to document.body.
  */
-function createJSONElement(object, id, container = document.body) {
-    let element = document.createElement("span");
-    element.textContent = JSON.stringify(object);
-    element.id = id;
-    container.appendChild(element);
+function createJsonElement(object, id, container = document.body) {
+  let element = document.createElement('span');
+  element.textContent = JSON.stringify(object);
+  element.id = id;
+  container.appendChild(element);
 }
 
-export {appendChildrenWithClass, createJSONElement}
+export {appendChildrenWithClass, createJsonElement};

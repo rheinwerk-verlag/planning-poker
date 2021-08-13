@@ -71,9 +71,6 @@ reports/*/index.html
 # Sphinx
 docs/_build
 
-# Generated Sphinx source files
-docs/planning_poker.rst
-
 # PyBuilder
 target/
 

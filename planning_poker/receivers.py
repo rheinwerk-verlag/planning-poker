@@ -13,7 +13,7 @@ channel_layer = get_channel_layer()
 
 @receiver(presence_changed)
 def broadcast_presence(room: Room, **kwargs):
-    """Broadcast the new list of present users to the.
+    """Broadcast the new list of present users to the PokerConsumers.
 
     :param room: The room from which a presence was added or removed.
     """

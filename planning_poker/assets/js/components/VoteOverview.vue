@@ -20,7 +20,7 @@
 </template>
 
 <script>
-    import Vote from "./Vote.vue";
+    import Vote from './Vote.vue';
 
     export default {
         props: {
@@ -30,7 +30,7 @@
             return {
                 votes: {},
                 participants: [],
-            }
+            };
         },
         computed: {
             resetString: function () {
@@ -55,7 +55,7 @@
             },
             voters: function () {
                 return this.participants.filter(participant => participant.permissions.includes('planning_poker.vote'));
-            }
+            },
         },
         methods: {
             reset: function () {
@@ -79,7 +79,7 @@
                 }
 
                 return array;
-            }
+            },
         },
         components: {Vote}
     }

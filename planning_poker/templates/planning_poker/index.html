@@ -15,11 +15,11 @@
                 <div>
                     <h5 class="ellipsis-overflow">{{ poker_session }}</h5>
                     <span>
-                            {% blocktrans trimmed count unpokered_stories=poker_session.unpokered_stories %}
-                                {{ unpokered_stories }} ticket left to poker
-                            {% plural %}
-                                {{ unpokered_stories }} tickets left to poker
-                            {% endblocktrans %}
+                        {% blocktrans trimmed count unpokered_stories=poker_session.unpokered_stories %}
+                            {{ unpokered_stories }} ticket left to poker
+                        {% plural %}
+                            {{ unpokered_stories }} tickets left to poker
+                        {% endblocktrans %}
                     </span>
                 </div>
                 <small>{{ poker_session.poker_date|naturalday }}</small>
