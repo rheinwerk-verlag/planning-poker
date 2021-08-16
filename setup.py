@@ -109,7 +109,7 @@ setup(
     author_email='webteam@rheinwerk-verlag.de',
     maintainer='Rheinwerk Verlag GmbH Webteam',
     maintainer_email='webteam@rheinwerk-verlag.de',
-    url='https://gitlab.intern.rheinwerk.de/rheinwerk/planning-poker',
+    url='https://github.com/rheinwerk-verlag/planning-poker',
     license='BSD-3-Clause',
     classifiers=[c.strip() for c in classifiers.splitlines()
                  if c.strip() and not c.startswith('#')],
