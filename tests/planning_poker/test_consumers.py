@@ -20,7 +20,7 @@ class TestPokerConsumer:
     @pytest.mark.asyncio
     @pytest.mark.django_db
     async def test_connect(self, poker_session_id):
-        communicator = WebsocketCommunicator(application, f'ws://test/planning_poker/{poker_session_id}/')
+        communicator = WebsocketCommunicator(application, 'ws://test/planning_poker/{}/'.format(poker_session_id))
         connected, subprotocol = await communicator.connect()
         assert connected
         if poker_session_id == self.HAS_ACTIVE_STORY:

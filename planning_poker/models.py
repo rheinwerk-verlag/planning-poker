@@ -4,7 +4,7 @@ try:
     # The OrderedDict was added to the typing module in Python version 3.7.
     # Fall back to the default Dict type in order to provide backwards compatibility for Python 3.6.
     from typing import OrderedDict as OrderedDictType
-except ImportError:
+except ImportError:  #  pragma: no cover
     OrderedDictType = Dict
 
 from django.conf import settings
