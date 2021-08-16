@@ -20,6 +20,7 @@ def poker_consumer(db):
         'url_route': {'kwargs': {'poker_session': 1}},
         'user': get_user_model().objects.create(username='username', password='password')
     }
+    consumer.channel_name = 'poker_session_1'
     return consumer
 
 

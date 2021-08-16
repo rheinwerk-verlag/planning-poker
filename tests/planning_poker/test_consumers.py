@@ -1,22 +1,42 @@
 from unittest.mock import Mock, patch
 
+from channels.testing import WebsocketCommunicator
+from django.utils import timezone
 import pytest
+
+from example.asgi import application
 
 
 class TestPokerConsumer:
     def test_poker_session(self, poker_consumer):
         assert poker_consumer.poker_session.id == 1
 
-    # @pytest.mark.django_db
-    # @pytest.mark.asyncio
-    # async def test_connect(self):
-    #     application = URLRouter([
-    #         url(r'/(?P<poker_session>\w+)/$', PokerConsumer)
-    #     ])
-    #     communicator = WebsocketCommunicator(application, 'ws://test/planning_poker/1/')
-    #     connected, subprotocol = await communicator.connect()
-    #     assert connected
-    #     await communicator.disconnect()
+    HAS_NO_ACTIVE_STORY = 1
+    HAS_ACTIVE_STORY = 2
+
+    # TODO: rework
+    # The table is prepopulated with two poker sessions. The first one has no active story, and the second has one.
+    @pytest.mark.parametrize('poker_session_id', [HAS_NO_ACTIVE_STORY, HAS_ACTIVE_STORY])
+    @pytest.mark.asyncio
+    @pytest.mark.django_db
+    async def test_connect(self, poker_session_id):
+        communicator = WebsocketCommunicator(application, f'ws://test/planning_poker/{poker_session_id}/')
+        connected, subprotocol = await communicator.connect()
+        assert connected
+        if poker_session_id == self.HAS_ACTIVE_STORY:
+            response = await communicator.receive_json_from()
+            expected_response = {
+                'type': 'send_json',
+                'event': 'story_changed',
+                'data': {
+                    'id': 1,
+                    'story_label': 'TEST-1: Test Title',
+                    'description': 'Test description',
+                    'votes': {}
+                }
+            }
+            assert response == expected_response
+        await communicator.disconnect()
 
     @pytest.mark.parametrize('user_has_permission', [True, False])
     def test_receive_json(self, user_has_permission, poker_consumer, permission):
@@ -63,12 +83,21 @@ class TestPokerConsumer:
             mock_group_send.assert_not_called()
 
     @pytest.mark.django_db
-    @pytest.mark.parametrize("has_active_story", [True, False])
-    @pytest.mark.parametrize("unpokered_stories_left", [True, False])
-    def test_next_story_requested(self, has_active_story, unpokered_stories_left, poker_consumer, story):
+    @pytest.mark.parametrize('skipping_stories', [True, False])
+    @pytest.mark.parametrize('has_active_story', [True, False])
+    @pytest.mark.parametrize('unpokered_stories_left', [True, False])
+    def test_next_story_requested(self, skipping_stories, has_active_story, unpokered_stories_left, poker_consumer, story):
         poker_consumer.poker_session.stories.create(ticket_number='FIAE-92', title='planning_poker app tests',
                                                     story_points=1)
-        if unpokered_stories_left:
+        story_id = None
+        if skipping_stories:
+            new_story = poker_consumer.poker_session.stories.create(
+                ticket_number='skipped',
+                title='story',
+                story_points=None
+            )
+            story_id = new_story.id
+        elif unpokered_stories_left:
             new_story = poker_consumer.poker_session.stories.create(
                 ticket_number='unpokered',
                 title='story',
@@ -85,9 +114,9 @@ class TestPokerConsumer:
                 end_poker_session=mock_end_poker_session,
                 send_active_story_information=mock_send_active_story_information
         ):
-            poker_consumer.next_story_requested()
+            poker_consumer.next_story_requested(story_id=story_id)
 
-        if unpokered_stories_left:
+        if unpokered_stories_left or skipping_stories:
             mock_send_active_story_information.assert_called()
             assert poker_consumer.poker_session.active_story.id == new_story.id
         else:
@@ -107,29 +136,43 @@ class TestPokerConsumer:
         mock_send_active_story_information.assert_called()
 
     @pytest.mark.django_db
-    def test_set_story_points(self, poker_consumer, story):
+    @pytest.mark.parametrize('has_active_story', [True, False])
+    def test_set_story_points(self, poker_consumer, story, has_active_story, caplog):
         story.story_points = None
-        poker_consumer.poker_session.active_story = story
+        if has_active_story:
+            poker_consumer.poker_session.active_story = story
 
         mock_send_event = Mock()
         with patch.object(poker_consumer, 'send_event', mock_send_event):
             poker_consumer.set_story_points(3)
 
-        assert poker_consumer.poker_session.active_story.story_points == 3
-        mock_send_event.assert_called()
+        if has_active_story:
+            assert poker_consumer.poker_session.active_story.story_points == 3
+            mock_send_event.assert_called()
+        else:
+            assert 'username tried to set story points with no active story.' in caplog.messages
+            assert story.story_points is None
+            mock_send_event.assert_not_called()
 
     @pytest.mark.django_db
-    def test_vote_submitted(self, poker_consumer, story, caplog):
+    @pytest.mark.parametrize('has_active_story', [True, False])
+    def test_vote_submitted(self, poker_consumer, story, has_active_story, caplog):
         user = poker_consumer.scope['user']
-        poker_consumer.poker_session.active_story = story
-        poker_consumer.poker_session.save()
+        if has_active_story:
+            poker_consumer.poker_session.active_story = story
+            poker_consumer.poker_session.save()
 
         mock_send_active_story_information = Mock()
         with patch.object(poker_consumer, 'send_active_story_information', mock_send_active_story_information):
             poker_consumer.vote_submitted('2')
 
-        assert story.votes.filter(user=user, choice='2').exists()
-        mock_send_active_story_information.assert_called_with()
+        if has_active_story:
+            assert story.votes.filter(user=user, choice='2').exists()
+            mock_send_active_story_information.assert_called_with()
+        else:
+            assert 'username tried to vote with no active story.' in caplog.messages
+            assert not story.votes.filter(user=user).exists()
+            mock_send_active_story_information.assert_not_called()
 
     @pytest.mark.django_db
     @pytest.mark.parametrize('sent_to_group', [True, False])
@@ -165,7 +208,7 @@ class TestPokerConsumer:
 
         assert poker_consumer.poker_session.active_story is None
         mock_send_event.assert_called_with('poker_session_ended', send_to_group=True,
-                                           poker_session_end_redirect_url='/')
+                                           poker_session_end_redirect_url='/poker/')
 
     @pytest.mark.django_db
     def test_participants_changed(self, poker_consumer):
@@ -175,3 +218,8 @@ class TestPokerConsumer:
             poker_consumer.participants_changed({'data': {'participants': participants}})
 
         mock_send_event.assert_called_with('participants_changed', participants=participants)
+
+    @patch('planning_poker.consumers.Presence.objects.touch')
+    def test_heartbeat_received(self, mock_touch, poker_consumer):
+        poker_consumer.heartbeat_received()
+        mock_touch.assert_called()
