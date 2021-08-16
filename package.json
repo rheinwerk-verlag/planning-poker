@@ -3,13 +3,13 @@
   "description": "The JS-part of a Django app to enable teams to do remote poker sessions.",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.intern.rheinwerk.de/rheinwerk/planning-poker"
+    "url": "https://github.com/rheinwerk-verlag/planning-poker"
   },
   "author": {
     "name": "Rheinwerk Webteam",
     "email": "webteam@rheinwerk-verlag.de"
   },
-  "license": "UNLICENSED",
+  "license": "BSD-3-Clause",
   "private": true,
   "scripts": {
     "build": "webpack",
