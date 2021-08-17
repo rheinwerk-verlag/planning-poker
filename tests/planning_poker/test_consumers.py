@@ -13,7 +13,6 @@ class TestPokerConsumer:
     HAS_NO_ACTIVE_STORY = 1
     HAS_ACTIVE_STORY = 2
 
-    # TODO: rework
     # The table is prepopulated with two poker sessions. The first one has no active story, and the second has one.
     @pytest.mark.parametrize('poker_session_id', [HAS_NO_ACTIVE_STORY, HAS_ACTIVE_STORY])
     @pytest.mark.asyncio

@@ -24,6 +24,7 @@ class PokerConsumer extends BaseConsumer {
       'participants_changed': this.updateParticipantsList.bind(this),
     };
 
+    /* istanbul ignore next */
     //The consumer sends out a heartbeat every 20 seconds to let the server know, that the user is still there.
     setInterval(() => {
       this.sendMessage('heartbeat');
@@ -61,11 +62,7 @@ class PokerConsumer extends BaseConsumer {
    */
   submitChoice(choice) {
     this.app.userVoted = true;
-    this.sendMessage(
-      'vote_submitted',
-      {
-        'choice': choice,
-      });
+    this.sendMessage('vote_submitted', {'choice': choice});
   }
 
   /**
@@ -104,7 +101,7 @@ class PokerConsumer extends BaseConsumer {
             return user.id === this.userId;
           });
         });
-        if (choice !== null) {
+        if (choice !== undefined) {
           this.app.$refs.voteOptions.removeOption(choice);
           this.app.$refs.storyDetail.setupOverlay(choice);
         }
