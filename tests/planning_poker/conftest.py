@@ -36,3 +36,11 @@ def permission(db):
 @pytest.fixture
 def story(db):
     return Story.objects.create(ticket_number='test', title='story', story_points=1, description='description')
+
+
+@pytest.fixture
+def poker_session(db, story):
+    poker_session = PokerSession.objects.create(poker_date='2000-01-01', name='test session')
+    story.poker_session = poker_session
+    story.save()
+    return poker_session
