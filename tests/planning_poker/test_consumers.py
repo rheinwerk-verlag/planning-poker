@@ -84,7 +84,8 @@ class TestPokerConsumer:
     @pytest.mark.parametrize('skipping_stories', [True, False])
     @pytest.mark.parametrize('has_active_story', [True, False])
     @pytest.mark.parametrize('unpokered_stories_left', [True, False])
-    def test_next_story_requested(self, skipping_stories, has_active_story, unpokered_stories_left, poker_consumer, story):
+    def test_next_story_requested(self, skipping_stories, has_active_story, unpokered_stories_left, poker_consumer,
+                                  story):
         poker_consumer.poker_session.stories.create(ticket_number='FIAE-92', title='planning_poker app tests',
                                                     story_points=1)
         story_id = None
