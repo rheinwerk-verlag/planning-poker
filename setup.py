@@ -94,6 +94,7 @@ tests_require = [
     'flake8',
     'pydocstyle',
     'pylint',
+    'pytest-asyncio'
     'pytest-django',
     'pytest-cov',
     'pytest-pythonpath',
