@@ -7,71 +7,91 @@ import StoriesOverview from "../../../planning_poker/assets/js/components/Storie
 import StoriesList from "../../../planning_poker/assets/js/components/StoriesList";
 
 describe("Vote", () => {
-    const $consumer = {
-        nextStoryRequested: jest.fn()
+  const $consumer = {
+    nextStoryRequested: jest.fn()
+  }
+
+  function generateStories(offset = 1, length = 5) {
+    return [...Array(length).keys()].map(i => {
+      let j = offset + i;
+      return {id: j, story_label: `Story ${j}`, description: `<p>Description of Story #${j}</p>`};
+    });
+  }
+
+  createJsonElement(generateStories(), "initial-stories");
+
+  const wrapper = shallowMount(StoriesOverview, {
+    propsData: {
+      permissions: {
+        moderate: false
+      }
+    },
+    mocks: {
+      $consumer,
+      $t: jest.fn(x => x)
     }
+  });
 
-    function generateStories() {
-        return [...Array(5).keys()].map(i => {
-            let j = i + 1;
-            return {id: j, story_label: `Story ${j}`, description: `<p>Description of Story #${j}</p>`};
-        });
-    }
+  it("displays the correct state initially", () => {
+    let storiesLists = wrapper.findAllComponents(StoriesList);
+    expect(storiesLists).toHaveLength(1);
+    expect(storiesLists.at(0).vm.stories).toEqual(generateStories());
+    expect(wrapper.findAllComponents(AsideStory)).toHaveLength(0);
+  });
 
-    createJsonElement(generateStories(), "initial-stories");
+  describe.each([
+    [
+      "Upcoming Stories",
+      null
+    ],
+    [
+      "Upcoming Stories",
+      generateStories(11, 1).pop()
+    ],
+    [
+      "Previous Stories",
+      null
+    ],
+    [
+      "Previous Stories",
+      generateStories(11, 1).pop()
+    ],
+  ])("activates the correct story when the activated story is in '%s'", (title, active_story) => {
+    test("", async () => {
+      wrapper.vm.previousStories = generateStories();
+      wrapper.vm.upcomingStories = generateStories(6);
+      wrapper.vm.activeStory = active_story;
+      await wrapper.vm.$nextTick;
+      let storiesLists = wrapper.findAllComponents(StoriesList);
+      let clickedStoriesList = storiesLists.wrappers.find(wrapper => wrapper.vm.title === title);
+      let clickedStory = clickedStoriesList.vm.stories[2];
+      expect(clickedStoriesList.vm.stories).toHaveLength(5);
+      let unclickedStoriesList = storiesLists.wrappers.find(wrapper => wrapper.vm.title !== title);
+      expect(unclickedStoriesList.vm.stories).toHaveLength(5);
 
-    const wrapper = shallowMount(StoriesOverview, {
-        propsData: {
-            permissions: {
-                moderate: false
-            }
-        },
-        mocks: {
-            $consumer,
-            $t: jest.fn(x => x)
-        }
+      await clickedStoriesList.vm.$emit("activate-story", clickedStory.id);
+      await wrapper.vm.$nextTick();
+
+      expect(clickedStoriesList.vm.stories).toHaveLength(2);
+      expect(unclickedStoriesList.vm.stories).toHaveLength(active_story !== null ? 8 : 7);
+      expect(wrapper.vm.activeStory.id).toEqual(clickedStory.id);
     });
+  });
 
-    it("displays the correct state initially", () => {
-        let storiesLists = wrapper.findAllComponents(StoriesList);
-        expect(storiesLists).toHaveLength(1);
-        expect(storiesLists.at(0).vm.stories).toEqual(generateStories());
-        expect(wrapper.findAllComponents(AsideStory)).toHaveLength(0);
-    });
+  it('does not change the active story if the chosen story is already activated', async () => {
+    wrapper.vm.previousStories = generateStories();
+    wrapper.vm.upcomingStories = generateStories(6);
+    let activeStory = wrapper.vm.upcomingStories.pop();
+    wrapper.vm.activeStory = activeStory;
+    await wrapper.vm.$nextTick;
+    let storiesLists = wrapper.findAllComponents(StoriesList);
+    let previousStoriesList = storiesLists.wrappers.find(wrapper => wrapper.vm.title === 'Previous Stories');
+    expect(previousStoriesList.vm.stories).toHaveLength(5);
+    let upcomingStoriesList = storiesLists.wrappers.find(wrapper => wrapper.vm.title === 'Upcoming Stories');
+    expect(upcomingStoriesList.vm.stories).toHaveLength(4);
+    upcomingStoriesList.findIndex = jest.fn(x => x);
 
-    describe.each([
-        [
-            "Upcoming Stories",
-            {
-                previousStories: [],
-                upcomingStories: generateStories()
-            }
-        ],
-        [
-            "Previous Stories",
-            {
-                previousStories: generateStories(),
-                upcomingStories: []
-            }
-        ],
-    ])("activates the correct story when the activated story is in '%s'", (title, stories) => {
-        test("", async () => {
-            wrapper.vm.previousStories = stories.previousStories;
-            wrapper.vm.upcomingStories = stories.upcomingStories;
-            wrapper.vm.activeStory = null;
-            await wrapper.vm.$nextTick;
-            let storiesLists = wrapper.findAllComponents(StoriesList);
-            let storiesList = storiesLists.wrappers.find(wrapper => wrapper.vm.title == title);
-            expect(storiesList.vm.stories).toHaveLength(5);
-
-            await storiesList.vm.$emit("activate-story", 3);
-            await wrapper.vm.$nextTick();
-
-            expect(wrapper.findAllComponents(StoriesList)).toHaveLength(2);
-            wrapper.findAllComponents(StoriesList).wrappers.forEach(storiesListWrapper => {
-                expect(storiesListWrapper.vm.stories).toHaveLength(2);
-            });
-            expect(wrapper.vm.activeStory.id).toEqual(3);
-        });
-    });
+    await upcomingStoriesList.vm.$emit("activate-story", activeStory.id);
+    expect(upcomingStoriesList.findIndex.mock.calls).toHaveLength(0);
+  });
 });
