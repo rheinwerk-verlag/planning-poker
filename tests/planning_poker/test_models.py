@@ -49,9 +49,8 @@ class TestVote:
     ])
     def test_str(self, choice, choice_display, username, story):
         user = get_user_model().objects.create(username=username, password='password')
-        poker_session = Vote(story=story, user=user, choice=choice)
         vote = Vote(story=story, user=user, choice=choice)
-        assert str(poker_session) == '{user} voted {choice} for story {story}'.format(
+        assert str(vote) == '{user} voted {choice} for story {story}'.format(
             user=user,
             choice=choice_display,
             story=story
