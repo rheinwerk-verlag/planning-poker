@@ -195,7 +195,10 @@ describe('PokerConsumer', () => {
   });
 
   describe('updateParticipantsList correctly updates the list of participants', () => {
-    let participants = [{id: 1, name: 'foo'}, {id: 2, name: 'bar'}];
+    let participants = [
+      {id: 1, name: 'foo', permissions: ['planning_poker.vote']},
+      {id: 2, name: 'bar', permissions: ['planning_poker.moderate']},
+    ];
     pokerConsumer.updateParticipantsList({participants: participants});
     expect(pokerConsumer.app.$root.$refs.participantsList.participants).toEqual(participants);
     expect(voteOverview.participants).toEqual(participants);

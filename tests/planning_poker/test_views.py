@@ -44,7 +44,7 @@ class TestPokerSessionView:
             user.user_permissions.add(Permission.objects.get(codename='moderate'))
         client.force_login(user)
 
-        response = client.get('/poker/{}'.format(poker_session.id), follow=True)
+        response = client.get('{}/'.format(poker_session.id), follow=True)
 
         expected_options = {
             'point_options': [list(choice) for choice in FIBONACCI_CHOICES],
