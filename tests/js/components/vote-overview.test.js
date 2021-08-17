@@ -17,6 +17,10 @@ describe('VoteOverview', () => {
     '13': [participant2],
   };
 
+  const consumer = {
+    resetRequested: jest.fn()
+  };
+
   const wrapper = shallowMount(VoteOverview, {
     propsData: {
       permissions: {
@@ -25,6 +29,7 @@ describe('VoteOverview', () => {
     },
     mocks: {
       $t: jest.fn(),
+      $consumer: consumer,
     },
   });
 
@@ -138,5 +143,11 @@ describe('VoteOverview', () => {
     wrapper.vm.votes = votes;
 
     expect(wrapper.vm.sortedVotesKeys).toEqual(['13', '1']);
+  });
+
+  it('calls the correct reset method on the consumer', () => {
+    wrapper.vm.reset();
+
+    expect(wrapper.vm.$consumer.resetRequested.mock.calls).toHaveLength(1);
   });
 });
