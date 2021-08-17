@@ -47,7 +47,7 @@
                 return Object.values(this.permissions).every(permission => permission === false);
             },
             displayPointOptions: function () {
-                return !this.spectate && this.$parent.$refs.storiesOverview.activeStory != null;
+                return !this.spectate && this.$parent.$refs.storiesOverview.activeStory !== null;
             },
             displayNonPointOptions: function () {
                 return !this.moderate && this.displayPointOptions;
@@ -62,8 +62,8 @@
                 }
             },
             removeOption: function (rank) {
-                let key = Object.keys(this.options).find(key => this.options[key].find(option => option[0] == rank));
-                let index = this.options[key].findIndex(option => option[0] == rank);
+                let key = Object.keys(this.options).find(key => this.options[key].find(option => option[0] === rank));
+                let index = this.options[key].findIndex(option => option[0] === rank);
                 this.choice = {[key]: this.options[key].splice(index, 1), index: index};
             },
             resetOptions: function () {
@@ -76,7 +76,7 @@
             },
             makeChosen: function (card) {
                 this.vote(card.rank);
-                if (this.choice != null) {
+                if (this.choice !== null) {
                     this.resetOptions();
                 }
                 if (!this.permissions.moderate) {

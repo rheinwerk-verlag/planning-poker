@@ -226,5 +226,20 @@ describe('VoteOptions', () => {
       expect(wrapper.vm.options['point_options']).toContainEqual(['3', '3']);
       expect($consumer.app.$refs.storyDetail.setupOverlay.mock.calls.length).toEqual(0);
     });
+
+    it('does not reset the option when the user has not casted a vote before', () => {
+      wrapper.setProps({
+        permissions: {
+          moderate: true,
+          vote: true
+        },
+      });
+      wrapper.vm.resetOptions();
+      wrapper.vm.choice = null;
+      wrapper.vm.resetOptions = jest.fn();
+      wrapper.vm.makeChosen({rank: '3'});
+
+      expect(wrapper.vm.resetOptions.mock.calls).toHaveLength(0);
+    });
   });
 });
