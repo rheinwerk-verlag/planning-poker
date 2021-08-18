@@ -53,5 +53,5 @@ jobs:
     - name: Upload coverage report
       uses: codecov/codecov-action@v2
       with:
-        files: ./coverage/clover.xml
+        files: ./coverage/cobertura-coverage.xml
         flags: unittests

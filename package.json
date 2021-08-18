@@ -41,6 +41,7 @@
     "transform": {
       "^.+\\.[jt]sx?$": "babel-jest",
       ".*\\.(vue)$": "vue-jest"
-    }
+    },
+    "coverageReporters": ["cobertura"]
   }
 }
