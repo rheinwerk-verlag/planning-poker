@@ -18,7 +18,7 @@ describe('VoteOptions', () => {
     app: {
       $refs: {
         storyDetail: {
-          setupOverlay: jest.fn()
+          setupOverlay: jest.fn(),
         },
       },
     },
@@ -155,7 +155,7 @@ describe('VoteOptions', () => {
     wrapper.setProps({
       permissions: {
         moderate: true,
-      }
+      },
     });
     wrapper.vm.vote('choice');
     expect($consumer.submitStoryPoints.mock.calls.length).toEqual(1);
@@ -231,7 +231,7 @@ describe('VoteOptions', () => {
       wrapper.setProps({
         permissions: {
           moderate: true,
-          vote: true
+          vote: true,
         },
       });
       wrapper.vm.resetOptions();

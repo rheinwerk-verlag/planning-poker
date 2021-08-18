@@ -5,7 +5,7 @@ import {PokerConsumer} from '../../planning_poker/assets/js/consumers/poker-cons
 import PokerSite from '../../planning_poker/assets/js/components/PokerSite.vue';
 
 describe('PokerConsumer', () => {
-  document.body.innerHTML = `<PokerSite id='planning_poker-container'></PokerSite>`;
+  document.body.innerHTML = '<PokerSite id="planning_poker-container"></PokerSite>';
 
   createJsonElement({
     non_point_options: [['A', 'A'], ['B', 'B']],

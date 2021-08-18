@@ -17,9 +17,7 @@ describe('VoteOverview', () => {
     '13': [participant2],
   };
 
-  const consumer = {
-    resetRequested: jest.fn()
-  };
+  const consumer = {resetRequested: jest.fn()};
 
   const wrapper = shallowMount(VoteOverview, {
     propsData: {
