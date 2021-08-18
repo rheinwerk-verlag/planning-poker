@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install tox tox-factor
+        pip install tox tox-factor codecov
     - name: Lint with flake8
       run: tox -e flake8
       if: matrix.python-version == '3.8'
@@ -29,14 +29,9 @@ jobs:
       run: |
         export TOXFACTOR=$(echo "py${{ matrix.python-version }}" | sed 's/\.//g')
         tox
-    - name: Generate coverage report
-      run: coverage xml
     - name: Upload coverage report
-      uses: codecov/codecov-action@v2
-      with:
-          env_vars: PYTHON
-          files: coverage.xml
-          flags: unittests
+      run: codecov
+      if: ${{ success() }}
 
   js-tests:
 
