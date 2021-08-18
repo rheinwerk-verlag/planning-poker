@@ -30,7 +30,13 @@ jobs:
         export TOXFACTOR=$(echo "py${{ matrix.python-version }}" | sed 's/\.//g')
         tox
     - name: Generate coverage report
+      run: coverage xml
+    - name: Upload coverage report
       uses: codecov/codecov-action@v2
+      with:
+          env_vars: PYTHON
+          files: coverage.xml
+          flags: unittests
 
   js-tests:
 
