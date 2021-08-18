@@ -1,6 +1,10 @@
 Planning Poker
 ==============
 
+.. image:: https://readthedocs.org/projects/planning-poker/badge/?version=latest
+   :target: https://planning-poker.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
 The idea for the Planning Poker app came to life during the 2020 Covid pandemic with the aim to provide agile teams with
 an easy way to perform their planning poker sessions from the safety of their homes. It was developed with flexibility
 and extensibility in mind. Powered by a Django backend and a frontend written in Vue.js.
