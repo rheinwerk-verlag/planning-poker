@@ -34,6 +34,16 @@ class TestPokerConsumer:
                 }
             }
             assert response == expected_response
+        response = await communicator.receive_json_from()
+        expected_response = {
+            'type': 'send_json',
+            'event': 'participants_changed',
+            'data': {
+                'participants': [],
+            },
+        }
+        assert response == expected_response
+        assert communicator.receive_nothing(1)
         await communicator.disconnect()
 
     @pytest.mark.parametrize('user_has_permission', [True, False])
