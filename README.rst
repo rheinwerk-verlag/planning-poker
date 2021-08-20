@@ -5,7 +5,7 @@ Planning Poker
    :target: https://codecov.io/gh/rheinwerk-verlag/planning-poker
 
 .. image:: https://readthedocs.org/projects/planning-poker/badge/?version=latest
-   :target: https://planning-poker.readthedocs.io/en/latest/?badge=latest
+   :target: https://planning-poker.readthedocs.io/en/stable/?badge=stable
    :alt: Documentation Status
 
 The idea for the Planning Poker app came to life during the 2020 Covid pandemic with the aim to provide agile teams with
@@ -22,7 +22,7 @@ Features
      :alt: You can see all the necessary information on a single page
 
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
-  See `roles <https://planning-poker.readthedocs.io/en/latest/user_docs/roles.html>`_ for more information.
+  See `roles <https://planning-poker.readthedocs.io/en/stable/user_docs/roles.html>`_ for more information.
 
 * 👥 See who participates in your session via a **live updated list of participants**.
 
@@ -57,7 +57,7 @@ Following these steps will give you a site which you can use to test the Plannin
 
 #. Configure your settings. They are located in ``planning_poker_site/settings.py`` if you chose to setup a new
    project. You'll find the minimal settings required for the Planning Poker app below. See
-   `configuration <https://planning-poker.readthedocs.io/en/latest/user_docs/configuration.html>`_ for more ways to
+   `configuration <https://planning-poker.readthedocs.io/en/stable/user_docs/configuration.html>`_ for more ways to
    customize the application to fit your needs.
 
    .. code-block:: python
@@ -121,5 +121,5 @@ Following these steps will give you a site which you can use to test the Plannin
 
     $ python manage.py runserver 0.0.0.0:8000
 
-See the `user documentation <https://planning-poker.readthedocs.io/en/latest/user_docs/index.html>`_ for more
+See the `user documentation <https://planning-poker.readthedocs.io/en/stable/user_docs/index.html>`_ for more
 information on how to use the Planning Poker app.
