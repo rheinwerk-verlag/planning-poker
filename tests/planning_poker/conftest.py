@@ -1,6 +1,6 @@
 import pytest
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Permission, ContentType
+from django.contrib.auth.models import ContentType, Permission
 from django.core.management import call_command
 
 from planning_poker.consumers import PokerConsumer

@@ -1,7 +1,7 @@
 from unittest.mock import Mock, patch
 
-from channels.testing import WebsocketCommunicator
 import pytest
+from channels.testing import WebsocketCommunicator
 
 from example.asgi import application
 
