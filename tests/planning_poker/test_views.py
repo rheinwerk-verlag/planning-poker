@@ -22,13 +22,12 @@ class TestLoginLogoutMixin:
 
     def test_get_context_data(self):
         class MockView(LoginLogoutMixin, TemplateView):
-            def get_context_data(self, **kwargs):
-                return super().get_context_data(**kwargs)
+            pass
 
         view = MockView()
-        view.logout_url = '/view/logout'
+        view.logout_url = '/view/logout/'
         context = view.get_context_data()
-        assert context['logout_url'] == '/view/logout'
+        assert context['logout_url'] == '/view/logout/'
 
 
 class TestPokerSessionView:
