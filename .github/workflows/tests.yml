@@ -31,13 +31,13 @@ jobs:
         tox
     - name: Generate coverage report
       run: coverage xml
-      if: ${{ success }}
+      if: ${{ success() }}
     - name: Upload coverage report
       uses: codecov/codecov-action@v2
       with:
         files: coverage.xml
         flags: unittests
-      if: ${{ success }}
+      if: ${{ success() }}
 
   js-tests:
 
@@ -57,4 +57,4 @@ jobs:
       with:
         files: ./coverage/cobertura-coverage.xml
         flags: unittests
-      if: ${{ success }}
+      if: ${{ success() }}
