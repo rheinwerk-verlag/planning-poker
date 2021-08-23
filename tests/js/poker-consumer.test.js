@@ -46,22 +46,8 @@ describe('PokerConsumer', () => {
   const voteOverview = pokerConsumer.app.$refs.voteOverview;
 
   describe('sets the points of the currently active story', () => {
-    let mockNextStoryRequested = jest.fn();
-    pokerConsumer.nextStoryRequested = mockNextStoryRequested;
-    it('and changes the active story to the first story in the upcoming stories list', () => {
       pokerConsumer.storyPointsSubmitted({'story_points': '3'});
-      expect(storiesOverview.activeStory.id).toEqual(1);
-      let lastPreviousStories = storiesOverview.previousStories[storiesOverview.previousStories.length - 1];
-      expect(lastPreviousStories.points).toEqual('3');
-      expect(lastPreviousStories.id).toEqual(1337);
-      expect(mockNextStoryRequested.mock.calls[0]).toEqual([1]);
-    });
-
-    it('and calls nextStoryRequested with no parameters when the list of upcoming stories is empty', () => {
-      storiesOverview.upcomingStories = [];
-      pokerConsumer.storyPointsSubmitted({'story_points': '3'});
-      expect(mockNextStoryRequested.mock.calls[1]).toEqual([]);
-    });
+      expect(storiesOverview.activeStory.points).toEqual('3');
   });
 
   describe('storyChanged', () => {
@@ -183,7 +169,8 @@ describe('PokerConsumer', () => {
   describe('submitStoryPoints sends the correct message', () => {
     pokerConsumer.sendMessage = jest.fn();
     pokerConsumer.submitStoryPoints('3');
-    expect(pokerConsumer.sendMessage).toHaveBeenLastCalledWith('points_submitted', {'story_points': '3'});
+    expect(pokerConsumer.sendMessage).toHaveBeenCalledWith('points_submitted', {'story_points': '3'});
+    expect(pokerConsumer.sendMessage).toHaveBeenLastCalledWith('next_story_requested', {'story_id': null});
   });
 
   describe('submitChoice sends the correct message', () => {

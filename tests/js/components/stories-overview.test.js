@@ -6,7 +6,7 @@ import AsideStory from '../../../planning_poker/assets/js/components/AsideStory.
 import StoriesOverview from '../../../planning_poker/assets/js/components/StoriesOverview.vue';
 import StoriesList from '../../../planning_poker/assets/js/components/StoriesList.vue';
 
-describe('Vote', () => {
+describe('StoriesOverview', () => {
   const $consumer = {
     nextStoryRequested: jest.fn()
   }
@@ -81,5 +81,29 @@ describe('Vote', () => {
 
     await upcomingStoriesList.vm.$emit('activate-story', activeStory.id);
     expect(upcomingStoriesList.findIndex.mock.calls).toHaveLength(0);
+  });
+
+  it('requests the next story when the user has the moderate permission', async () => {
+    wrapper.vm.upcomingStories = generateStories();
+    let activeStory = wrapper.vm.upcomingStories.pop();
+    wrapper.vm.activeStory = activeStory;
+    await wrapper.vm.$nextTick;
+    wrapper.setProps({
+      permissions: {
+        moderate: false,
+      },
+    });
+    wrapper.vm.$consumer.nextStoryRequested.mockClear();
+    wrapper.vm.makeActive(1);
+    expect(wrapper.vm.$consumer.nextStoryRequested).not.toBeCalled();
+
+    wrapper.setProps({
+      permissions: {
+        moderate: true,
+      },
+    });
+    wrapper.vm.makeActive(2);
+    await wrapper.vm.$nextTick;
+    expect(wrapper.vm.$consumer.nextStoryRequested).toHaveBeenLastCalledWith(2);
   });
 });
