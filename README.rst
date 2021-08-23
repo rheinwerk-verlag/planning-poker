@@ -16,26 +16,31 @@ Features
 --------
 * 🔍 This app comes with an **easy-to-use interface** and provides all the necessary data for estimating the scope of
   your stories on a single page.
-
-  .. figure:: docs/static/ui_overview.png
-     :width: 100%
-     :alt: You can see all the necessary information on a single page
-
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
   See `roles <https://planning-poker.readthedocs.io/en/stable/user_docs/roles.html>`_ for more information.
-
 * 👥 See who participates in your session via a **live updated list of participants**.
-
-  .. figure:: docs/static/participants_overview.gif
-     :width: 50%
-     :alt: Live updated list of participants
-
 * 🌙 Natively supported **dark mode**.
 
-  .. figure:: docs/static/dark_mode.png
-     :width: 100%
-     :alt: Natively supported dark mode
 
+Screenshots
+-----------
+.. figure:: docs/static/ui_overview.png
+   :width: 100%
+   :alt: You can see all the necessary information on a single page
+
+   You can see all the necessary information on a single page
+
+.. figure:: docs/static/participants_overview.gif
+   :width: 50%
+   :alt: Live updated list of participants
+
+   Live updated list of participants
+
+.. figure:: docs/static/dark_mode.png
+   :width: 100%
+   :alt: Natively supported dark mode
+
+   Natively supported dark mode
 
 Quickstart
 ----------
