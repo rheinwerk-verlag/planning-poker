@@ -83,7 +83,7 @@ describe('StoriesOverview', () => {
     expect(upcomingStoriesList.findIndex.mock.calls).toHaveLength(0);
   });
 
-  it('requests the next story when the user has the moderate permission', async () => {
+  it('requests the next story only when the user has the moderate permission', async () => {
     wrapper.vm.upcomingStories = generateStories();
     let activeStory = wrapper.vm.upcomingStories.pop();
     wrapper.vm.activeStory = activeStory;
