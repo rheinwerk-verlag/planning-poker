@@ -1,35 +1,39 @@
 from unittest.mock import Mock, patch
 
 import pytest
+from channels.db import database_sync_to_async
 from channels.testing import WebsocketCommunicator
 
 from example.asgi import application
+from planning_poker.models import PokerSession, Story
 
 
 class TestPokerConsumer:
-    def test_poker_session(self, poker_consumer):
-        assert poker_consumer.poker_session.id == 1
+    def test_poker_session(self, poker_consumer, poker_session):
+        assert poker_consumer.poker_session.id == poker_session.id
 
-    HAS_NO_ACTIVE_STORY = 1
-    HAS_ACTIVE_STORY = 2
-
-    # The table is prepopulated with two poker sessions. The first one has no active story, and the second has one.
-    @pytest.mark.parametrize('poker_session_id', [HAS_NO_ACTIVE_STORY, HAS_ACTIVE_STORY])
     @pytest.mark.asyncio
     @pytest.mark.django_db
-    async def test_connect(self, poker_session_id):
-        communicator = WebsocketCommunicator(application, 'ws://test/planning_poker/{}/'.format(poker_session_id))
+    @pytest.mark.parametrize('has_active_story', [True, False])
+    async def test_connect(self, has_active_story):
+        poker_session = PokerSession(poker_date='2000-01-01', name='Test Sprint')
+        if has_active_story:
+            story = Story(ticket_number='TEST-1', title='Test Title', description='Test description.')
+            await database_sync_to_async(story.save)()
+            poker_session.active_story = story
+        await database_sync_to_async(poker_session.save)()
+        communicator = WebsocketCommunicator(application, 'ws://test/planning_poker/{}/'.format(poker_session.id))
         connected, subprotocol = await communicator.connect()
         assert connected
-        if poker_session_id == self.HAS_ACTIVE_STORY:
+        if has_active_story:
             response = await communicator.receive_json_from()
             expected_response = {
                 'type': 'send_json',
                 'event': 'story_changed',
                 'data': {
-                    'id': 1,
-                    'story_label': 'TEST-1: Test Title',
-                    'description': 'Test description',
+                    'id': story.id,
+                    'story_label': str(story),
+                    'description': story.description,
                     'votes': {}
                 }
             }
