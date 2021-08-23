@@ -98,8 +98,7 @@ class PokerConsumer extends BaseConsumer {
           });
         });
         if (choice !== undefined) {
-          this.app.$refs.voteOptions.removeOption(choice);
-          this.app.$refs.storyDetail.setupOverlay(choice);
+          this.app.$refs.voteOptions.makeChosen({'rank': choice});
         }
       }
     }

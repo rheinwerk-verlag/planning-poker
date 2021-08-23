@@ -67,7 +67,7 @@
                 this.choice = {[key]: this.options[key].splice(index, 1), index: index};
             },
             resetOptions: function () {
-                if (this.choice == null) {
+                if (this.choice === null) {
                     return;
                 }
                 let key = Object.keys(this.choice)[0];
