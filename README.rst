@@ -1,10 +1,10 @@
 Planning Poker
 ==============
 
-.. image:: https://codecov.io/gh/rheinwerk-verlag/planning-poker/branch/main/graph/badge.svg?token=IHVF1YWN7A
+.. image:: https://codecov.io/gh/rheinwerk-verlag/planning-poker/branch/main/graph/badge.svg
    :target: https://codecov.io/gh/rheinwerk-verlag/planning-poker
 
-.. image:: https://readthedocs.org/projects/planning-poker/badge/?version=latest
+.. image:: https://readthedocs.org/projects/planning-poker/badge/?version=stable
    :target: https://planning-poker.readthedocs.io/en/stable/?badge=stable
    :alt: Documentation Status
 
