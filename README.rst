@@ -31,7 +31,7 @@ Screenshots
    You can see all the necessary information on a single page
 
 .. figure:: docs/static/participants_overview.gif
-   :width: 50%
+   :width: 100%
    :alt: Live updated list of participants
 
    Live updated list of participants
