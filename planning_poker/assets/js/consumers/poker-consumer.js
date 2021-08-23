@@ -53,6 +53,7 @@ class PokerConsumer extends BaseConsumer {
    */
   submitStoryPoints(choice) {
     this.sendMessage('points_submitted', {'story_points': choice});
+    this.nextStoryRequested();
   }
 
   /**
@@ -73,11 +74,6 @@ class PokerConsumer extends BaseConsumer {
   storyPointsSubmitted(data) {
     let storiesOverview = this.app.$refs.storiesOverview;
     storiesOverview.activeStory.points = (data['story_points']);
-    if (storiesOverview.upcomingStories.length > 0) {
-      storiesOverview.makeActive(storiesOverview.upcomingStories[0].id);
-    } else {
-      this.nextStoryRequested();
-    }
   }
 
   /**
