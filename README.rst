@@ -3,6 +3,7 @@ Planning Poker
 
 .. image:: https://codecov.io/gh/rheinwerk-verlag/planning-poker/branch/main/graph/badge.svg
    :target: https://codecov.io/gh/rheinwerk-verlag/planning-poker
+   :alt: Code Coverage
 
 .. image:: https://readthedocs.org/projects/planning-poker/badge/?version=stable
    :target: https://planning-poker.readthedocs.io/en/stable/?badge=stable
