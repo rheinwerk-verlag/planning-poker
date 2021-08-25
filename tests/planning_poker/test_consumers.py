@@ -5,7 +5,6 @@ from channels.db import database_sync_to_async
 from channels.testing import WebsocketCommunicator
 
 from example.asgi import application
-from planning_poker.models import PokerSession, Story
 
 
 class TestPokerConsumer:
@@ -13,15 +12,12 @@ class TestPokerConsumer:
         assert poker_consumer.poker_session.id == poker_session.id
 
     @pytest.mark.asyncio
-    @pytest.mark.django_db
+    @pytest.mark.django_db(transaction=True)
     @pytest.mark.parametrize('has_active_story', [True, False])
-    async def test_connect(self, has_active_story):
-        poker_session = PokerSession(poker_date='2000-01-01', name='Test Sprint')
+    async def test_connect(self, has_active_story, poker_session, story):
         if has_active_story:
-            story = Story(ticket_number='TEST-1', title='Test Title', description='Test description.')
-            await database_sync_to_async(story.save)()
             poker_session.active_story = story
-        await database_sync_to_async(poker_session.save)()
+            await database_sync_to_async(poker_session.save)()
         communicator = WebsocketCommunicator(application, 'ws://test/planning_poker/{}/'.format(poker_session.id))
         connected, subprotocol = await communicator.connect()
         assert connected
