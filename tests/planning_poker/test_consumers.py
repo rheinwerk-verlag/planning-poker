@@ -43,7 +43,7 @@ class TestPokerConsumer:
             },
         }
         assert response == expected_response
-        assert communicator.receive_nothing(1)
+        assert await communicator.receive_nothing(1)
         await communicator.disconnect()
 
     @pytest.mark.parametrize('user_has_permission', [True, False])
