@@ -1,8 +1,8 @@
 from unittest.mock import Mock, patch
 
-import pytest
 from channels.db import database_sync_to_async
 from channels.testing import WebsocketCommunicator
+import pytest
 
 from example.asgi import application
 

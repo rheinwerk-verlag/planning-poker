@@ -1,6 +1,6 @@
-import pytest
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import ContentType, Permission
+import pytest
 
 from planning_poker.consumers import PokerConsumer
 from planning_poker.models import PokerSession, Story

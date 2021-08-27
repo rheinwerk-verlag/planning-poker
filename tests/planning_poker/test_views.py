@@ -1,7 +1,7 @@
-import pytest
 from django.contrib.auth.models import Permission
 from django.core.exceptions import ImproperlyConfigured
 from django.views.generic import TemplateView
+import pytest
 
 from planning_poker.constants import FIBONACCI_CHOICES, NON_POINT_OPTIONS
 from planning_poker.views import LoginLogoutMixin
