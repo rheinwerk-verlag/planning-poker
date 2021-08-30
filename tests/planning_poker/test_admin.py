@@ -1,5 +1,5 @@
-from django.contrib.admin import site
 import pytest
+from django.contrib.admin import site
 
 from planning_poker.admin import StoryAdmin, VoteInline
 from planning_poker.models import Story, Vote

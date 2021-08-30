@@ -1,7 +1,7 @@
 from collections import OrderedDict
 
-from django.contrib.auth import get_user_model
 import pytest
+from django.contrib.auth import get_user_model
 
 from planning_poker.constants import ALL_VOTING_OPTIONS
 from planning_poker.models import PokerSession, Story, Vote
