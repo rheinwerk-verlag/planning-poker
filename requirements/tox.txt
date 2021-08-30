@@ -4,12 +4,16 @@
 #
 #    pip-compile --output-file=tox.txt tox.in
 #
+atomicwrites==1.4.0
+    # via pytest
 attrs==21.2.0
     # via pytest
 autobahn==21.2.1
     # via -r tox.in
 cffi==1.14.6
     # via cryptography
+colorama==0.4.4
+    # via pytest
 coverage==5.5
     # via
     #   -r tox.in
@@ -35,9 +39,12 @@ pyparsing==2.4.7
 pytest==6.2.4
     # via
     #   -r tox.in
+    #   pytest-asyncio
     #   pytest-cov
     #   pytest-django
     #   pytest-pythonpath
+pytest-asyncio==0.15.1
+    # via -r tox.in
 pytest-cov==2.12.1
     # via -r tox.in
 pytest-django==4.4.0

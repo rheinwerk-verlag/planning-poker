@@ -1,9 +1,10 @@
 from unittest.mock import Mock, patch
 
 import pytest
-from channels_presence.models import Room, Presence
+from channels_presence.models import Presence, Room
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
+
 from planning_poker.receivers import broadcast_presence
 
 

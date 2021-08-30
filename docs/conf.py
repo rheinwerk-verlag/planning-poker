@@ -12,9 +12,11 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
 import os
+import sys
 
+# Setup Django
+import django
 from docutils import nodes
 from sphinx.transforms import SphinxTransform
 
@@ -32,8 +34,6 @@ project_root = os.path.dirname(os.getcwd())
 # and that the django settings of the source package are imported.
 sys.path.insert(0, project_root)
 
-# Setup Django
-import django
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

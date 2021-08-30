@@ -1,11 +1,11 @@
 from typing import Any, Dict
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models import Count, Q
 from django.shortcuts import resolve_url
-from django.views.generic import ListView, DetailView
+from django.views.generic import DetailView, ListView
 
 from .constants import FIBONACCI_CHOICES, NON_POINT_OPTIONS
 from .models import PokerSession

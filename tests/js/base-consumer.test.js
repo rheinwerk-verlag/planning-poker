@@ -34,3 +34,13 @@ test('BaseConsumer processMessage', () => {
 
   expect(mockCommand.mock.calls[0][0]).toStrictEqual({'some': 'data'});
 });
+
+test('BaseConsumer correctly processes the incoming websocket data', () => {
+  let baseConsumer = new BaseConsumer(container, 'ws://test', '1');
+  baseConsumer.processMessage = jest.fn();
+  let data = {foo: null};
+
+  baseConsumer.websocket.onmessage({data: JSON.stringify(data)});
+
+  expect(baseConsumer.processMessage.mock.calls[0][0]).toEqual(data);
+});

@@ -8,7 +8,7 @@ from django.conf import settings
 from django.shortcuts import resolve_url
 from django.utils.functional import cached_property
 
-from .models import Story, PokerSession
+from .models import PokerSession, Story
 
 #: Moderators will have this permission.
 MODERATE_PERMISSION = '.'.join((Story._meta.app_label, 'moderate'))

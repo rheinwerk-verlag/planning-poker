@@ -24,6 +24,7 @@ class PokerConsumer extends BaseConsumer {
       'participants_changed': this.updateParticipantsList.bind(this),
     };
 
+    /* istanbul ignore next */
     //The consumer sends out a heartbeat every 20 seconds to let the server know, that the user is still there.
     setInterval(() => {
       this.sendMessage('heartbeat');
@@ -38,20 +39,21 @@ class PokerConsumer extends BaseConsumer {
   }
 
   /**
-   * Request a reset of all votes and hide the moderator's choices.
+   * Request a reset of all votes.
    */
   resetRequested() {
     this.sendMessage('reset_requested');
   }
 
   /**
-   * Send a message to the websocket containing the chosen amount of story points. And change the moderatorElements
-   * accordingly.
+   * Send a message to the websocket containing the chosen amount of story points and request the next story from the
+   * server.
    *
    * @param {String} choice Containing the voter's choice.
    */
   submitStoryPoints(choice) {
     this.sendMessage('points_submitted', {'story_points': choice});
+    this.nextStoryRequested();
   }
 
   /**
@@ -61,32 +63,23 @@ class PokerConsumer extends BaseConsumer {
    */
   submitChoice(choice) {
     this.app.userVoted = true;
-    this.sendMessage(
-      'vote_submitted',
-      {
-        'choice': choice,
-      });
+    this.sendMessage('vote_submitted', {'choice': choice});
   }
 
   /**
    * Add a badge next to the story with the submitted story points.
    *
-   * @param {object} data Containing the amount of the submitted story points
+   * @param {object} data Containing the amount of the submitted story points.
    */
   storyPointsSubmitted(data) {
     let storiesOverview = this.app.$refs.storiesOverview;
     storiesOverview.activeStory.points = (data['story_points']);
-    if (storiesOverview.upcomingStories.length > 0) {
-      storiesOverview.makeActive(storiesOverview.upcomingStories[0].id);
-    } else {
-      this.nextStoryRequested();
-    }
   }
 
   /**
-   * Call different methods depending on the user's permissions.
+   * Update the displayed story information and voting results and select the choice for voters who have already voted.
    *
-   * @param {Object} data Containing information about the story's id and votes.
+   * @param {Object} data Containing information about the story and votes.
    */
   storyChanged(data) {
     let hasUserVoted = this.hasUserVoted(data.votes);
@@ -104,9 +97,8 @@ class PokerConsumer extends BaseConsumer {
             return user.id === this.userId;
           });
         });
-        if (choice !== null) {
-          this.app.$refs.voteOptions.removeOption(choice);
-          this.app.$refs.storyDetail.setupOverlay(choice);
+        if (choice !== undefined) {
+          this.app.$refs.voteOptions.makeChosen({'rank': choice});
         }
       }
     }
@@ -114,7 +106,7 @@ class PokerConsumer extends BaseConsumer {
   }
 
   /**
-   * Update the container's title and description.
+   * Update the displayed title and description and reset the overlay.
    *
    * @param {string} label The story's label.
    * @param {string} description The story's description rendered with html elements.
@@ -126,7 +118,7 @@ class PokerConsumer extends BaseConsumer {
   }
 
   /**
-   * Change the resultsContainer's content to display the given votes.
+   * Change the VoteOverview's content to display the given votes.
    *
    * @param {Object} votes Containing information about every choice that has votes + who voted for them.
    */
@@ -136,10 +128,10 @@ class PokerConsumer extends BaseConsumer {
   }
 
   /**
-   * Return True when the user's id appears in the users who have already voted.
+   * Return whether the user's id appears in the list of users who have already voted.
    *
    * @param {Object} votes Containing information about every choice that has votes + who voted for them.
-   * @returns {boolean} When the user's id appears in the users who have already voted.
+   * @returns {boolean} Return whether the user's id appears in the list of users who have already voted.
    */
   hasUserVoted(votes) {
     return Object.values(votes).some((users) => {

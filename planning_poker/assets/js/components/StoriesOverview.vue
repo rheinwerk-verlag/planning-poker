@@ -85,7 +85,9 @@
                     this.previousStories.push(...this.upcomingStories.splice(0, index));
                     this.activeStory = this.upcomingStories.shift();
                 }
-                this.$consumer.nextStoryRequested(this.activeStory.id)
+                if (this.permissions.moderate) {
+                  this.$consumer.nextStoryRequested(this.activeStory.id)
+                }
             },
         },
         components: {AsideStory, StoriesList}

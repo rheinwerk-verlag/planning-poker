@@ -1,17 +1,18 @@
-from collections import defaultdict, OrderedDict
+from collections import OrderedDict, defaultdict
 from typing import Dict, List
-try:
-    # The OrderedDict was added to the typing module in Python version 3.7.
-    # Fall back to the default Dict type in order to provide backwards compatibility for Python 3.6.
-    from typing import OrderedDict as OrderedDictType
-except ImportError:
-    OrderedDictType = Dict
 
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from .constants import FIBONACCI_CHOICES, ALL_VOTING_OPTIONS
+from .constants import ALL_VOTING_OPTIONS, FIBONACCI_CHOICES
+
+try:
+    # The OrderedDict was added to the typing module in Python version 3.7.
+    # Fall back to the default Dict type in order to provide backwards compatibility for Python 3.6.
+    from typing import OrderedDict as OrderedDictType
+except ImportError:  # pragma: no cover
+    OrderedDictType = Dict
 
 
 class PokerSession(models.Model):

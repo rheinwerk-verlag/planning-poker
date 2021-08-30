@@ -1,6 +1,14 @@
 Planning Poker
 ==============
 
+.. image:: https://codecov.io/gh/rheinwerk-verlag/planning-poker/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/rheinwerk-verlag/planning-poker
+   :alt: Code Coverage
+
+.. image:: https://readthedocs.org/projects/planning-poker/badge/?version=stable
+   :target: https://planning-poker.readthedocs.io/en/stable/?badge=stable
+   :alt: Documentation Status
+
 The idea for the Planning Poker app came to life during the 2020 Covid pandemic with the aim to provide agile teams with
 an easy way to perform their planning poker sessions from the safety of their homes. It was developed with flexibility
 and extensibility in mind. Powered by a Django backend and a frontend written in Vue.js.
@@ -9,26 +17,31 @@ Features
 --------
 * 🔍 This app comes with an **easy-to-use interface** and provides all the necessary data for estimating the scope of
   your stories on a single page.
-
-  .. figure:: docs/static/ui_overview.png
-     :width: 100%
-     :alt: You can see all the necessary information on a single page
-
 * 🗳️ The users are separated into **voters** and **moderators** who see and do different things during a session.
-  See :ref:`user_docs/roles:Roles` for more information.
-
+  See `roles <https://planning-poker.readthedocs.io/en/stable/user_docs/roles.html>`_ for more information.
 * 👥 See who participates in your session via a **live updated list of participants**.
-
-  .. figure:: docs/static/participants_overview.gif
-     :width: 50%
-     :alt: Live updated list of participants
-
 * 🌙 Natively supported **dark mode**.
 
-  .. figure:: docs/static/dark_mode.png
-     :width: 100%
-     :alt: Natively supported dark mode
 
+Screenshots
+-----------
+.. figure:: docs/static/ui_overview.png
+   :width: 100%
+   :alt: You can see all the necessary information on a single page
+
+   You can see all the necessary information on a single page
+
+.. figure:: docs/static/participants_overview.gif
+   :width: 100%
+   :alt: Live updated list of participants
+
+   Live updated list of participants
+
+.. figure:: docs/static/dark_mode.png
+   :width: 100%
+   :alt: Natively supported dark mode
+
+   Natively supported dark mode
 
 Quickstart
 ----------
@@ -50,7 +63,8 @@ Following these steps will give you a site which you can use to test the Plannin
 
 #. Configure your settings. They are located in ``planning_poker_site/settings.py`` if you chose to setup a new
    project. You'll find the minimal settings required for the Planning Poker app below. See
-   :ref:`user_docs/configuration:Configuration` for more ways to customize the application to fit your needs.
+   `configuration <https://planning-poker.readthedocs.io/en/stable/user_docs/configuration.html>`_ for more ways to
+   customize the application to fit your needs.
 
    .. code-block:: python
 
@@ -113,4 +127,5 @@ Following these steps will give you a site which you can use to test the Plannin
 
     $ python manage.py runserver 0.0.0.0:8000
 
-See the :ref:`user_docs/index:User Documentation` for more information on how to use the Planning Poker app.
+See the `user documentation <https://planning-poker.readthedocs.io/en/stable/user_docs/index.html>`_ for more
+information on how to use the Planning Poker app.
