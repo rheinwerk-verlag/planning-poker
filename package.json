@@ -30,7 +30,7 @@
     "vue-jest": "^3.0.6",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.43.0",
+    "webpack": "^5.51.1",
     "webpack-cli": "^3.3.12"
   },
   "jest": {
@@ -42,6 +42,9 @@
       "^.+\\.[jt]sx?$": "babel-jest",
       ".*\\.(vue)$": "vue-jest"
     },
-    "coverageReporters": ["cobertura", "text"]
+    "coverageReporters": [
+      "cobertura",
+      "text"
+    ]
   }
 }
