@@ -49,7 +49,7 @@ describe('StoriesOverview', () => {
       wrapper.vm.previousStories = generateStories();
       wrapper.vm.upcomingStories = generateStories(6);
       wrapper.vm.activeStory = active_story;
-      await wrapper.vm.$nextTick;
+      await wrapper.vm.$nextTick();
       let storiesLists = wrapper.findAllComponents(StoriesList);
       let clickedStoriesList = storiesLists.wrappers.find(wrapper => wrapper.vm.title === title);
       let clickedStory = clickedStoriesList.vm.stories[2];
@@ -71,7 +71,7 @@ describe('StoriesOverview', () => {
     wrapper.vm.upcomingStories = generateStories(6);
     let activeStory = wrapper.vm.upcomingStories.pop();
     wrapper.vm.activeStory = activeStory;
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     let storiesLists = wrapper.findAllComponents(StoriesList);
     let previousStoriesList = storiesLists.wrappers.find(wrapper => wrapper.vm.title === 'Previous Stories');
     expect(previousStoriesList.vm.stories).toHaveLength(5);
@@ -87,12 +87,12 @@ describe('StoriesOverview', () => {
     wrapper.vm.upcomingStories = generateStories();
     let activeStory = wrapper.vm.upcomingStories.pop();
     wrapper.vm.activeStory = activeStory;
-    await wrapper.vm.$nextTick;
     wrapper.setProps({
       permissions: {
         moderate: false,
       },
     });
+    await wrapper.vm.$nextTick();
     wrapper.vm.$consumer.nextStoryRequested.mockClear();
     wrapper.vm.makeActive(1);
     expect(wrapper.vm.$consumer.nextStoryRequested).not.toBeCalled();
@@ -102,8 +102,8 @@ describe('StoriesOverview', () => {
         moderate: true,
       },
     });
+    await wrapper.vm.$nextTick();
     wrapper.vm.makeActive(2);
-    await wrapper.vm.$nextTick;
     expect(wrapper.vm.$consumer.nextStoryRequested).toHaveBeenLastCalledWith(2);
   });
 });

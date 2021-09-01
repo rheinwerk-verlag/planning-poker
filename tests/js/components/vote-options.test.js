@@ -121,6 +121,7 @@ describe('VoteOptions', () => {
       },
       userVoted: false,
     });
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.moderate).toBeTruthy();
 
     wrapper.setProps({
@@ -130,6 +131,7 @@ describe('VoteOptions', () => {
       },
       userVoted: true,
     });
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.moderate).toBeTruthy();
 
     wrapper.setProps({
@@ -139,6 +141,7 @@ describe('VoteOptions', () => {
       },
       userVoted: false,
     });
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.moderate).toBeFalsy();
 
     wrapper.setProps({
@@ -148,6 +151,7 @@ describe('VoteOptions', () => {
       },
       userVoted: true,
     });
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.moderate).toBeFalsy();
   });
 
@@ -157,6 +161,7 @@ describe('VoteOptions', () => {
         moderate: true,
       },
     });
+    await wrapper.vm.$nextTick();
     wrapper.vm.vote('choice');
     expect($consumer.submitStoryPoints.mock.calls.length).toEqual(1);
     expect($consumer.submitChoice.mock.calls.length).toEqual(0);
@@ -166,6 +171,7 @@ describe('VoteOptions', () => {
         moderate: false,
       },
     });
+    await wrapper.vm.$nextTick();
     wrapper.vm.vote('choice');
     expect($consumer.submitStoryPoints.mock.calls.length).toEqual(1);
     expect($consumer.submitChoice.mock.calls.length).toEqual(1);
@@ -196,12 +202,13 @@ describe('VoteOptions', () => {
 
 
   describe('makeChosen', () => {
-    it('calls the correct methods when the user is not a moderator', () => {
+    it('calls the correct methods when the user is not a moderator', async () => {
       wrapper.setProps({
         permissions: {
           moderate: false,
         },
       });
+      await wrapper.vm.$nextTick();
       wrapper.vm.removeOption('5');
       wrapper.vm.makeChosen({rank: '3'});
 
@@ -211,12 +218,13 @@ describe('VoteOptions', () => {
       expect($consumer.app.$refs.storyDetail.setupOverlay.mock.calls[0]).toEqual(['3']);
     });
 
-    it('calls the correct methods when the user is a moderator', () => {
+    it('calls the correct methods when the user is a moderator', async () => {
       wrapper.setProps({
         permissions: {
           moderate: true,
         },
       });
+      await wrapper.vm.$nextTick();
       wrapper.vm.resetOptions();
       wrapper.vm.removeOption('Too large');
       wrapper.vm.makeChosen({rank: '3'});

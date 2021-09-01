@@ -23,7 +23,7 @@ describe('Vote', () => {
   it('shows correct amount of cards', async () => {
     expect(wrapper.findAllComponents(PlayingCard)).toHaveLength(2);
     wrapper.setProps({users: [{name: 'Peter'}]});
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     expect(wrapper.findAllComponents(PlayingCard)).toHaveLength(1);
   });
 
@@ -35,7 +35,7 @@ describe('Vote', () => {
       showValue: true,
       value: '3',
     });
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     let div = wrapper.find('div.vote > div');
     div.trigger('click');
     expect($consumer.submitStoryPoints.mock.calls[0]).toEqual(['3']);
@@ -46,28 +46,28 @@ describe('Vote', () => {
       showValue: true,
       value: '3',
     });
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     div.trigger('click');
     expect($consumer.submitStoryPoints.mock.calls.length).toEqual(1);
   });
 
   it('displays the correct string of the users.', async () => {
     wrapper.setProps({users: users});
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.voterNames).toEqual('Katharina, Laura, Thorsten');
 
     wrapper.setProps({users: [{name: 'Donald'}]});
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.voterNames).toEqual('Donald');
   });
 
   it('returns the correct amount of cards', async () => {
     wrapper.setProps({users: users});
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.displayedCardsAmount).toEqual(2);
 
     wrapper.setProps({users: [{name: 'Django'}]});
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.displayedCardsAmount).toEqual(1);
   });
 
@@ -80,7 +80,7 @@ describe('Vote', () => {
             moderate: false,
           },
         });
-        await wrapper.vm.$nextTick;
+        await wrapper.vm.$nextTick();
         expect(wrapper.vm.isClickable).toBeFalsy();
 
         wrapper.setProps({
@@ -90,7 +90,7 @@ describe('Vote', () => {
             moderate: true,
           },
         });
-        await wrapper.vm.$nextTick;
+        await wrapper.vm.$nextTick();
         expect(wrapper.vm.isClickable).toBeFalsy();
 
         wrapper.setProps({
@@ -100,7 +100,7 @@ describe('Vote', () => {
             moderate: true,
           },
         });
-        await wrapper.vm.$nextTick;
+        await wrapper.vm.$nextTick();
         expect(wrapper.vm.isClickable).toBeFalsy();
 
         wrapper.setProps({
@@ -110,7 +110,7 @@ describe('Vote', () => {
             moderate: true,
           },
         });
-        await wrapper.vm.$nextTick;
+        await wrapper.vm.$nextTick();
         expect(wrapper.vm.isClickable).toBeTruthy();
       });
 });

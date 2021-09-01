@@ -37,6 +37,7 @@ test('BaseConsumer processMessage', () => {
 
 test('BaseConsumer correctly processes the incoming websocket data', () => {
   let baseConsumer = new BaseConsumer(container, 'ws://test', '1');
+  baseConsumer.websocket.close();
   baseConsumer.processMessage = jest.fn();
   let data = {foo: null};
 
