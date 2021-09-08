@@ -32,14 +32,14 @@ describe('StoriesList', () => {
     expect(wrapper.find('.stories-list > button').text()).toEqual('Show more (+%s)');
 
     wrapper.vm.showMore = true;
-    await wrapper.vm.$nextTick
+    await wrapper.vm.$nextTick();
 
     expect(wrapper.findAllComponents(AsideStory)).toHaveLength(stories.length);
     expect(wrapper.find('.stories-list > button').text()).toEqual('Show less');
   });
 
   it('activates the correct story', async () => {
-    wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
 
     let asideStory = wrapper.findComponent(AsideStory);
     await asideStory.vm.$emit('activate-story', asideStory.vm.storyId);
@@ -54,9 +54,10 @@ describe('StoriesList', () => {
       expect(wrapper.vm.displayedStories).toEqual(stories.slice(0, 3));
     });
 
-    it('when showMore is false and showLast is true', () => {
+    it('when showMore is false and showLast is true', async () => {
       wrapper.setProps({showLast: true});
       wrapper.vm.showMore = false;
+      await wrapper.vm.$nextTick();
 
       expect(wrapper.vm.displayedStories).toEqual(stories.slice(2, 5));
     });

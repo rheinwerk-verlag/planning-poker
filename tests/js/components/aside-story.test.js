@@ -21,7 +21,7 @@ describe('AsideStory', () => {
     let properties = [{permissions: {moderate: false}}, {permissions: {moderate: true}}];
     await asyncForEach(properties, async (property) => {
       wrapper.setProps(property);
-      await wrapper.vm.$nextTick;
+      await wrapper.vm.$nextTick();
       wrapper.trigger('click');
       let expection = expect(wrapper.emitted('activate-story'));
       if (property.permissions.moderate) {

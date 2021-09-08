@@ -21,7 +21,7 @@ describe('StoryDetail', () => {
   it('shows the overlay with the correct rank', async () => {
     wrapper.vm.showOverlay = true;
     wrapper.vm.rank = '3';
-    await wrapper.vm.$nextTick;
+    await wrapper.vm.$nextTick();
 
     expect(wrapper.findComponent(PlayingCard).vm.rank).toEqual('3');
   });
