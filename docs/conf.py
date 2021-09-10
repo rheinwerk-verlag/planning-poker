@@ -312,12 +312,14 @@ class RepoImagePathTransform(SphinxTransform):
     to be removed from the paths when building the docs.
     """
     default_priority = 409
+    github_repo_prefix = 'https://raw.githubusercontent.com/rheinwerk-verlag/planning-poker/main/docs/'
 
     def apply(self, **kwargs):
+        github_repo_prefix_length = len(self.github_repo_prefix)
         for node in self.document.traverse(nodes.image):
             uri = node.attributes['uri']
-            if uri.startswith('docs/'):
-                node.attributes['uri'] = uri[5:]
+            if uri.startswith(self.github_repo_prefix):
+                node.attributes['uri'] = uri[github_repo_prefix_length:]
 
 
 def setup(app):
