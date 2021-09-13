@@ -306,8 +306,8 @@ texinfo_documents = [
 
 
 class RepoImagePathTransform(SphinxTransform):
-    """Remove the leading GitHub repo prefix where possible from all image URLs.
-    The URLs of the images in the 'README.rst' all start with the prefix of the GitHub repo in order to show them on the
+    """Remove the leading GitHub repo prefix where possible from all image URIs.
+    The URIs of the images in the 'README.rst' all start with the prefix of the GitHub repo in order to show them on the
     repository overview page and on PyPi. Since the same readme file should also be used inside the docs, the prefix
     has to be removed from the paths when building the docs.
     """
