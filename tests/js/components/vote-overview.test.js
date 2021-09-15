@@ -42,7 +42,7 @@ describe('VoteOverview', () => {
 
     it('no votes', async () => {
       wrapper.vm.votes = {};
-      wrapper.vm.$nextTick();
+      await wrapper.vm.$nextTick();
 
       expect(wrapper.findAllComponents(Vote)).toHaveLength(0);
       expect(wrapper.findAll('.votes-overview > button').length).toEqual(0);
