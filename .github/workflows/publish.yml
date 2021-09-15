@@ -1,6 +1,8 @@
 name: Release
 
-on: push
+on:
+  release:
+    types: [created]
 
 jobs:
   publish:
@@ -28,5 +30,5 @@ jobs:
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1.4
       with:
-        username: __token__
+        user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
