@@ -1,4 +1,5 @@
 include LICENSE
 include README.rst
 include CHANGELOG.rst
-recursive-include planning_poker *.html *.js *.css *.png *.gif *.jpg *.jpeg *.svg *.po *.mo
+recursive-include planning_poker *.html *.po *.mo
+graft planning_poker/static
