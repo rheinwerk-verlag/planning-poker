@@ -12,8 +12,8 @@ from setuptools.command.sdist import sdist
 from wheel.bdist_wheel import bdist_wheel
 
 
-def read(*args):
-    return open(join(dirname(__file__), *args)).read()
+def read(*args, **kwargs):
+    return open(join(dirname(__file__), *args), **kwargs).read()
 
 
 class ToxTestCommand(distutils.cmd.Command):
@@ -105,7 +105,7 @@ setup(
     name='planning-poker',
     version=__version__,  # noqa
     description='A Django app which allows teams to perform a remote planning poker session',
-    long_description=read('README.rst'),
+    long_description=read('README.rst', encoding='utf-8'),
     author='Rheinwerk Webteam',
     author_email='webteam@rheinwerk-verlag.de',
     maintainer='Rheinwerk Verlag GmbH Webteam',

@@ -25,19 +25,19 @@ Features
 
 Screenshots
 -----------
-.. figure:: docs/static/ui_overview.png
+.. figure:: https://raw.githubusercontent.com/rheinwerk-verlag/planning-poker/main/docs/static/ui_overview.png
    :width: 100%
    :alt: You can see all the necessary information on a single page
 
    You can see all the necessary information on a single page
 
-.. figure:: docs/static/participants_overview.gif
+.. figure:: https://raw.githubusercontent.com/rheinwerk-verlag/planning-poker/main/docs/static/participants_overview.gif
    :width: 100%
    :alt: Live updated list of participants
 
    Live updated list of participants
 
-.. figure:: docs/static/dark_mode.png
+.. figure:: https://raw.githubusercontent.com/rheinwerk-verlag/planning-poker/main/docs/static/dark_mode.png
    :width: 100%
    :alt: Natively supported dark mode
 

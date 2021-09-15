@@ -306,18 +306,20 @@ texinfo_documents = [
 
 
 class RepoImagePathTransform(SphinxTransform):
-    """Remove the leading 'docs/' directory where possible from all image URIs.
-    The relative paths of the images in the 'README.rst' all start with the 'docs' directory in order to show them
-    on the repository overview page. Since the same readme file should also be used inside the docs, the directory has
-    to be removed from the paths when building the docs.
+    """Remove the leading GitHub repo prefix where possible from all image URIs.
+    The URIs of the images in the 'README.rst' all start with the prefix of the GitHub repo in order to show them on the
+    repository overview page and on PyPI. Since the same readme file should also be used inside the docs, the prefix
+    has to be removed from the paths when building the docs.
     """
     default_priority = 409
+    github_repo_prefix = 'https://raw.githubusercontent.com/rheinwerk-verlag/planning-poker/main/docs/'
 
     def apply(self, **kwargs):
+        github_repo_prefix_length = len(self.github_repo_prefix)
         for node in self.document.traverse(nodes.image):
             uri = node.attributes['uri']
-            if uri.startswith('docs/'):
-                node.attributes['uri'] = uri[5:]
+            if uri.startswith(self.github_repo_prefix):
+                node.attributes['uri'] = uri[github_repo_prefix_length:]
 
 
 def setup(app):
