@@ -22,10 +22,10 @@ let app = new Vue({
   },
 });
 
-let ws_scheme = window.location.protocol === 'https:' ? 'wss' : 'ws';
+let wsScheme = window.location.protocol === 'https:' ? 'wss' : 'ws';
 
 Vue.prototype.$consumer = new PokerConsumer(
-  document.body.querySelector('#app'), `${ws_scheme}://${host}/poker/${pokerSessionId}/`, userId
+  document.body.querySelector('#app'), `${wsScheme}://${host}/poker/${pokerSessionId}/`, userId
 );
 
 //Find the PokerSite component, which has access to the different $refs of the other components.
