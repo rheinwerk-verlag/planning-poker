@@ -18,7 +18,7 @@ class TestPokerConsumer:
         if has_active_story:
             poker_session.active_story = story
             await database_sync_to_async(poker_session.save)()
-        communicator = WebsocketCommunicator(application, 'ws://test/planning_poker/{}/'.format(poker_session.id))
+        communicator = WebsocketCommunicator(application, 'ws://test/poker/{}/'.format(poker_session.id))
         connected, subprotocol = await communicator.connect()
         assert connected
         if has_active_story:
