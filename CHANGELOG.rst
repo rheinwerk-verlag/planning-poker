@@ -3,6 +3,9 @@ Changelog
 
 Development
 -----------
+
+1.0.2 (2021-12-17)
+-----------
 * Websockets now use wss whenever https is used
 
 1.0.1 (2021-09-15)
