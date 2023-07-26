@@ -4,39 +4,34 @@
 #
 #    pip-compile --output-file=tox.txt tox.in
 #
-atomicwrites==1.4.0
-    # via pytest
-attrs==21.2.0
+
+attrs==23.1.0
     # via pytest
 autobahn==21.2.1
     # via -r tox.in
-cffi==1.14.6
+cffi==1.15.1
     # via cryptography
-colorama==0.4.4
-    # via pytest
-coverage==5.5
+coverage==7.2.7
     # via
     #   -r tox.in
     #   pytest-cov
-cryptography==3.4.7
+cryptography==41.0.2
     # via autobahn
 hyperlink==21.0.0
     # via autobahn
-idna==3.2
+idna==3.4
     # via hyperlink
-iniconfig==1.1.1
+iniconfig==2.0.0
     # via pytest
-packaging==21.0
+packaging==23.1
     # via pytest
-pluggy==0.13.1
+pluggy==1.2.0
     # via pytest
-py==1.10.0
+py==1.11.0
     # via pytest
-pycparser==2.20
+pycparser==2.21
     # via cffi
-pyparsing==2.4.7
-    # via packaging
-pytest==6.2.4
+pytest==6.2.5
     # via
     #   -r tox.in
     #   pytest-asyncio
@@ -47,13 +42,13 @@ pytest-asyncio==0.15.1
     # via -r tox.in
 pytest-cov==2.12.1
     # via -r tox.in
-pytest-django==4.4.0
+pytest-django==4.5.2
     # via -r tox.in
-pytest-pythonpath==0.7.3
+pytest-pythonpath==0.7.4
     # via -r tox.in
 toml==0.10.2
     # via
     #   pytest
     #   pytest-cov
-txaio==21.2.1
+txaio==23.1.1
     # via autobahn

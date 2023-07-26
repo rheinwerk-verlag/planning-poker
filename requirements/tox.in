@@ -1,7 +1,7 @@
 autobahn<21.2.2
 coverage
-pytest
-pytest-asyncio
+pytest<7
+pytest-asyncio>=0.15,<0.16
 pytest-django
-pytest-cov
+pytest-cov>=2,<3
 pytest-pythonpath
