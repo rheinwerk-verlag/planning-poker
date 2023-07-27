@@ -4,8 +4,6 @@
 #
 #    pip-compile tox.in
 #
---index-url https://devpi.cmn.prd.rheinwerk.de/rheinwerk/dev
---trusted-host devpi.cmn.prd.rheinwerk.de
 
 attrs==23.1.0
     # via pytest
