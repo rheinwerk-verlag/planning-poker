@@ -1,8 +1,8 @@
 -r tox.in
 
 asgiref<3.4.0
-channels>=3.0,<3.1
-Django>=3.2,<4.0
+channels
+django
 django-channels-presence
 flake8
 isort
