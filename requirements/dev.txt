@@ -207,7 +207,7 @@ tomli==2.0.1
     #   pip-tools
     #   pylint
     #   pyproject-hooks
-tomlkit==0.12.0
+tomlkit==0.12.1
     # via pylint
 twisted[tls]==22.10.0
     # via daphne
