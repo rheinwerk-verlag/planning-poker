@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: [3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -21,14 +21,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install tox tox-factor coverage
+        pip install tox coverage
     - name: Lint with flake8
       run: tox -e flake8
       if: matrix.python-version == '3.8'
     - name: Run tests via tox
-      run: |
-        export TOXFACTOR=$(echo "py${{ matrix.python-version }}" | sed 's/\.//g')
-        tox
+      run: tox -f $(echo "py${{ matrix.python-version }}" | sed 's/\.//g')
     - name: Generate coverage report
       run: coverage xml
       if: ${{ success() }}

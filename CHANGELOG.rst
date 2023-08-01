@@ -4,6 +4,8 @@ Changelog
 Development
 -----------
 
+* Updated Django requirement
+
 1.0.3 (2022-09-01)
 ------------------
 * Fixed test requirements in ``setup.py``
