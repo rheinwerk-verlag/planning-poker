@@ -4,6 +4,7 @@ Changelog
 Development
 -----------
 
+* Changed publish workflow to match the Trusted Publisher Management in PyPI
 * Updated Django requirement
 
 1.0.3 (2022-09-01)
